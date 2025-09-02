@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="vi">
       <body className={inter.className}>
         <div className="min-h-screen bg-gray-50">
-          {children}
+        {children}
         </div>
       </body>
     </html>

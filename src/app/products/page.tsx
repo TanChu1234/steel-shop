@@ -46,7 +46,7 @@ const products = [
     href: '/products/construction-steel/cb400-v-10',
     price: '19.500.000',
     unit: 'tấn',
-    imageSrc: '/images/construction-steel.jpg',
+    imageSrc: '/images/construction-steel.png',
     imageAlt: 'Thép xây dựng CB400-V Φ10',
     specifications: [
       'Đường kính: Φ10',
@@ -60,7 +60,7 @@ const products = [
     href: '/products/shaped-steel/i-200',
     price: '21.000.000',
     unit: 'tấn',
-    imageSrc: '/images/i-beam.jpg',
+    imageSrc: '/images/i-beam.png',
     imageAlt: 'Thép hình I 200',
     specifications: [
       'Kích thước: 200x100mm',
@@ -112,7 +112,7 @@ export default function ProductsPage() {
                     <h2 className="text-lg font-medium text-gray-900">Bộ lọc</h2>
                     <button
                       type="button"
-                      className="-mr-2 flex h-10 w-10 items-center justify-center rounded-md bg-white p-2 text-gray-400"
+                      className="-mr-2 flex h-10 w-10 items-center justify-center bg-white p-2 text-gray-400"
                       onClick={() => setMobileFiltersOpen(false)}
                     >
                       <span className="sr-only">Đóng menu</span>
@@ -121,9 +121,9 @@ export default function ProductsPage() {
                   </div>
 
                   {/* Filters */}
-                  <form className="mt-4 border-t border-gray-200">
+                  <form className="mt-4">
                     {filters.map((section) => (
-                      <Disclosure as="div" key={section.id} className="border-t border-gray-200 px-4 py-6">
+                      <Disclosure as="div" key={section.id} className="px-4 py-6">
                         {({ open }) => (
                           <>
                             <h3 className="-mx-2 -my-3 flow-root">
@@ -148,7 +148,7 @@ export default function ProductsPage() {
                                       defaultValue={option.value}
                                       type="checkbox"
                                       defaultChecked={option.checked}
-                                      className="h-4 w-4 rounded border-gray-300 text-blue-900 focus:ring-blue-900"
+                                      className="h-4 w-4 text-blue-900 focus:ring-blue-900"
                                     />
                                     <label
                                       htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
@@ -172,7 +172,7 @@ export default function ProductsPage() {
         </Transition.Root>
 
         <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-24">
+                      <div className="flex items-baseline justify-between pb-6 pt-24">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900">Sản phẩm</h1>
 
             <div className="flex items-center">
@@ -196,7 +196,7 @@ export default function ProductsPage() {
                   leaveFrom="transform opacity-100 scale-100"
                   leaveTo="transform opacity-0 scale-95"
                 >
-                  <Menu.Items className="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
+                  <Menu.Items className="absolute right-0 z-10 mt-2 w-40 origin-top-right bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
                     <div className="py-1">
                       {sortOptions.map((option) => (
                         <Menu.Item key={option.name}>
@@ -239,7 +239,7 @@ export default function ProductsPage() {
               {/* Filters */}
               <form className="hidden lg:block">
                 {filters.map((section) => (
-                  <Disclosure as="div" key={section.id} className="border-b border-gray-200 py-6">
+                  <Disclosure as="div" key={section.id} className="py-6">
                     {({ open }) => (
                       <>
                         <h3 className="-my-3 flow-root">
@@ -264,7 +264,7 @@ export default function ProductsPage() {
                                   defaultValue={option.value}
                                   type="checkbox"
                                   defaultChecked={option.checked}
-                                  className="h-4 w-4 rounded border-gray-300 text-blue-900 focus:ring-blue-900"
+                                  className="h-4 w-4 text-blue-900 focus:ring-blue-900"
                                 />
                                 <label
                                   htmlFor={`filter-${section.id}-${optionIdx}`}
@@ -287,7 +287,7 @@ export default function ProductsPage() {
                 <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
                   {products.map((product) => (
                     <div key={product.id} className="group relative">
-                      <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200">
+                      <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden bg-gray-200">
                         <Image
                           src={product.imageSrc}
                           alt={product.imageAlt}

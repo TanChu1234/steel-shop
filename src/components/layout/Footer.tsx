@@ -5,7 +5,7 @@ const navigation = {
   main: [
     { name: 'Trang chủ', href: '/' },
     { name: 'Sản phẩm', href: '/products' },
-    { name: 'Bảng giá', href: '/prices' },
+    { name: 'Dịch vụ', href: '/service' },
     { name: 'Giới thiệu', href: '/about' },
     { name: 'Liên hệ', href: '/contact' },
   ],
@@ -27,7 +27,7 @@ const navigation = {
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900" aria-labelledby="footer-heading">
+    <footer className="bg-gray-900 " aria-labelledby="footer-heading">
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
@@ -35,7 +35,7 @@ export default function Footer() {
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8">
             <Link href="/" className="text-2xl font-bold text-white">
-              Steel Shop
+              PHÚC HẢI LIÊN
             </Link>
             <p className="text-sm leading-6 text-gray-300">
               Cung cấp sắt thép xây dựng chất lượng cao với giá cả cạnh tranh
@@ -47,7 +47,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center space-x-3">
                 <FaEnvelope className="h-5 w-5 text-gray-400" />
-                <span className="text-sm text-gray-300">contact@steelshop.com</span>
+                <span className="text-sm text-gray-300">contact@phuchailien.com</span>
               </div>
               <div className="flex items-center space-x-3">
                 <FaMapMarkerAlt className="h-5 w-5 text-gray-400" />
@@ -84,9 +84,9 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="mt-16 border-t border-white/10 pt-8 sm:mt-20 lg:mt-24">
+                    <div className="mt-16 pt-8 sm:mt-20 lg:mt-24">
           <div className="flex items-center justify-between">
-            <p className="text-xs leading-5 text-gray-400">&copy; 2024 Steel Shop. All rights reserved.</p>
+            <p className="text-xs leading-5 text-gray-400">&copy; 2025 Phuc Hai Lien. All rights reserved.</p>
             <div className="flex space-x-6">
               {navigation.social.map((item) => (
                 <Link key={item.name} href={item.href} className="text-gray-400 hover:text-gray-300">

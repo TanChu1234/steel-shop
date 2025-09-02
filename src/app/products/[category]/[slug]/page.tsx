@@ -32,15 +32,15 @@ const product = {
   ],
   images: [
     {
-      src: '/images/construction-steel-1.jpg',
+      src: '/images/construction-steel-1.png',
       alt: 'Thép xây dựng CB400-V Φ10 - Hình 1',
     },
     {
-      src: '/images/construction-steel-2.jpg',
+      src: '/images/construction-steel-2.png',
       alt: 'Thép xây dựng CB400-V Φ10 - Hình 2',
     },
     {
-      src: '/images/construction-steel-3.jpg',
+      src: '/images/construction-steel-3.png',
       alt: 'Thép xây dựng CB400-V Φ10 - Hình 3',
     },
   ],
@@ -55,7 +55,7 @@ export default function ProductPage() {
           {/* Image gallery */}
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {product.images.map((image) => (
-              <div key={image.src} className="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg">
+              <div key={image.src} className="aspect-h-1 aspect-w-1 overflow-hidden">
                 <Image
                   src={image.src}
                   alt={image.alt}
@@ -69,7 +69,7 @@ export default function ProductPage() {
 
           {/* Product info */}
           <div className="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16">
-            <div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
+            <div className="lg:col-span-2 lg:pr-8">
               <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">{product.name}</h1>
             </div>
 
@@ -92,7 +92,7 @@ export default function ProductPage() {
                       type="text"
                       name="name"
                       id="name"
-                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-900 focus:ring-blue-900 sm:text-sm"
+                      className="mt-1 block w-full shadow-sm focus:ring-blue-900 sm:text-sm"
                     />
                   </div>
 
@@ -104,7 +104,7 @@ export default function ProductPage() {
                       type="tel"
                       name="phone"
                       id="phone"
-                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-900 focus:ring-blue-900 sm:text-sm"
+                      className="mt-1 block w-full shadow-sm focus:ring-blue-900 sm:text-sm"
                     />
                   </div>
 
@@ -112,30 +112,30 @@ export default function ProductPage() {
                     <label htmlFor="quantity" className="block text-sm font-medium text-gray-700">
                       Số lượng (tấn)
                     </label>
-                    <input
-                      type="number"
-                      name="quantity"
-                      id="quantity"
-                      min="1"
-                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-900 focus:ring-blue-900 sm:text-sm"
-                    />
+                                          <input
+                        type="number"
+                        name="quantity"
+                        id="quantity"
+                        min="1"
+                        className="mt-1 block w-full shadow-sm focus:ring-blue-900 sm:text-sm"
+                      />
                   </div>
 
                   <div className="mt-4">
                     <label htmlFor="message" className="block text-sm font-medium text-gray-700">
                       Ghi chú
                     </label>
-                    <textarea
-                      name="message"
-                      id="message"
-                      rows={4}
-                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-900 focus:ring-blue-900 sm:text-sm"
-                    />
+                                          <textarea
+                        name="message"
+                        id="message"
+                        rows={4}
+                        className="mt-1 block w-full shadow-sm focus:ring-blue-900 sm:text-sm"
+                      />
                   </div>
 
                   <button
                     type="submit"
-                    className="mt-6 flex w-full items-center justify-center rounded-md border border-transparent bg-blue-900 px-8 py-3 text-base font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-900 focus:ring-offset-2"
+                    className="mt-6 flex w-full items-center justify-center bg-blue-900 px-8 py-3 text-base font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-900 focus:ring-offset-2"
                   >
                     Gửi yêu cầu
                   </button>
@@ -143,7 +143,7 @@ export default function ProductPage() {
               </form>
             </div>
 
-            <div className="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">
+            <div className="py-10 lg:col-span-2 lg:col-start-1 lg:pb-16 lg:pr-8 lg:pt-6">
               {/* Description */}
               <div>
                 <h3 className="sr-only">Mô tả</h3>
@@ -173,7 +173,7 @@ export default function ProductPage() {
                 <div className="mt-4 space-y-6">
                   <dl className="grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2">
                     {product.specifications.map((spec) => (
-                      <div key={spec.name} className="border-t border-gray-200 pt-4">
+                      <div key={spec.name} className="pt-4">
                         <dt className="font-medium text-gray-900">{spec.name}</dt>
                         <dd className="mt-2 text-sm text-gray-500">{spec.value}</dd>
                       </div>

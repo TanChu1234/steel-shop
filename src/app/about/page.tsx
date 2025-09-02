@@ -36,17 +36,17 @@ const certifications = [
   {
     name: 'ISO 9001:2015',
     description: 'Chứng nhận hệ thống quản lý chất lượng',
-    image: '/images/iso-9001.jpg',
+    image: '/images/iso-9001.png',
   },
   {
     name: 'TCVN',
     description: 'Chứng nhận sản phẩm đạt tiêu chuẩn Việt Nam',
-    image: '/images/tcvn.jpg',
+    image: '/images/tcvn.png',
   },
   {
     name: 'JIS',
     description: 'Chứng nhận đạt tiêu chuẩn công nghiệp Nhật Bản',
-    image: '/images/jis.jpg',
+    image: '/images/jis.png',
   },
 ];
 
@@ -58,7 +58,7 @@ export default function AboutPage() {
         {/* Hero section */}
         <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
           <Image
-            src="/images/about-hero.jpg"
+            src="/images/about-hero.png"
             alt="Steel Shop"
             className="absolute inset-0 -z-10 h-full w-full object-cover opacity-25"
             width={1920}
@@ -100,7 +100,7 @@ export default function AboutPage() {
               {values.map((value) => (
                 <div key={value.name} className="relative pl-9">
                   <dt className="inline font-semibold text-gray-900">
-                    <div className="absolute left-1 top-1 h-5 w-5 rounded-full bg-blue-900" />
+                    <div className="absolute left-1 top-1 h-5 w-5 bg-blue-900" />
                     {value.name}
                   </dt>{' '}
                   <dd className="inline">{value.description}</dd>
@@ -125,7 +125,7 @@ export default function AboutPage() {
               {certifications.map((cert) => (
                 <article
                   key={cert.name}
-                  className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-8 pb-8 pt-80 sm:pt-48 lg:pt-80"
+                  className="relative isolate flex flex-col justify-end overflow-hidden bg-gray-900 px-8 pb-8 pt-80 sm:pt-48 lg:pt-80"
                 >
                   <Image
                     src={cert.image}
