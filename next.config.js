@@ -2,6 +2,8 @@
 const nextConfig = {
   output: 'standalone',
   images: {
+    // Disable optimization in standalone runtime to avoid sharp/decoder issues
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
