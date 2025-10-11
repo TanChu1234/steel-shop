@@ -58,7 +58,7 @@ export default function AboutPage() {
         {/* Hero section */}
         <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
           <Image
-            src="/images/about-hero.png"
+            src="./images/about-hero.png"
             alt="Steel Shop"
             className="absolute inset-0 -z-10 h-full w-full object-cover opacity-25"
             width={1920}
