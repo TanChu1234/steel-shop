@@ -45,7 +45,7 @@ export default function Header() {
             className="flex items-center hover:scale-105 transition-transform duration-200 h-full py-2"
           >
             <img
-              src="./images/logo.png"
+              src="/images/logo.png"
               alt="Logo"
               className="object-contain transition-all duration-300 ease-in-out w-auto"
               style={{
