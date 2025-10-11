@@ -1,5 +1,9 @@
 /** @type {import('next').NextConfig} */
+
+const isProduction = process.env.NODE_ENV === 'production';
+
 const nextConfig = {
+  basePath: isProduction ? '/steel-shop' : '',
   output: 'export',
   trailingSlash: true,
   images: {
