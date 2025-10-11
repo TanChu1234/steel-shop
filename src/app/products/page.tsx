@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import { prefix } from '@/utils/prefix';
 import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon } from '@heroicons/react/20/solid';
@@ -46,7 +47,7 @@ const products = [
     href: '/products/construction-steel/cb400-v-10',
     price: '19.500.000',
     unit: 'tấn',
-    imageSrc: '/images/construction-steel.png',
+    imageSrc: `${prefix}/images/construction-steel.png`,
     imageAlt: 'Thép xây dựng CB400-V Φ10',
     specifications: [
       'Đường kính: Φ10',
@@ -60,7 +61,7 @@ const products = [
     href: '/products/shaped-steel/i-200',
     price: '21.000.000',
     unit: 'tấn',
-    imageSrc: '/images/i-beam.png',
+    imageSrc: `${prefix}/images/i-beam.png`,
     imageAlt: 'Thép hình I 200',
     specifications: [
       'Kích thước: 200x100mm',

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from 'next/link';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import { prefix } from '@/utils/prefix';
 
 const featuredProducts = [
   {
@@ -9,7 +10,7 @@ const featuredProducts = [
     name: 'Thép xây dựng CB400',
     description: 'Thép thanh vằn CB400 đạt tiêu chuẩn TCVN',
     href: '/products/construction-steel',
-    imageSrc: '/images/construction-steel.png',
+    imageSrc: `${prefix}/images/construction-steel.png`,
     imageAlt: 'Thép xây dựng CB400',
   },
   {
@@ -17,7 +18,7 @@ const featuredProducts = [
     name: 'Thép hình I',
     description: 'Thép hình I các loại kích thước tiêu chuẩn',
     href: '/products/shaped-steel',
-    imageSrc: '/images/i-beam.png',
+    imageSrc: `${prefix}/images/i-beam.png`,
     imageAlt: 'Thép hình I',
   },
   {
@@ -25,7 +26,7 @@ const featuredProducts = [
     name: 'Tôn mạ kẽm',
     description: 'Tôn mạ kẽm chất lượng cao, độ bền cao',
     href: '/products/metal-sheets',
-    imageSrc: '/images/galvanized-steel.png',
+    imageSrc: `${prefix}/images/galvanized-steel.png`,
     imageAlt: 'Tôn mạ kẽm',
   },
   {
@@ -33,7 +34,7 @@ const featuredProducts = [
     name: 'Xà gồ C',
     description: 'Xà gồ C mạ kẽm chất lượng cao',
     href: '/products/purlins',
-    imageSrc: '/images/c-purlin.png',
+    imageSrc: `${prefix}/images/c-purlin.png`,
     imageAlt: 'Xà gồ C',
   },
 ];
@@ -48,7 +49,7 @@ export default function Home() {
           <div className="absolute inset-0">
             <Image
               className="h-full w-full object-cover"
-              src="/images/hero-banner.png"
+              src={`${prefix}/images/hero-banner.png`}
               alt="Steel Shop Banner"
               width={1920}
               height={600}
@@ -140,7 +141,7 @@ export default function Home() {
             <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 lg:grid-cols-4 items-center">
               <div className="flex justify-center">
                 <Image
-                  src="/images/hoaphat.png"
+                  src={`${prefix}/images/hoaphat.png`}
                   alt="Đối tác 1"
                   width={200}
                   height={120}
@@ -149,7 +150,7 @@ export default function Home() {
               </div>
               <div className="flex justify-center">
                 <Image
-                  src="/images/hsg.png"
+                  src={`${prefix}/images/hsg.png`}
                   alt="Đối tác 2"
                   width={200}
                   height={120}
@@ -158,7 +159,7 @@ export default function Home() {
               </div>
               <div className="flex justify-center">
                 <Image
-                  src="/images/sendo-logo.png"
+                  src={`${prefix}/images/sendo-logo.png`}
                   alt="Đối tác 3"
                   width={200}
                   height={120}
@@ -167,7 +168,7 @@ export default function Home() {
               </div>
               <div className="flex justify-center">
                 <Image
-                  src="/images/vinakyoei.png"
+                  src={`${prefix}/images/vinakyoei.png`}
                   alt="Đối tác 4"
                   width={200}
                   height={120}

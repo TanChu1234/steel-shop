@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import { prefix } from '@/utils/prefix';
 
 // Trong thực tế, dữ liệu này sẽ được lấy từ API hoặc database
 const product = {
@@ -32,15 +33,15 @@ const product = {
   ],
   images: [
     {
-      src: '/images/construction-steel-1.png',
+      src: `${prefix}/images/construction-steel-1.png`,
       alt: 'Thép xây dựng CB400-V Φ10 - Hình 1',
     },
     {
-      src: '/images/construction-steel-2.png',
+      src: `${prefix}/images/construction-steel-2.png`,
       alt: 'Thép xây dựng CB400-V Φ10 - Hình 2',
     },
     {
-      src: '/images/construction-steel-3.png',
+      src: `${prefix}/images/construction-steel-3.png`,
       alt: 'Thép xây dựng CB400-V Φ10 - Hình 3',
     },
   ],

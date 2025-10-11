@@ -7,6 +7,9 @@ const nextConfig = {
   assetPrefix: isProduction ? '/steel-shop' : '',
   output: 'export',
   trailingSlash: true,
+  env: {
+    NEXT_PUBLIC_BASE_PATH: isProduction ? '/steel-shop' : '',
+  },
   images: {
     // Disable optimization for static export
     unoptimized: true,

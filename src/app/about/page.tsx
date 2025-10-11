@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import { prefix } from '@/utils/prefix';
 
 const stats = [
   { name: 'Năm kinh nghiệm', value: '15+' },
@@ -58,7 +59,7 @@ export default function AboutPage() {
         {/* Hero section */}
         <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
           <Image
-            src="/images/hero-banner.png"
+            src={`${prefix}/images/hero-banner.png`}
             alt="Steel Shop"
             className="absolute inset-0 -z-10 h-full w-full object-cover opacity-25"
             width={1920}

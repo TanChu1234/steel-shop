@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { prefix } from '@/utils/prefix';
 
 const navigation = [
   { name: "Trang chủ", href: "/" },
@@ -45,7 +46,7 @@ export default function Header() {
             className="flex items-center hover:scale-105 transition-transform duration-200 h-full py-2"
           >
             <img
-              src="/images/logo.png"
+              src={`${prefix}/images/logo.png`}
               alt="Logo"
               className="object-contain transition-all duration-300 ease-in-out w-auto"
               style={{
