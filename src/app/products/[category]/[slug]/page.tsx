@@ -4,6 +4,22 @@ import Image from 'next/image';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 
+// Generate static params for all possible product combinations
+export async function generateStaticParams() {
+  // Define your product categories and slugs
+  const categories = ['construction-steel', 'galvanized-steel', 'c-purlin', 'i-beam'];
+  const slugs = ['cb400-v-phi10', 'cb400-v-phi12', 'cb400-v-phi14', 'cb400-v-phi16'];
+  
+  const params = [];
+  for (const category of categories) {
+    for (const slug of slugs) {
+      params.push({ category, slug });
+    }
+  }
+  
+  return params;
+}
+
 // Trong thực tế, dữ liệu này sẽ được lấy từ API hoặc database
 const product = {
   name: 'Thép xây dựng CB400-V Φ10',

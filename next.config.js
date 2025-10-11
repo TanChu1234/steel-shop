@@ -1,8 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'standalone',
+  output: 'export',
+  trailingSlash: true,
   images: {
-    // Disable optimization in standalone runtime to avoid sharp/decoder issues
+    // Disable optimization for static export
     unoptimized: true,
     remotePatterns: [
       {
