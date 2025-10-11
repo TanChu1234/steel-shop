@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useState, useEffect } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
@@ -45,11 +44,9 @@ export default function Header() {
             href="/"
             className="flex items-center hover:scale-105 transition-transform duration-200 h-full py-2"
           >
-            <Image
+            <img
               src="/images/logo.png"
               alt="Logo"
-              width={80}
-              height={80}
               className="object-contain transition-all duration-300 ease-in-out w-auto"
               style={{
                 height: scrolling ? "50px" : "80px",
