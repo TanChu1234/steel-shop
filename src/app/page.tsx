@@ -7,26 +7,26 @@ import { prefix } from '@/utils/prefix';
 const featuredProducts = [
   {
     id: 1,
-    name: 'Thép xây dựng CB400',
-    description: 'Thép thanh vằn CB400 đạt tiêu chuẩn TCVN',
+    name: 'Thép xây dựng',
+    description: 'Thép hộp vuông, chữ nhật, các loại kích thước tiêu chuẩn',
     href: '/products/construction-steel',
-    imageSrc: `${prefix}/images/construction-steel.png`,
-    imageAlt: 'Thép xây dựng CB400',
+    imageSrc: `${prefix}/images/thep_xay_dung.jpg`,
+    imageAlt: 'Thép xây dựng',
   },
   {
     id: 2,
-    name: 'Thép hình I',
-    description: 'Thép hình I các loại kích thước tiêu chuẩn',
-    href: '/products/shaped-steel',
-    imageSrc: `${prefix}/images/i-beam.png`,
-    imageAlt: 'Thép hình I',
+    name: 'Ống thép mạ kẽm',
+    description: 'Ống thép mạ kẽm các loại kích thước tiêu chuẩn',
+    href: '/products/galvanized-steell',
+    imageSrc: `${prefix}/images/ong_ma_kem.jpg`,
+    imageAlt: 'Ống thép mạ kẽm',
   },
   {
     id: 3,
     name: 'Tôn mạ kẽm',
     description: 'Tôn mạ kẽm chất lượng cao, độ bền cao',
     href: '/products/metal-sheets',
-    imageSrc: `${prefix}/images/galvanized-steel.png`,
+    imageSrc: `${prefix}/images/galvanized-steel.jpg`,
     imageAlt: 'Tôn mạ kẽm',
   },
   {
@@ -34,7 +34,7 @@ const featuredProducts = [
     name: 'Xà gồ C',
     description: 'Xà gồ C mạ kẽm chất lượng cao',
     href: '/products/purlins',
-    imageSrc: `${prefix}/images/c-purlin.png`,
+    imageSrc: `${prefix}/images/c-purlin.jpg`,
     imageAlt: 'Xà gồ C',
   },
 ];
@@ -48,8 +48,8 @@ export default function Home() {
         <div className="relative">
           <div className="absolute inset-0">
             <Image
-              className="h-full w-full object-cover"
-              src={`${prefix}/images/hero-banner.png`}
+              className="h-full w-full object-cover border border-gray-900/10"
+              src={`${prefix}/images/hero-banner.jpg`}
               alt="Steel Shop Banner"
               width={1920}
               height={600}
@@ -57,10 +57,14 @@ export default function Home() {
             />
             <div className="absolute inset-0 bg-gray-900/70 mix-blend-multiply" />
           </div>
-          
-          <div className="relative mx-auto max-w-7xl py-24 sm:py-32 lg:py-40 px-6 lg:px-8">
-            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
-              Uy tín từ chất thép - Vững chắc mọi công trình
+
+          {/* Balanced content area */}
+          <div className="relative mx-auto max-w-7xl flex flex-col justify-center items-start text-left px-6 lg:px-8 py-32 sm:py-36 lg:py-40">
+            <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl leading-tight">
+              PHÚC HẢI LIÊN <br className="hidden sm:block" />
+              <span className="text-4xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
+                Uy tín từ chất thép - Vững chắc mọi công trình
+              </span>
             </h1>
             <p className="mt-6 max-w-xl text-xl text-gray-300">
               Cung cấp đa dạng sản phẩm sắt thép xây dựng với chất lượng đảm bảo, 
@@ -69,47 +73,51 @@ export default function Home() {
             <div className="mt-10 flex items-center gap-x-6">
               <Link
                 href="/products"
-                className="bg-blue-900 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900 rounded-lg"
+                className="bg-blue-900 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm rounded-lg 
+                          hover:bg-blue-800 hover:scale-105 transform transition-transform duration-200 
+                          focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900"
               >
                 Xem sản phẩm
               </Link>
-              <Link href="/contact" className="text-sm font-semibold leading-6 text-white">
+              <Link
+                href="/contact"
+                className="text-sm font-semibold leading-6 text-white hover:text-blue-300 hover: transition-all duration-200"
+              >
                 Liên hệ ngay <span aria-hidden="true">→</span>
               </Link>
             </div>
           </div>
-
         </div>
 
         {/* Featured section */}
         <div className="bg-white">
           <div className="mx-auto max-w-2xl px-4 py-10 sm:px-6 sm:py-14 lg:max-w-7xl lg:px-8">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900">Sản phẩm nổi bật</h2>
-            <p className="mt-4 text-base text-gray-500">
+            <p className="mt-4 text-lg text-gray-500">
               Khám phá các sản phẩm sắt thép chất lượng cao của chúng tôi
             </p>
 
             <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
               {featuredProducts.map((product) => (
                 <div key={product.id} className="group relative">
-                  <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden bg-gray-200">
+                  <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden bg-white rounded-xl shadow-md border border-gray-200 transition-all duration-300 ease-in-out group-hover:shadow-xl group-hover:scale-105">
                     <Image
                       src={product.imageSrc}
                       alt={product.imageAlt}
-                      className="h-64 w-full object-cover object-center group-hover:opacity-75"
+                      className="h-64 w-full object-cover object-center transition-all duration-300 ease-in-out group-hover:opacity-95"
                       width={500}
                       height={500}
                     />
                   </div>
                   <div className="mt-4 flex justify-between">
                     <div>
-                      <h3 className="text-sm text-gray-700">
+                      <h3 className="text-lg font-bold text-gray-700">
                         <Link href={product.href}>
                           <span aria-hidden="true" className="absolute inset-0" />
                           {product.name}
                         </Link>
                       </h3>
-                      <p className="mt-1 text-sm text-gray-500">{product.description}</p>
+                      <p className="mt-1 text-md text-gray-500">{product.description}</p>
                     </div>
                   </div>
                 </div>
@@ -119,7 +127,8 @@ export default function Home() {
             <div className="mt-12 text-center">
               <Link
                 href="/products"
-                className="inline-block bg-blue-900 px-8 py-3 text-center font-medium text-white hover:bg-blue-800 rounded-lg"
+                className="inline-block bg-blue-900 px-8 py-3 text-center font-medium text-white rounded-lg
+                          hover:bg-blue-800 hover:scale-105 transform transition-transform duration-200 ease-out"
               >
                 Xem tất cả sản phẩm
               </Link>
@@ -128,7 +137,7 @@ export default function Home() {
         </div>
 
         {/* Partners section */}
-        <div className="bg-gray-50 py-8 sm:py-10">
+        <div className="bg-gray-100 py-8 sm:py-10">
           <div className="mx-auto max-w-7xl px-4 lg:px-6">
             <h2 className="text-2xl font-bold tracking-tight text-gray-900 text-center">
               Đối tác chiến lược
@@ -141,7 +150,7 @@ export default function Home() {
             <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 lg:grid-cols-4 items-center">
               <div className="flex justify-center">
                 <Image
-                  src={`${prefix}/images/hoaphat.png`}
+                  src={`${prefix}/images/hoaphat.jpg`}
                   alt="Đối tác 1"
                   width={200}
                   height={120}
@@ -150,7 +159,7 @@ export default function Home() {
               </div>
               <div className="flex justify-center">
                 <Image
-                  src={`${prefix}/images/hsg.png`}
+                  src={`${prefix}/images/hsg.jpg`}
                   alt="Đối tác 2"
                   width={200}
                   height={120}
@@ -159,7 +168,7 @@ export default function Home() {
               </div>
               <div className="flex justify-center">
                 <Image
-                  src={`${prefix}/images/sendo-logo.png`}
+                  src={`${prefix}/images/sendo-logo.jpg`}
                   alt="Đối tác 3"
                   width={200}
                   height={120}
@@ -168,7 +177,7 @@ export default function Home() {
               </div>
               <div className="flex justify-center">
                 <Image
-                  src={`${prefix}/images/vinakyoei.png`}
+                  src={`${prefix}/images/vinakyoei.jpg`}
                   alt="Đối tác 4"
                   width={200}
                   height={120}
@@ -180,7 +189,7 @@ export default function Home() {
         </div>
 
         {/* Features section */}
-        <div className="bg-gray-50 py-10 sm:py-12">
+        <div className="bg-gray-100 py-10 sm:py-12">
           <div className="mx-auto max-w-7xl px-4 lg:px-6">
             <div className="mx-auto max-w-2xl lg:text-center">
               <p className="mt-2 text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
@@ -196,8 +205,6 @@ export default function Home() {
             </div>
           </div>
         </div>
-
-
       </main>
       <Footer />
     </div>

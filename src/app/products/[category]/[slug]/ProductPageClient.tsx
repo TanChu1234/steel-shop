@@ -33,15 +33,15 @@ const product = {
   ],
   images: [
     {
-      src: `${prefix}/images/construction-steel-1.png`,
+      src: `${prefix}/images/construction-steel-1.jpg`,
       alt: 'Thép xây dựng CB400-V Φ10 - Hình 1',
     },
     {
-      src: `${prefix}/images/construction-steel-2.png`,
+      src: `${prefix}/images/construction-steel-2.jpg`,
       alt: 'Thép xây dựng CB400-V Φ10 - Hình 2',
     },
     {
-      src: `${prefix}/images/construction-steel-3.png`,
+      src: `${prefix}/images/construction-steel-3.jpg`,
       alt: 'Thép xây dựng CB400-V Φ10 - Hình 3',
     },
   ],
@@ -56,14 +56,16 @@ export default function ProductPageClient() {
           {/* Image gallery */}
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {product.images.map((image) => (
-              <div key={image.src} className="aspect-h-1 aspect-w-1 overflow-hidden">
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  className="h-full w-full object-cover object-center"
-                  width={600}
-                  height={600}
-                />
+              <div key={image.src} className="group">
+                <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden bg-white rounded-xl shadow-md border border-gray-200 transition-all duration-300 ease-in-out group-hover:shadow-xl group-hover:scale-105">
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    className="h-64 w-full object-cover object-center transition-all duration-300 ease-in-out group-hover:opacity-95"
+                    width={600}
+                    height={600}
+                  />
+                </div>
               </div>
             ))}
           </div>

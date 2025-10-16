@@ -22,7 +22,7 @@ const filters = [
     name: 'Danh mục',
     options: [
       { value: 'construction-steel', label: 'Thép xây dựng', checked: false },
-      { value: 'shaped-steel', label: 'Thép hình', checked: false },
+      { value: 'galvanized-steel', label: 'Ống thép mạ kẽm', checked: false },
       { value: 'metal-sheets', label: 'Tôn các loại', checked: false },
       { value: 'purlins', label: 'Xà gồ', checked: false },
       { value: 'steel-pipes', label: 'Ống thép', checked: false },
@@ -47,7 +47,7 @@ const products = [
     href: '/products/construction-steel/cb400-v-10',
     price: '19.500.000',
     unit: 'tấn',
-    imageSrc: `${prefix}/images/construction-steel.png`,
+    imageSrc: `${prefix}/images/construction-steel.jpg`,
     imageAlt: 'Thép xây dựng CB400-V Φ10',
     specifications: [
       'Đường kính: Φ10',
@@ -58,10 +58,10 @@ const products = [
   {
     id: 2,
     name: 'Thép hình I 200',
-    href: '/products/shaped-steel/i-200',
+    href: '/products/galvanized-steel/i-200',
     price: '21.000.000',
     unit: 'tấn',
-    imageSrc: `${prefix}/images/i-beam.png`,
+    imageSrc: `${prefix}/images/i-beam.jpg`,
     imageAlt: 'Thép hình I 200',
     specifications: [
       'Kích thước: 200x100mm',
@@ -288,11 +288,11 @@ export default function ProductsPage() {
                 <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
                   {products.map((product) => (
                     <div key={product.id} className="group relative">
-                      <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden bg-gray-200">
+                      <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden bg-white rounded-xl shadow-md border border-gray-200 transition-all duration-300 ease-in-out group-hover:shadow-xl group-hover:scale-105">
                         <Image
                           src={product.imageSrc}
                           alt={product.imageAlt}
-                          className="h-full w-full object-cover object-center group-hover:opacity-75"
+                          className="h-64 w-full object-cover object-center transition-all duration-300 ease-in-out group-hover:opacity-95"
                           width={500}
                           height={500}
                         />
