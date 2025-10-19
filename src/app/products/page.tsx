@@ -22,7 +22,7 @@ const filters = [
     name: 'Danh mục',
     options: [
       { value: 'construction-steel', label: 'Thép xây dựng', checked: false },
-      { value: 'galvanized-steel', label: 'Ống thép mạ kẽm', checked: false },
+      { value: 'shape-steel', label: 'Thép hình', checked: false },
       { value: 'metal-sheets', label: 'Tôn các loại', checked: false },
       { value: 'purlins', label: 'Xà gồ', checked: false },
       { value: 'steel-pipes', label: 'Ống thép', checked: false },
@@ -58,7 +58,7 @@ const products = [
   {
     id: 2,
     name: 'Thép hình I 200',
-    href: '/products/galvanized-steel/i-200',
+    href: '/products/shape-steel/i-200',
     price: '21.000.000',
     unit: 'tấn',
     imageSrc: `${prefix}/images/i-beam.jpg`,
