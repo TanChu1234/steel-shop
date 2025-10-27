@@ -62,7 +62,7 @@ const featuredProducts = [
     id: 2,
     name: 'Thép hình',
     description: 'Thép hình U, I, H, V, C với độ cứng và khả năng chịu tải cao, được sử dụng rộng rãi trong kết cấu nhà xưởng, cầu đường và cơ khí chế tạo.',
-    href: '/products/galvanized-steell',
+    href: '/products/alphabet-shape-steel',
     imageSrc: `${prefix}/images/thep_hinh.jpg`,
     imageAlt: 'Thép hình chữ U, I, H, V dùng trong kết cấu thép, nhà xưởng, cầu đường và công trình cơ khí',
   },
@@ -98,7 +98,7 @@ export default function Home() {
         <div className="relative mt-20">
           <div className="absolute inset-0">
             <Image
-              className="h-full w-full object-cover border border-gray-900/10"
+              className="w-full h-[600px] object-cover object-center border border-gray-900/10"
               src={`${prefix}/images/banner_2.jpg`}
               alt="Steel Shop Banner"
               width={1920}
@@ -109,49 +109,38 @@ export default function Home() {
           </div>
 
           {/* Content with scroll animation */}
-          <div 
+          <div
             ref={heroRef}
             className={`relative mx-auto max-w-7xl flex flex-col justify-center items-start text-left px-6 lg:px-8 py-28 sm:py-30 lg:py-30 ${montserrat.className}`}
+            style={{ minHeight: '600px' }} // ensures text stays centered in full image
           >
-            <h1 className={`text-6xl sm:text-7xl lg:text-8xl font-extrabold tracking-wide text-white uppercase leading-tight drop-shadow-md transition-all duration-1000 ${
-              heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}>
+            <h1
+              className={`text-6xl sm:text-7xl lg:text-8xl font-extrabold tracking-wide text-white uppercase leading-tight drop-shadow-md transition-all duration-1000 ${
+                heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+            >
               PHÚC HẢI LIÊN
               <br className="hidden sm:block" />
-              <span className={`block mt-10 text-3xl sm:text-4xl lg:text-5xl font-semibold text-white tracking-normal normal-case transition-all duration-1000 delay-200 ${
-                heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}>
+              <span
+                className={`block mt-10 text-3xl sm:text-4xl lg:text-5xl font-semibold text-white tracking-normal normal-case transition-all duration-1000 delay-200 ${
+                  heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                }`}
+              >
                 Uy tín từ chất thép - Vững chắc mọi công trình
               </span>
             </h1>
 
-            <p className={`mt-6 max-w-xl text-xl text-gray-300 leading-relaxed transition-all duration-1000 delay-300 ${
-              heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}>
-              Cung cấp đa dạng sản phẩm sắt thép xây dựng với chất lượng đảm bảo, 
+            <p
+              className={`mt-6 max-w-xl text-xl text-gray-300 leading-relaxed transition-all duration-1000 delay-300 ${
+                heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+            >
+              Cung cấp đa dạng sản phẩm sắt thép xây dựng với chất lượng đảm bảo,
               giá cả cạnh tranh và dịch vụ chuyên nghiệp.
             </p>
-
-            <div className={`mt-10 flex items-center gap-x-6 transition-all duration-1000 delay-500 ${
-              heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}>
-              <Link
-                href="/products"
-                className="bg-blue-900 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm rounded-lg 
-                          hover:bg-blue-800 hover:scale-105 transform transition-transform duration-200 
-                          focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900"
-              >
-                Xem sản phẩm
-              </Link>
-              <Link
-                href="/contact"
-                className="text-sm font-semibold leading-6 text-white hover:text-blue-300 transition-all duration-200"
-              >
-                Liên hệ ngay <span aria-hidden="true">→</span>
-              </Link>
-            </div>
           </div>
         </div>
+
 
         {/* Featured section with scroll animation */}
         <div className="bg-white">
@@ -171,46 +160,40 @@ export default function Home() {
             </p>
 
             <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-              {featuredProducts.map((product, index) => (
-                <div 
-                  key={product.id} 
-                  className="group relative"
-                >
+              {featuredProducts.map((product, index) => {
+                const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
+                return (
                   <div 
-                    className={`aspect-h-1 aspect-w-1 w-full overflow-hidden bg-white rounded-xl shadow-md border border-gray-200 transition-all duration-1000 group-hover:shadow-xl group-hover:scale-105 ${
-                      productsVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
+                    key={product.id}
+                    ref={ref}
+                    className={`group relative transition-all duration-1000 ${
+                      isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                     }`}
-                    style={{ transitionDelay: `${200 + (index * 100)}ms` }}
+                    style={{ transitionDelay: `${index * 150}ms` }}
                   >
-                    <Image
-                      src={product.imageSrc}
-                      alt={product.imageAlt}
-                      className="h-64 w-full object-cover object-center transition-all duration-300 ease-in-out group-hover:opacity-95"
-                      width={500}
-                      height={500}
-                    />
-                  </div>
-                  <div className="mt-4 flex justify-between">
-                    <div>
-                      <h3 className={`text-lg font-bold text-gray-700 transition-all duration-1000 ${
-                        productsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-                      }`}
-                      style={{ transitionDelay: `${300 + (index * 100)}ms` }}>
-                        <Link href={product.href}>
-                          <span aria-hidden="true" className="absolute inset-0" />
-                          {product.name}
-                        </Link>
-                      </h3>
-                      <p className={`mt-1 text-md text-gray-500 transition-all duration-1000 ${
-                        productsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-                      }`}
-                      style={{ transitionDelay: `${400 + (index * 100)}ms` }}>
-                        {product.description}
-                      </p>
+                    <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden bg-white rounded-xl shadow-md border border-gray-200 group-hover:shadow-xl group-hover:scale-105 transition-transform duration-300">
+                      <Image
+                        src={product.imageSrc}
+                        alt={product.imageAlt}
+                        className="h-64 w-full object-cover object-center transition-all duration-300 ease-in-out group-hover:opacity-95"
+                        width={500}
+                        height={500}
+                      />
+                    </div>
+                    <div className="mt-4 flex justify-between">
+                      <div>
+                        <h3 className="text-lg font-bold text-gray-700">
+                          <Link href={product.href}>
+                            <span aria-hidden="true" className="absolute inset-0" />
+                            {product.name}
+                          </Link>
+                        </h3>
+                        <p className="mt-1 text-md text-gray-500">{product.description}</p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
             <div className={`mt-12 text-center transition-all duration-1000 delay-700 ${
@@ -246,10 +229,10 @@ export default function Home() {
 
             <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 items-center">
               {[
-                { src: `${prefix}/images/cert_iso9001.jpg`, alt: 'ISO 9001' },
-                { src: `${prefix}/images/cert_iso14001.jpg`, alt: 'ISO 14001' },
-                { src: `${prefix}/images/cert_ohsas18001.jpg`, alt: 'OHSAS 18001' },
-                { src: `${prefix}/images/cert_award.jpg`, alt: 'Award' },
+                { src: `${prefix}/images/certification_1.jpg`, alt: 'ISO 9001' },
+                { src: `${prefix}/images/certification_2.jpg`, alt: 'ISO 14001' },
+                { src: `${prefix}/images/certification_3.jpg`, alt: 'OHSAS 18001' },
+                { src: `${prefix}/images/certification_1.jpg`, alt: 'Award' },
               ].map((cert, idx) => (
                 <div
                   key={idx}

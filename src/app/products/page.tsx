@@ -1,332 +1,208 @@
 "use client";
 
-import { Fragment, useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
-import { prefix } from '@/utils/prefix';
-import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react';
-import { XMarkIcon } from '@heroicons/react/24/outline';
-import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon } from '@heroicons/react/20/solid';
+import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import { prefix } from "@/utils/prefix";
+import { Montserrat } from "next/font/google";
 
-const sortOptions = [
-  { name: 'Phổ biến nhất', href: '#', current: true },
-  { name: 'Giá thấp đến cao', href: '#', current: false },
-  { name: 'Giá cao đến thấp', href: '#', current: false },
+const montserrat = Montserrat({ subsets: ["latin"], weight: ["400", "600", "700", "800"] });
+
+const categories = [
+  {
+    title: "Thép xây dựng",
+    products: [
+      { name: "Thép cuộn", image: `${prefix}/images/products/thep-cuon.jpg` },
+      { name: "Thép cây", image: `${prefix}/images/products/thep-cay.jpg` },
+      { name: "Thép tròn", image: `${prefix}/images/products/thep-tron.jpg` },
+      { name: "Thép cuộn tròn", image: `${prefix}/images/products/thep-cuon-tron.jpg` },
+    ],
+    link: "/products/thep-xay-dung",
+  },
+  {
+    title: "Thép hình",
+    products: [
+      { name: "Thép H", image: `${prefix}/images/products/thep-h.jpg` },
+      { name: "Thép I", image: `${prefix}/images/products/thep-i.jpg` },
+      { name: "Thép V", image: `${prefix}/images/products/thep-v.jpg` },
+      { name: "Thép U", image: `${prefix}/images/products/thep-u.jpg` },
+    ],
+    link: "/products/thep-hinh",
+  },
+  {
+    title: "Thép ống - Hộp - Vuông",
+    products: [
+      { name: "Thép ống", image: `${prefix}/images/products/thep-ong.jpg` },
+      { name: "Thép hộp chữ nhật", image: `${prefix}/images/products/thep-hop-chu-nhat.jpg` },
+      { name: "Thép hộp vuông", image: `${prefix}/images/products/thep-hop-vuong.jpg` },
+      { name: "Ống thép mạ kẽm", image: `${prefix}/images/products/ong-thep-ma-kem.jpg` },
+    ],
+    link: "/products/thep-ong-hop-vuong",
+  },
+  {
+    title: "Tôn",
+    products: [
+      { name: "Tôn lạnh", image: `${prefix}/images/products/ton-lanh.jpg` },
+      { name: "Tôn kẽm", image: `${prefix}/images/products/ton-kem.jpg` },
+      { name: "Tôn màu", image: `${prefix}/images/products/ton-mau.jpg` },
+      { name: "Tôn hoa cương", image: `${prefix}/images/products/ton-hoa-cuong.jpg` },
+    ],
+    link: "/products/ton",
+  },
+  {
+    title: "Lưới - Xà gồ - Phụ kiện",
+    products: [
+      { name: "Lưới thép", image: `${prefix}/images/products/luoi-thep.jpg` },
+      { name: "Xà gồ C", image: `${prefix}/images/products/xago-c.jpg` },
+      { name: "Xà gồ Z", image: `${prefix}/images/products/xago-z.jpg` },
+      { name: "Phụ kiện thép", image: `${prefix}/images/products/phu-kien-thep.jpg` },
+    ],
+    link: "/products/luoi-xa-go-phu-kien",
+  },
+  {
+    title: "Hộp - Ống Inox",
+    products: [
+      { name: "Ống Inox tròn", image: `${prefix}/images/products/ong-inox-tron.jpg` },
+      { name: "Hộp Inox vuông", image: `${prefix}/images/products/hop-inox-vuong.jpg` },
+      { name: "Hộp Inox chữ nhật", image: `${prefix}/images/products/hop-inox-chu-nhat.jpg` },
+      { name: "Phụ kiện Inox", image: `${prefix}/images/products/phu-kien-inox.jpg` },
+    ],
+    link: "/products/hop-ong-inox",
+  },
 ];
-
-const filters = [
-  {
-    id: 'category',
-    name: 'Danh mục',
-    options: [
-      { value: 'construction-steel', label: 'Thép xây dựng', checked: false },
-      { value: 'shape-steel', label: 'Thép hình', checked: false },
-      { value: 'metal-sheets', label: 'Tôn các loại', checked: false },
-      { value: 'purlins', label: 'Xà gồ', checked: false },
-      { value: 'steel-pipes', label: 'Ống thép', checked: false },
-      { value: 'steel-mesh', label: 'Lưới thép', checked: false },
-    ],
-  },
-  {
-    id: 'size',
-    name: 'Kích thước',
-    options: [
-      { value: '6-10', label: 'Φ6 - Φ10', checked: false },
-      { value: '12-16', label: 'Φ12 - Φ16', checked: false },
-      { value: '18-25', label: 'Φ18 - Φ25', checked: false },
-    ],
-  },
-];
-
-const products = [
-  {
-    id: 1,
-    name: 'Thép xây dựng CB400-V Φ10',
-    href: '/products/construction-steel/cb400-v-10',
-    price: '19.500.000',
-    unit: 'tấn',
-    imageSrc: `${prefix}/images/construction-steel.jpg`,
-    imageAlt: 'Thép xây dựng CB400-V Φ10',
-    specifications: [
-      'Đường kính: Φ10',
-      'Chiều dài: 11.7m',
-      'Tiêu chuẩn: TCVN',
-    ],
-  },
-  {
-    id: 2,
-    name: 'Thép hình I 200',
-    href: '/products/shape-steel/i-200',
-    price: '21.000.000',
-    unit: 'tấn',
-    imageSrc: `${prefix}/images/i-beam.jpg`,
-    imageAlt: 'Thép hình I 200',
-    specifications: [
-      'Kích thước: 200x100mm',
-      'Chiều dài: 12m',
-      'Tiêu chuẩn: JIS',
-    ],
-  },
-  // Thêm các sản phẩm khác tương tự
-];
-
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(' ');
-}
 
 export default function ProductsPage() {
-  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+  const heroRef = useRef(null);
+  const [heroVisible, setHeroVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => setHeroVisible(entry.isIntersecting),
+      { threshold: 0.3 }
+    );
+    if (heroRef.current) observer.observe(heroRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <div>
+    <div className="bg-gray-50 min-h-screen">
       <Header />
-      <div>
-        {/* Mobile filter dialog */}
-        <Transition.Root show={mobileFiltersOpen} as={Fragment}>
-          <Dialog as="div" className="relative z-40 lg:hidden" onClose={setMobileFiltersOpen}>
-            <Transition.Child
-              as={Fragment}
-              enter="transition-opacity ease-linear duration-300"
-              enterFrom="opacity-0"
-              enterTo="opacity-100"
-              leave="transition-opacity ease-linear duration-300"
-              leaveFrom="opacity-100"
-              leaveTo="opacity-0"
+
+      {/* --- Hero Banner (fixed full-size like homepage) --- */}
+      <div className="relative mt-20">
+        {/* Fixed banner height and full width */}
+        <div className="relative w-full h-[700px] overflow-hidden">
+          <Image
+            src={`${prefix}/images/banner_2.jpg`}
+            alt="Products Banner"
+            fill
+            priority
+            className="object-cover object-center border border-gray-900/10"
+            sizes="100vw"
+          />
+          {/* Dark overlay */}
+          <div className="absolute inset-0 bg-gray-900/70 mix-blend-multiply" />
+        </div>
+
+        {/* Centered content */}
+        <div
+          ref={heroRef}
+          className={`absolute inset-0 flex flex-col justify-center items-start text-left px-6 lg:px-8 ${montserrat.className}`}
+        >
+          <div className="max-w-7xl mx-auto">
+            <h1
+              className={`text-6xl sm:text-7xl lg:text-8xl font-extrabold tracking-wide text-white uppercase leading-tight drop-shadow-md transition-all duration-1000 ${
+                heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
             >
-              <div className="fixed inset-0 bg-black bg-opacity-25" />
-            </Transition.Child>
-
-            <div className="fixed inset-0 z-40 flex">
-              <Transition.Child
-                as={Fragment}
-                enter="transition ease-in-out duration-300 transform"
-                enterFrom="translate-x-full"
-                enterTo="translate-x-0"
-                leave="transition ease-in-out duration-300 transform"
-                leaveFrom="translate-x-0"
-                leaveTo="translate-x-full"
+              SẢN PHẨM
+              <br className="hidden sm:block" />
+              <span
+                className={`block mt-10 text-3xl sm:text-4xl lg:text-5xl font-semibold text-white tracking-normal normal-case transition-all duration-1000 delay-200 ${
+                  heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                }`}
               >
-                <Dialog.Panel className="relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-12 shadow-xl">
-                  <div className="flex items-center justify-between px-4">
-                    <h2 className="text-lg font-medium text-gray-900">Bộ lọc</h2>
-                    <button
-                      type="button"
-                      className="-mr-2 flex h-10 w-10 items-center justify-center bg-white p-2 text-gray-400"
-                      onClick={() => setMobileFiltersOpen(false)}
-                    >
-                      <span className="sr-only">Đóng menu</span>
-                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
+                Chất lượng cao - Giá cả cạnh tranh
+              </span>
+            </h1>
 
-                  {/* Filters */}
-                  <form className="mt-4">
-                    {filters.map((section) => (
-                      <Disclosure as="div" key={section.id} className="px-4 py-6">
-                        {({ open }) => (
-                          <>
-                            <h3 className="-mx-2 -my-3 flow-root">
-                              <Disclosure.Button className="flex w-full items-center justify-between bg-white px-2 py-3 text-gray-400 hover:text-gray-500">
-                                <span className="font-medium text-gray-900">{section.name}</span>
-                                <span className="ml-6 flex items-center">
-                                  {open ? (
-                                    <MinusIcon className="h-5 w-5" aria-hidden="true" />
-                                  ) : (
-                                    <PlusIcon className="h-5 w-5" aria-hidden="true" />
-                                  )}
-                                </span>
-                              </Disclosure.Button>
-                            </h3>
-                            <Disclosure.Panel className="pt-6">
-                              <div className="space-y-6">
-                                {section.options.map((option, optionIdx) => (
-                                  <div key={option.value} className="flex items-center">
-                                    <input
-                                      id={`filter-mobile-${section.id}-${optionIdx}`}
-                                      name={`${section.id}[]`}
-                                      defaultValue={option.value}
-                                      type="checkbox"
-                                      defaultChecked={option.checked}
-                                      className="h-4 w-4 text-blue-900 focus:ring-blue-900"
-                                    />
-                                    <label
-                                      htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
-                                      className="ml-3 min-w-0 flex-1 text-gray-500"
-                                    >
-                                      {option.label}
-                                    </label>
-                                  </div>
-                                ))}
-                              </div>
-                            </Disclosure.Panel>
-                          </>
-                        )}
-                      </Disclosure>
-                    ))}
-                  </form>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </Dialog>
-        </Transition.Root>
+            <p
+              className={`mt-6 max-w-xl text-xl text-gray-300 leading-relaxed transition-all duration-1000 delay-300 ${
+                heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
+            >
+              Cung cấp đa dạng các loại thép xây dựng, thép hình, thép ống - hộp - vuông
+              và inox chất lượng cao, đáp ứng mọi nhu cầu công trình.
+            </p>
 
-        <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                      <div className="flex items-baseline justify-between pb-6 pt-24">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900">Sản phẩm</h1>
-
-            <div className="flex items-center">
-              <Menu as="div" className="relative inline-block text-left">
-                <div>
-                  <Menu.Button className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
-                    Sắp xếp
-                    <ChevronDownIcon
-                      className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
-                      aria-hidden="true"
-                    />
-                  </Menu.Button>
-                </div>
-
-                <Transition
-                  as={Fragment}
-                  enter="transition ease-out duration-100"
-                  enterFrom="transform opacity-0 scale-95"
-                  enterTo="transform opacity-100 scale-100"
-                  leave="transition ease-in duration-75"
-                  leaveFrom="transform opacity-100 scale-100"
-                  leaveTo="transform opacity-0 scale-95"
-                >
-                  <Menu.Items className="absolute right-0 z-10 mt-2 w-40 origin-top-right bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
-                    <div className="py-1">
-                      {sortOptions.map((option) => (
-                        <Menu.Item key={option.name}>
-                          {({ active }) => (
-                            <a
-                              href={option.href}
-                              className={classNames(
-                                option.current ? 'font-medium text-gray-900' : 'text-gray-500',
-                                active ? 'bg-gray-100' : '',
-                                'block px-4 py-2 text-sm'
-                              )}
-                            >
-                              {option.name}
-                            </a>
-                          )}
-                        </Menu.Item>
-                      ))}
-                    </div>
-                  </Menu.Items>
-                </Transition>
-              </Menu>
-
-              <button
-                type="button"
-                className="-m-2 ml-4 p-2 text-gray-400 hover:text-gray-500 sm:ml-6 lg:hidden"
-                onClick={() => setMobileFiltersOpen(true)}
+            <div
+              className={`mt-10 flex items-center gap-x-6 transition-all duration-1000 delay-500 ${
+                heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
+            >
+              <Link
+                href="/contact"
+                className="bg-blue-900 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm rounded-lg 
+                          hover:bg-blue-800 hover:scale-105 transform transition-transform duration-200 
+                          focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900"
               >
-                <span className="sr-only">Bộ lọc</span>
-                <FunnelIcon className="h-5 w-5" aria-hidden="true" />
-              </button>
+                Liên hệ tư vấn
+              </Link>
+              <Link
+                href="/about"
+                className="text-sm font-semibold leading-6 text-white hover:text-blue-300 transition-all duration-200"
+              >
+                Về chúng tôi <span aria-hidden="true">→</span>
+              </Link>
             </div>
           </div>
+        </div>
+      </div>
 
-          <section aria-labelledby="products-heading" className="pb-24 pt-6">
-            <h2 id="products-heading" className="sr-only">
-              Sản phẩm
+      {/* --- Product Categories --- */}
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        {categories.map((cat, index) => (
+          <section key={index} className="mb-14">
+            <h2 className="text-2xl font-semibold text-gray-700 mb-6 border-l-4 border-blue-900 pl-3 uppercase">
+              {cat.title}
             </h2>
 
-            <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
-              {/* Filters */}
-              <form className="hidden lg:block">
-                {filters.map((section) => (
-                  <Disclosure as="div" key={section.id} className="py-6">
-                    {({ open }) => (
-                      <>
-                        <h3 className="-my-3 flow-root">
-                          <Disclosure.Button className="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500">
-                            <span className="font-medium text-gray-900">{section.name}</span>
-                            <span className="ml-6 flex items-center">
-                              {open ? (
-                                <MinusIcon className="h-5 w-5" aria-hidden="true" />
-                              ) : (
-                                <PlusIcon className="h-5 w-5" aria-hidden="true" />
-                              )}
-                            </span>
-                          </Disclosure.Button>
-                        </h3>
-                        <Disclosure.Panel className="pt-6">
-                          <div className="space-y-4">
-                            {section.options.map((option, optionIdx) => (
-                              <div key={option.value} className="flex items-center">
-                                <input
-                                  id={`filter-${section.id}-${optionIdx}`}
-                                  name={`${section.id}[]`}
-                                  defaultValue={option.value}
-                                  type="checkbox"
-                                  defaultChecked={option.checked}
-                                  className="h-4 w-4 text-blue-900 focus:ring-blue-900"
-                                />
-                                <label
-                                  htmlFor={`filter-${section.id}-${optionIdx}`}
-                                  className="ml-3 text-sm text-gray-600"
-                                >
-                                  {option.label}
-                                </label>
-                              </div>
-                            ))}
-                          </div>
-                        </Disclosure.Panel>
-                      </>
-                    )}
-                  </Disclosure>
-                ))}
-              </form>
-
-              {/* Product grid */}
-              <div className="lg:col-span-3">
-                <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
-                  {products.map((product) => (
-                    <div key={product.id} className="group relative">
-                      <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden bg-white rounded-xl shadow-md border border-gray-200 transition-all duration-300 ease-in-out group-hover:shadow-xl group-hover:scale-105">
-                        <Image
-                          src={product.imageSrc}
-                          alt={product.imageAlt}
-                          className="h-64 w-full object-cover object-center transition-all duration-300 ease-in-out group-hover:opacity-95"
-                          width={500}
-                          height={500}
-                        />
-                      </div>
-                      <div className="mt-4 flex justify-between">
-                        <div>
-                          <h3 className="text-sm text-gray-700">
-                            <Link href={product.href}>
-                              <span aria-hidden="true" className="absolute inset-0" />
-                              {product.name}
-                            </Link>
-                          </h3>
-                          <ul className="mt-1 space-y-1">
-                            {product.specifications.map((spec, index) => (
-                              <li key={index} className="text-sm text-gray-500">
-                                {spec}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                        <div>
-                          <p className="text-sm font-medium text-gray-900">{product.price}</p>
-                          <p className="text-sm text-gray-500">/{product.unit}</p>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              {cat.products.map((product, i) => (
+                <div
+                  key={i}
+                  className="group bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-300"
+                >
+                  <div className="relative aspect-[4/3] w-full">
+                    <Image
+                      src={product.image}
+                      alt={product.name}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <div className="p-3 text-center">
+                    <h3 className="text-gray-800 font-medium">{product.name}</h3>
+                  </div>
                 </div>
-              </div>
+              ))}
+            </div>
+
+            <div className="text-center mt-6">
+              <Link
+                href={cat.link}
+                className="inline-block bg-blue-900 text-white px-6 py-2 rounded-full font-medium hover:bg-blue-800 transition-colors"
+              >
+                Xem thêm {cat.title.toLowerCase()}
+              </Link>
             </div>
           </section>
-        </main>
-      </div>
+        ))}
+      </main>
+
       <Footer />
     </div>
   );
-} 
+}
