@@ -6,7 +6,6 @@ on:
   pull_request:
     branches: [ main ]
 
-# ✅ Thêm block này
 permissions:
   contents: write
 
