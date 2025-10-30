@@ -98,11 +98,11 @@ export default function Home() {
         <div className="relative mt-20">
           <div className="absolute inset-0">
             <Image
-              className="w-full h-[600px] object-cover object-center border border-gray-900/10"
+              className="w-full h-[700px] object-cover object-center border border-gray-900/10"
               src={`${prefix}/images/banner_2.jpg`}
               alt="Steel Shop Banner"
               width={1920}
-              height={600}
+              height={700}
               priority
             />
             <div className="absolute inset-0 bg-gray-900/70 mix-blend-multiply" />
@@ -112,7 +112,7 @@ export default function Home() {
           <div
             ref={heroRef}
             className={`relative mx-auto max-w-7xl flex flex-col justify-center items-start text-left px-6 lg:px-8 py-28 sm:py-30 lg:py-30 ${montserrat.className}`}
-            style={{ minHeight: '600px' }} // ensures text stays centered in full image
+            style={{ minHeight: '700px' }} // ensures text stays centered in full image
           >
             <h1
               className={`text-6xl sm:text-7xl lg:text-8xl font-extrabold tracking-wide text-white uppercase leading-tight drop-shadow-md transition-all duration-1000 ${
@@ -141,24 +141,31 @@ export default function Home() {
           </div>
         </div>
 
-
         {/* Featured section with scroll animation */}
         <div className="bg-white">
-          <div 
+            <div 
             ref={productsRef}
-            className="mx-auto max-w-2xl px-4 py-10 sm:px-6 sm:py-14 lg:max-w-7xl lg:px-8"
+            className="mx-auto max-w-2xl px-4 py-10  sm:px-6 sm:py-14 lg:max-w-7xl lg:px-8"
           >
-            <h2 className={`text-3xl font-bold tracking-tight text-gray-900 transition-all duration-1000 ${
-              productsVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
-            }`}>
-              Sản phẩm nổi bật
-            </h2>
-            <p className={`mt-4 text-lg text-gray-500 transition-all duration-1000 delay-100 ${
-              productsVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
-            }`}>
-              Khám phá các sản phẩm sắt thép chất lượng cao của chúng tôi
-            </p>
+            {/* Centered heading and description */}
+            <div className="text-center">
+              <h2
+                className={`text-3xl font-extrabold text-gray-900 sm:text-4xl transition-all duration-1000 ${
+                  productsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                }`}
+              >
+                Sản phẩm nổi bật
+              </h2>
+              <p
+                className={`mt-4 text-lg text-gray-500 transition-all duration-1000 delay-100 ${
+                  productsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                }`}
+              >
+                Khám phá các sản phẩm sắt thép chất lượng cao của chúng tôi
+              </p>
+            </div>
 
+            {/* Product Grid */}
             <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
               {featuredProducts.map((product, index) => {
                 const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
@@ -208,10 +215,11 @@ export default function Home() {
               </Link>
             </div>
           </div>
+
         </div>
         
         {/* Certificates section with scroll animation */}
-        <div className="bg-white py-16">
+        <div className="bg-white py-10  ">
           <div 
             ref={certsRef}
             className="mx-auto max-w-7xl px-4 lg:px-6 text-center"
@@ -255,7 +263,7 @@ export default function Home() {
         </div>
 
         {/* Partners section with scroll animation */}
-        <div className="bg-gray-50 py-16">
+        <div className="bg-gray-50 py-16  ">
           <div 
             ref={partnersRef}
             className="mx-auto max-w-7xl px-4 lg:px-6 text-center"

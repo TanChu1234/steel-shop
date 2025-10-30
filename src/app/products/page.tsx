@@ -90,76 +90,76 @@ export default function ProductsPage() {
     <div className="bg-gray-50 min-h-screen">
       <Header />
 
-      {/* --- Hero Banner (fixed full-size like homepage) --- */}
+      {/* --- Hero Banner --- */}
       <div className="relative mt-20">
         {/* Fixed banner height and full width */}
-        <div className="relative w-full h-[700px] overflow-hidden">
+        <div className="absolute inset-0">
           <Image
+            className="w-full h-[700px] object-cover object-center border border-gray-900/10"
             src={`${prefix}/images/banner_2.jpg`}
             alt="Products Banner"
-            fill
+            width={1920}
+            height={700}
             priority
-            className="object-cover object-center border border-gray-900/10"
-            sizes="100vw"
           />
           {/* Dark overlay */}
           <div className="absolute inset-0 bg-gray-900/70 mix-blend-multiply" />
         </div>
 
-        {/* Centered content */}
+        {/* Content aligned left like hero section */}
         <div
           ref={heroRef}
-          className={`absolute inset-0 flex flex-col justify-center items-start text-left px-6 lg:px-8 ${montserrat.className}`}
+          className={`relative mx-auto max-w-7xl flex flex-col justify-center items-start text-left px-6 lg:px-8 py-28 sm:py-30 lg:py-30 ${montserrat.className}`}
+          style={{ minHeight: '700px' }} // keeps text vertically centered
         >
-          <div className="max-w-7xl mx-auto">
-            <h1
-              className={`text-6xl sm:text-7xl lg:text-8xl font-extrabold tracking-wide text-white uppercase leading-tight drop-shadow-md transition-all duration-1000 ${
-                heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          <h1
+            className={`text-6xl sm:text-7xl lg:text-8xl font-extrabold tracking-wide text-white uppercase leading-tight drop-shadow-md transition-all duration-1000 ${
+              heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+          >
+            SẢN PHẨM
+            <br className="hidden sm:block" />
+            <span
+              className={`block mt-10 text-3xl sm:text-4xl lg:text-5xl font-semibold text-white tracking-normal normal-case transition-all duration-1000 delay-200 ${
+                heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
-              SẢN PHẨM
-              <br className="hidden sm:block" />
-              <span
-                className={`block mt-10 text-3xl sm:text-4xl lg:text-5xl font-semibold text-white tracking-normal normal-case transition-all duration-1000 delay-200 ${
-                  heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-                }`}
-              >
-                Chất lượng cao - Giá cả cạnh tranh
-              </span>
-            </h1>
+              Chất lượng cao - Giá cả cạnh tranh
+            </span>
+          </h1>
 
-            <p
-              className={`mt-6 max-w-xl text-xl text-gray-300 leading-relaxed transition-all duration-1000 delay-300 ${
-                heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-              }`}
-            >
-              Cung cấp đa dạng các loại thép xây dựng, thép hình, thép ống - hộp - vuông
-              và inox chất lượng cao, đáp ứng mọi nhu cầu công trình.
-            </p>
+          <p
+            className={`mt-6 max-w-xl text-xl text-gray-300 leading-relaxed transition-all duration-1000 delay-300 ${
+              heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+          >
+            Cung cấp đa dạng các loại thép xây dựng, thép hình, thép ống - hộp - vuông
+            và inox chất lượng cao, đáp ứng mọi nhu cầu công trình.
+          </p>
 
-            <div
-              className={`mt-10 flex items-center gap-x-6 transition-all duration-1000 delay-500 ${
-                heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-              }`}
+          <div
+            className={`mt-10 flex items-center gap-x-6 transition-all duration-1000 delay-500 ${
+              heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+          >
+            <Link
+              href="/contact"
+              className="bg-blue-900 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm rounded-lg 
+                        hover:bg-blue-800 hover:scale-105 transform transition-transform duration-200 
+                        focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900"
             >
-              <Link
-                href="/contact"
-                className="bg-blue-900 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm rounded-lg 
-                          hover:bg-blue-800 hover:scale-105 transform transition-transform duration-200 
-                          focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900"
-              >
-                Liên hệ tư vấn
-              </Link>
-              <Link
-                href="/about"
-                className="text-sm font-semibold leading-6 text-white hover:text-blue-300 transition-all duration-200"
-              >
-                Về chúng tôi <span aria-hidden="true">→</span>
-              </Link>
-            </div>
+              Liên hệ tư vấn
+            </Link>
+            <Link
+              href="/about"
+              className="text-sm font-semibold leading-6 text-white hover:text-blue-300 transition-all duration-200"
+            >
+              Về chúng tôi <span aria-hidden="true">→</span>
+            </Link>
           </div>
         </div>
       </div>
+
 
       {/* --- Product Categories --- */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
