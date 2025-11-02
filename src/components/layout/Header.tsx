@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
-import { Dialog } from "@headlessui/react";
+import { Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { prefix } from '@/utils/prefix';
+import { prefix } from "@/utils/prefix";
 
 const navigation = [
   { name: "Trang chủ", href: "/" },
@@ -36,9 +37,9 @@ export default function Header() {
   }, []);
 
   return (
-    <header 
+    <header
       className={`fixed top-0 left-0 right-0 z-50 bg-[#f4f4f4]/95 backdrop-blur-sm shadow-sm transition-all duration-300 ease-in-out ${
-        scrolled ? 'py-2' : 'py-2'
+        scrolled ? "py-2" : "py-2"
       }`}
     >
       <nav
@@ -51,11 +52,14 @@ export default function Header() {
             href="/"
             className="flex items-center hover:opacity-90 transition-opacity duration-200"
           >
-            <img
+            <Image
               src={`${prefix}/images/logo.png`}
               alt="Logo"
+              width={160}
+              height={60}
+              priority
               className={`object-contain transition-all duration-300 ease-in-out ${
-                scrolled ? 'h-12' : 'h-18'
+                scrolled ? "h-12" : "h-16"
               }`}
             />
           </Link>
@@ -73,14 +77,14 @@ export default function Header() {
           </button>
         </div>
 
-        {/* Desktop nav */}
+        {/* Desktop navigation */}
         <div className="hidden lg:flex lg:gap-x-8 items-center">
           {navigation.map((item) => (
             <Link
               key={item.name}
               href={item.href}
               className={`font-semibold text-gray-900 hover:text-blue-900 relative group transition-all duration-300 ease-in-out whitespace-nowrap ${
-                scrolled ? 'text-base py-1' : 'text-lg py-2'
+                scrolled ? "text-base py-1" : "text-lg py-2"
               }`}
             >
               {item.name}
@@ -89,12 +93,12 @@ export default function Header() {
           ))}
         </div>
 
-        {/* CTA */}
+        {/* Call-to-action */}
         <div className="hidden lg:flex lg:flex-1 lg:justify-end items-center">
           <Link
             href="/contact"
             className={`font-semibold text-blue-900 px-4 py-2 border border-transparent rounded-md hover:border-blue-900 hover:bg-blue-50 transition-all duration-300 ease-in-out whitespace-nowrap ${
-              scrolled ? 'text-base' : 'text-lg'
+              scrolled ? "text-base" : "text-lg"
             }`}
           >
             Yêu cầu báo giá <span aria-hidden="true">&rarr;</span>
@@ -110,7 +114,8 @@ export default function Header() {
         onClose={setMobileMenuOpen}
       >
         <div className="fixed inset-0 z-50 bg-black/30" />
-        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+        <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+
           <div className="flex items-center justify-between">
             <Link
               href="/"
