@@ -7,6 +7,7 @@ const nextConfig = {
   assetPrefix: isProduction ? '/steel-shop' : '',
   output: 'export',
   trailingSlash: true,
+  allowedDevOrigins: ['192.168.52.101', 'http://192.168.52.101:3000'],
   env: {
     NEXT_PUBLIC_BASE_PATH: isProduction ? '/steel-shop' : '',
   },

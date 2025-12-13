@@ -1,7 +1,16 @@
+'use client';
+
 import Image from 'next/image';
+import { useEffect, useRef, useState } from 'react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { prefix } from '@/utils/prefix';
+import { Montserrat } from 'next/font/google';
+
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  weight: ['400', '600', '700', '800'],
+});
 
 const stats = [
   { name: 'Năm kinh nghiệm', value: '15+' },
@@ -37,44 +46,84 @@ const certifications = [
   {
     name: 'ISO 9001:2015',
     description: 'Chứng nhận hệ thống quản lý chất lượng',
-    image: '/images/iso-9001.png',
+    image: `${prefix}/images/iso-9001.png`,
   },
   {
     name: 'TCVN',
     description: 'Chứng nhận sản phẩm đạt tiêu chuẩn Việt Nam',
-    image: '/images/tcvn.png',
+    image: `${prefix}/images/tcvn.png`,
   },
   {
     name: 'JIS',
     description: 'Chứng nhận đạt tiêu chuẩn công nghiệp Nhật Bản',
-    image: '/images/jis.png',
+    image: `${prefix}/images/jis.png`,
   },
 ];
 
 export default function AboutPage() {
+  // 👇 Added missing animation logic
+  const heroRef = useRef<HTMLDivElement | null>(null);
+  const [heroVisible, setHeroVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setHeroVisible(true);
+        });
+      },
+      { threshold: 0.3 }
+    );
+    if (heroRef.current) observer.observe(heroRef.current);
+    return () => {
+      if (heroRef.current) observer.unobserve(heroRef.current);
+    };
+  }, []);
+
   return (
     <div>
       <Header />
       <main>
-        {/* Hero section */}
-        <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
-          <Image
-            src={`${prefix}/images/banner_2.jpg`}
-            alt="Steel Shop"
-            className="absolute inset-0 -z-10 h-full w-full object-cover opacity-25"
-            width={1920}
-            height={600}
-          />
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="mx-auto max-w-2xl lg:mx-0">
-              <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">Về chúng tôi</h1>
-              <p className="mt-6 text-lg leading-8 text-gray-300">
-                Steel Shop tự hào là một trong những đơn vị hàng đầu trong lĩnh vực cung cấp sắt thép xây dựng tại Việt Nam. 
-                Với hơn 15 năm kinh nghiệm, chúng tôi luôn nỗ lực mang đến cho khách hàng những sản phẩm chất lượng cao với 
-                giá cả cạnh tranh nhất.
-              </p>
-            </div>
-            <div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
+        {/* ---------------- Hero Section ---------------- */}
+        <div className="relative mt-20">
+          <div className="absolute inset-0">
+            <Image
+              className="w-full h-[700px] object-cover object-center border border-gray-900/10"
+              src={`${prefix}/images/banner_2.jpg`}
+              alt="Steel Shop Banner"
+              width={1920}
+              height={700}
+              priority
+            />
+            <div className="absolute inset-0 bg-gray-900/70 mix-blend-multiply" />
+          </div>
+
+          <div
+            ref={heroRef}
+            className={`relative mx-auto max-w-7xl flex flex-col justify-center items-start text-left px-6 lg:px-8 py-28 ${montserrat.className}`}
+            style={{ minHeight: '700px' }}
+          >
+            <h1
+              className={`text-6xl sm:text-7xl lg:text-8xl font-extrabold tracking-wide text-white uppercase leading-tight drop-shadow-md transition-all duration-1000 ${
+                heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+            >
+              Về chúng tôi
+              <br className="hidden sm:block" />
+              
+            </h1>
+
+            <p
+              className={`mt-6 max-w-xl text-xl text-gray-300 leading-relaxed transition-all duration-1000 delay-300 ${
+                heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+            >
+              Phúc Hải Liên tự hào là một trong những đơn vị hàng đầu trong lĩnh vực cung cấp sắt thép xây dựng tại Việt Nam.
+              Với hơn 15 năm kinh nghiệm, chúng tôi luôn nỗ lực mang đến cho khách hàng những sản phẩm chất lượng cao với
+              giá cả cạnh tranh nhất.
+            </p>
+
+            <div className="mx-auto mt-6 max-w-2xl lg:mx-0 lg:max-w-none">
               <dl className="mt-16 grid grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4">
                 {stats.map((stat) => (
                   <div key={stat.name} className="flex flex-col-reverse">
@@ -87,14 +136,13 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Values section */}
+        {/* ---------------- Values Section ---------------- */}
         <div className="bg-white py-24 sm:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-2xl lg:mx-0">
-              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Giá trị cốt lõi</h2>
+              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">Giá trị cốt lõi</h2>
               <p className="mt-6 text-lg leading-8 text-gray-600">
-                Chúng tôi luôn tuân thủ những giá trị cốt lõi trong hoạt động kinh doanh để mang đến sự hài lòng 
-                tối đa cho khách hàng.
+                Chúng tôi luôn tuân thủ những giá trị cốt lõi trong hoạt động kinh doanh để mang đến sự hài lòng tối đa cho khách hàng.
               </p>
             </div>
             <dl className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 text-base leading-7 text-gray-600 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:gap-x-16">
@@ -111,11 +159,11 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Certifications section */}
-        <div className="bg-gray-50 py-24 sm:py-32">
+        {/* ---------------- Certifications Section ---------------- */}
+        <div className="bg-gray-100 py-24 sm:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-2xl lg:mx-0">
-              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">
                 Chứng nhận & Chứng chỉ
               </h2>
               <p className="mt-6 text-lg leading-8 text-gray-600">
@@ -150,4 +198,4 @@ export default function AboutPage() {
       <Footer />
     </div>
   );
-} 
+}

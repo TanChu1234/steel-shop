@@ -32,7 +32,7 @@ const categories = [
     link: "/products/thep-hinh",
   },
   {
-    title: "Thép ống - Hộp - Vuông",
+    title: "Thép Ống - Hộp - Vuông",
     products: [
       { name: "Thép ống", image: `${prefix}/images/products/thep-ong.jpg` },
       { name: "Thép hộp chữ nhật", image: `${prefix}/images/products/thep-hop-chu-nhat.jpg` },
@@ -150,12 +150,6 @@ export default function ProductsPage() {
             >
               Liên hệ tư vấn
             </Link>
-            <Link
-              href="/about"
-              className="text-sm font-semibold leading-6 text-white hover:text-blue-300 transition-all duration-200"
-            >
-              Về chúng tôi <span aria-hidden="true">→</span>
-            </Link>
           </div>
         </div>
       </div>
@@ -195,7 +189,7 @@ export default function ProductsPage() {
                 href={cat.link}
                 className="inline-block bg-blue-900 text-white px-6 py-2 rounded-full font-medium hover:bg-blue-800 transition-colors"
               >
-                Xem thêm {cat.title.toLowerCase()}
+                Xem thêm
               </Link>
             </div>
           </section>

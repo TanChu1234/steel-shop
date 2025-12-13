@@ -14,7 +14,7 @@ const montserrat = Montserrat({
 });
 
 // -------------------------
-// 🔹 Custom Hook
+// 🔹 Custom Hook - FIXED
 // -------------------------
 interface ScrollAnimationOptions {
   threshold?: number;
@@ -29,6 +29,7 @@ function useScrollAnimation(options: ScrollAnimationOptions = {}) {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
+        // FIX: Only update if state actually changes
         if (entry.isIntersecting && !isVisible) {
           setIsVisible(true);
         }
@@ -37,12 +38,16 @@ function useScrollAnimation(options: ScrollAnimationOptions = {}) {
     );
 
     const currentRef = ref.current;
-    if (currentRef) observer.observe(currentRef);
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
 
     return () => {
-      if (currentRef) observer.unobserve(currentRef);
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
     };
-  }, [threshold, rootMargin, isVisible]);
+  }, [threshold, rootMargin, isVisible]); // FIX: Added isVisible to dependencies
 
   return { ref, isVisible };
 }
@@ -54,47 +59,39 @@ const featuredProducts = [
   {
     id: 1,
     name: 'Thép xây dựng',
-    description:
-      'Thép cuộn, thép thanh vằn và thép tròn trơn chất lượng cao, đạt tiêu chuẩn TCVN, đảm bảo độ bền và an toàn cho công trình.',
+    description: 'Thép cuộn, thép thanh vằn và thép tròn trơn chất lượng cao, đạt tiêu chuẩn TCVN.',
     href: '/products/construction-steel',
     imageSrc: `${prefix}/images/thep_xay_dung.jpg`,
-    imageAlt:
-      'Thép xây dựng gồm thép cuộn, thép thanh vằn, thép cây đạt tiêu chuẩn TCVN, sử dụng trong công trình dân dụng và công nghiệp',
+    imageAlt: 'Thép xây dựng gồm thép cuộn, thép thanh vằn, thép cây đạt tiêu chuẩn TCVN, sử dụng trong công trình dân dụng và công nghiệp',
   },
   {
     id: 2,
     name: 'Thép hình',
-    description:
-      'Thép hình U, I, H, V, C với độ cứng và khả năng chịu tải cao, được sử dụng rộng rãi trong kết cấu nhà xưởng, cầu đường và cơ khí chế tạo.',
+    description: 'Thép hình với độ bền và khả năng chịu tải cao. Đa dạng các loại như U, I, H, V, C ... ',
     href: '/products/alphabet-shape-steel',
     imageSrc: `${prefix}/images/thep_hinh.jpg`,
-    imageAlt:
-      'Thép hình chữ U, I, H, V dùng trong kết cấu thép, nhà xưởng, cầu đường và công trình cơ khí',
+    imageAlt: 'Thép hình chữ U, I, H, V dùng trong kết cấu thép, nhà xưởng, cầu đường và được sử dụng rộng rãi trong kết cấu nhà xưởng, cầu đường và cơ khí chế tạo',
   },
   {
     id: 3,
     name: 'Tôn',
-    description:
-      'Tôn lợp, tôn lạnh, tôn mạ kẽm chất lượng cao, đa dạng mẫu mã, đảm bảo độ bền màu, chống gỉ sét và cách nhiệt tốt cho công trình.',
+    description: 'Tôn lợp, tôn lạnh, tôn mạ kẽm chất lượng cao, đa dạng mẫu mã, đảm bảo độ bền màu, chống gỉ sét và cách nhiệt tốt.',
     href: '/products/metal-sheets',
     imageSrc: `${prefix}/images/ton.jpg`,
-    imageAlt:
-      'Tôn lạnh, tôn màu, tôn kẽm chống ăn mòn, độ bền cao, dùng cho mái nhà và nhà xưởng',
+    imageAlt: 'Tôn lạnh, tôn màu, tôn kẽm chống ăn mòn, độ bền cao, cách nhiệt tốt, dùng cho mái nhà và nhà xưởng',
   },
   {
     id: 4,
     name: 'Xà gồ',
-    description:
-      'Xà gồ thép C, Z mạ kẽm có độ cứng cao, trọng lượng nhẹ, thích hợp cho kết cấu mái và khung nhà thép tiền chế.',
+    description: 'Xà gồ thép C, Z mạ kẽm có độ cứng cao, trọng lượng nhẹ, thích hợp cho kết cấu mái và khung nhà thép tiền chế.',
     href: '/products/purlins',
     imageSrc: `${prefix}/images/xago.jpg`,
-    imageAlt:
-      'Xà gồ thép C và Z mạ kẽm, dùng trong kết cấu mái và khung nhà tiền chế, độ bền cao chống ăn mòn',
+    imageAlt: 'Xà gồ thép C và Z mạ kẽm, dùng trong kết cấu mái và khung nhà tiền chế, độ bền cao chống ăn mòn',
   },
 ];
 
 // -------------------------
-// 🔹 ProductCard Component
+// 🔹 ProductCard Component - FIXED
 // -------------------------
 interface ProductCardProps {
   product: {
@@ -119,32 +116,41 @@ function ProductCard({ product, index }: ProductCardProps) {
       }`}
       style={{ transitionDelay: `${index * 150}ms` }}
     >
-      <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden bg-white rounded-xl shadow-md border border-gray-200 group-hover:shadow-xl group-hover:scale-105 transition-transform duration-300">
-        <Image
-          src={product.imageSrc}
-          alt={product.imageAlt}
-          className="h-64 w-full object-cover object-center transition-all duration-300 ease-in-out group-hover:opacity-95"
-          width={500}
-          height={500}
-        />
+      <div className="w-full overflow-hidden bg-white rounded-xl shadow-md border border-gray-200 group-hover:shadow-xl group-hover:scale-105 transition-transform duration-300">
+        {/* FIX: Removed aspect-ratio classes and fixed image styling */}
+        <div className="relative h-64 w-full">
+          <Image
+            src={product.imageSrc}
+            alt={product.imageAlt}
+            className="object-cover object-center transition-all duration-300 ease-in-out group-hover:opacity-95"
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+          />
+        </div>
       </div>
-      <div className="mt-4 flex justify-between">
-        <div>
+      <div className="mt-4">
+        {/* FIX: Added relative positioning for the link overlay */}
+        <div className="relative">
           <h3 className="text-lg font-bold text-gray-700">
-            <Link href={product.href}>
-              <span aria-hidden="true" className="absolute inset-0" />
+            <Link href={product.href} className="relative z-10">
               {product.name}
             </Link>
           </h3>
-          <p className="mt-1 text-md text-gray-500">{product.description}</p>
+          {/* FIX: Added absolute overlay for the entire card click area */}
+          <Link 
+            href={product.href} 
+            className="absolute inset-0 z-0" 
+            aria-label={`Xem chi tiết ${product.name}`}
+          />
         </div>
+        <p className="mt-1 text-md text-gray-500">{product.description}</p>
       </div>
     </div>
   );
 }
 
 // -------------------------
-// 🔹 Main Page Component
+// 🔹 Main Page Component - FIXED
 // -------------------------
 export default function Home() {
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation({ threshold: 0.2 });
@@ -153,10 +159,10 @@ export default function Home() {
   const { ref: partnersRef, isVisible: partnersVisible } = useScrollAnimation({ threshold: 0.15 });
 
   return (
-    <div>
+    <div className={montserrat.className}>
       <Header />
       <main>
-        {/* ---------------- Hero Section ---------------- */}
+        {/* ---------------- Hero Section - FIXED ---------------- */}
         <div className="relative mt-20">
           <div className="absolute inset-0">
             <Image
@@ -172,7 +178,7 @@ export default function Home() {
 
           <div
             ref={heroRef}
-            className={`relative mx-auto max-w-7xl flex flex-col justify-center items-start text-left px-6 lg:px-8 py-28 ${montserrat.className}`}
+            className="relative mx-auto max-w-7xl flex flex-col justify-center items-start text-left px-6 lg:px-8 py-28"
             style={{ minHeight: '700px' }}
           >
             <h1
@@ -199,10 +205,35 @@ export default function Home() {
               Cung cấp đa dạng sản phẩm sắt thép xây dựng với chất lượng đảm bảo,
               giá cả cạnh tranh và dịch vụ chuyên nghiệp.
             </p>
+
+            <div
+              className={`mt-10 flex items-center gap-x-6 transition-all duration-1000 delay-500 ${
+                heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+            >
+              <Link
+                href="/product"
+                className="bg-blue-900 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm rounded-lg 
+                          hover:bg-blue-800 hover:scale-105 transform transition-transform duration-200 
+                          focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900"
+              >
+                Xem sản phẩm
+              </Link>
+              <Link
+                href="/about"
+                className="text-sm font-semibold leading-6 text-white hover:text-blue-300 transition-all duration-200"
+              >
+                Về chúng tôi <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+
           </div>
+
+          
+          
         </div>
 
-        {/* ---------------- Featured Section ---------------- */}
+        {/* ---------------- Featured Section - FIXED ---------------- */}
         <div className="bg-white">
           <div
             ref={productsRef}
@@ -246,7 +277,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* ---------------- Certificates Section ---------------- */}
+        {/* ---------------- Certificates Section - FIXED ---------------- */}
         <div className="bg-white py-10">
           <div ref={certsRef} className="mx-auto max-w-7xl px-4 lg:px-6 text-center">
             <h2
@@ -265,35 +296,42 @@ export default function Home() {
               ứng tiêu chuẩn cao nhất.
             </p>
 
-            <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 items-center">
+            <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center">
               {[
-                { src: `${prefix}/images/certification_1.jpg`, alt: 'ISO 9001' },
-                { src: `${prefix}/images/certification_2.jpg`, alt: 'ISO 14001' },
-                { src: `${prefix}/images/certification_3.jpg`, alt: 'OHSAS 18001' },
-                { src: `${prefix}/images/certification_1.jpg`, alt: 'Award' },
+                { src: `${prefix}/images/certification_1.jpg`, alt: "ISO 9001" },
+                { src: `${prefix}/images/certification_2.jpg`, alt: "ISO 14001" },
+                { src: `${prefix}/images/certification_3.jpg`, alt: "OHSAS 18001" },
+                { src: `${prefix}/images/certification_1.jpg`, alt: "Award" },
               ].map((cert, idx) => (
                 <div
                   key={idx}
-                  className={`flex justify-center items-center p-4 bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-1000 ${
-                    certsVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
-                  }`}
+                  className={`flex justify-center items-center
+                    w-full max-w-[160px]
+                    transition-all duration-700
+                    ${
+                      certsVisible
+                        ? "opacity-100 translate-y-0"
+                        : "opacity-0 translate-y-8"
+                    }`}
                   style={{ transitionDelay: `${200 + idx * 100}ms` }}
                 >
-                  <Image
-                    src={cert.src}
-                    alt={cert.alt}
-                    width={80}
-                    height={250}
-                    className="object-contain transition-transform duration-300 ease-in-out hover:scale-105"
-                  />
+                  <div className="relative w-24 aspect-[3/4]">
+                    <Image
+                      src={cert.src}
+                      alt={cert.alt}
+                      fill
+                      className="object-contain transition-transform duration-300 hover:scale-105"
+                      sizes="96px"
+                    />
+                  </div>
                 </div>
               ))}
             </div>
           </div>
         </div>
 
-        {/* ---------------- Partners Section ---------------- */}
-        <div className="bg-gray-50 py-16">
+        {/* ---------------- Partners Section - FIXED ---------------- */}
+        <div className="bg-gray-100 py-16">
           <div ref={partnersRef} className="mx-auto max-w-7xl px-4 lg:px-6 text-center">
             <h2
               className={`text-3xl font-extrabold text-gray-900 sm:text-4xl transition-all duration-1000 ${
@@ -313,10 +351,10 @@ export default function Home() {
 
             <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 items-center">
               {[
-                { src: `${prefix}/images/hoaphat.jpg`, alt: 'Hòa Phát' },
-                { src: `${prefix}/images/hsg.jpg`, alt: 'Hòa Sen' },
-                { src: `${prefix}/images/sendo-logo.jpg`, alt: 'Sendo' },
-                { src: `${prefix}/images/vinakyoei.jpg`, alt: 'Vina Kyoei' },
+                { src: `${prefix}/images/hoaphat.png`, alt: 'Hòa Phát' },
+                { src: `${prefix}/images/hsg.png`, alt: 'Hoa Sen' },
+                { src: `${prefix}/images/sendo-logo.png`, alt: 'Sendo' },
+                { src: `${prefix}/images/vinakyoei.png`, alt: 'Vina Kyoei' },
               ].map((partner, idx) => (
                 <div
                   key={idx}
@@ -325,13 +363,15 @@ export default function Home() {
                   }`}
                   style={{ transitionDelay: `${200 + idx * 100}ms` }}
                 >
-                  <Image
-                    src={partner.src}
-                    alt={partner.alt}
-                    width={150}
-                    height={80}
-                    className="h-20 object-contain transition-transform duration-300 ease-in-out hover:scale-110"
-                  />
+                  <div className="relative w-48 h-24">
+                    <Image
+                      src={partner.src}
+                      alt={partner.alt}
+                      fill
+                      className="object-contain transition-transform duration-300 ease-in-out hover:scale-110"
+                      sizes="128px"
+                    />
+                  </div>
                 </div>
               ))}
             </div>
@@ -341,10 +381,10 @@ export default function Home() {
                 partnersVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
-              <h3 className="text-3xl font-bold text-gray-900 sm:text-4xl">
+              <h3 className="`text-3xl font-extrabold text-gray-900 sm:text-4xl transition-all duration-1000">
                 Đối tác tin cậy trong ngành sắt thép
               </h3>
-              <p className="mt-4 text-lg text-gray-500 max-w-3xl mx-auto">
+              <p className="mt-4 text-lg text-gray-500 max-w-4xl mx-auto">
                 Chúng tôi cam kết mang đến giải pháp toàn diện từ chất lượng sản phẩm,
                 giá cả hợp lý đến dịch vụ giao hàng nhanh chóng, giúp khách hàng an tâm trong mọi
                 dự án.
