@@ -116,10 +116,9 @@ const categories = [
 // -------------------------
 interface CategorySectionProps {
   category: typeof categories[0];
-  index: number;
 }
 
-function CategorySection({ category, index }: CategorySectionProps) {
+function CategorySection({ category }: CategorySectionProps) {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.15 });
 
   return (
@@ -132,7 +131,7 @@ function CategorySection({ category, index }: CategorySectionProps) {
         {category.title}
       </h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {category.products.map((product, i) => (
           <div
             key={i}
@@ -246,7 +245,7 @@ export default function ProductsPage() {
       {/* --- Product Categories --- */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {categories.map((cat, index) => (
-          <CategorySection key={index} category={cat} index={index} />
+          <CategorySection key={index} category={cat} />
         ))}
       </main>
 

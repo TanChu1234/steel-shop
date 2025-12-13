@@ -245,7 +245,7 @@ export default function AboutPage() {
                   valuesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                 }`}
               >
-                Với phương châm <span className="font-bold text-xl text-gray-900"> "Uy tín từ chất thép – Vững chắc mọi công trình" </span> ,
+                Với phương châm <span className="font-bold text-xl text-gray-900"> &ldquo;Uy tín từ chất thép – Vững chắc mọi công trình&rdquo; </span> ,
                 Phúc Hải Liên cam kết mang đến cho khách hàng những sản phẩm sắt thép chất lượng cao, đúng chuẩn kỹ thuật, 
                 cùng dịch vụ tư vấn tận tâm và giá cả cạnh tranh.
               </p>
