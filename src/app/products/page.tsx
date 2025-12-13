@@ -10,6 +10,44 @@ import { Montserrat } from "next/font/google";
 
 const montserrat = Montserrat({ subsets: ["latin"], weight: ["400", "600", "700", "800"] });
 
+// -------------------------
+// 🔹 Custom Hook for Scroll Animation
+// -------------------------
+interface ScrollAnimationOptions {
+  threshold?: number;
+  rootMargin?: string;
+}
+
+function useScrollAnimation(options: ScrollAnimationOptions = {}) {
+  const { threshold = 0.1, rootMargin = '0px' } = options;
+  const ref = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !isVisible) {
+          setIsVisible(true);
+        }
+      },
+      { threshold, rootMargin }
+    );
+
+    const currentRef = ref.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, [threshold, rootMargin, isVisible]);
+
+  return { ref, isVisible };
+}
+
 const categories = [
   {
     title: "Thép xây dựng",
@@ -73,18 +111,69 @@ const categories = [
   },
 ];
 
-export default function ProductsPage() {
-  const heroRef = useRef(null);
-  const [heroVisible, setHeroVisible] = useState(false);
+// -------------------------
+// 🔹 Category Section Component
+// -------------------------
+interface CategorySectionProps {
+  category: typeof categories[0];
+  index: number;
+}
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => setHeroVisible(entry.isIntersecting),
-      { threshold: 0.3 }
-    );
-    if (heroRef.current) observer.observe(heroRef.current);
-    return () => observer.disconnect();
-  }, []);
+function CategorySection({ category, index }: CategorySectionProps) {
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.15 });
+
+  return (
+    <section ref={ref} className="mb-14">
+      <h2 
+        className={`text-2xl font-semibold text-gray-700 mb-6 border-l-4 border-blue-900 pl-3 uppercase transition-all duration-1000 ${
+          isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
+        }`}
+      >
+        {category.title}
+      </h2>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+        {category.products.map((product, i) => (
+          <div
+            key={i}
+            className={`group bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-1000 ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+            style={{ transitionDelay: `${i * 100}ms` }}
+          >
+            <div className="relative aspect-[4/3] w-full">
+              <Image
+                src={product.image}
+                alt={product.name}
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            <div className="p-3 text-center">
+              <h3 className="text-gray-800 font-medium">{product.name}</h3>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div 
+        className={`text-center mt-6 transition-all duration-1000 delay-500 ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}
+      >
+        <Link
+          href={category.link}
+          className="inline-block bg-blue-900 text-white px-6 py-2 rounded-full font-medium hover:bg-blue-800 hover:scale-105 transform transition-all duration-200"
+        >
+          Xem thêm
+        </Link>
+      </div>
+    </section>
+  );
+}
+
+export default function ProductsPage() {
+  const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation({ threshold: 0.2 });
 
   return (
     <div className="bg-gray-50 min-h-screen">
@@ -109,8 +198,8 @@ export default function ProductsPage() {
         {/* Content aligned left like hero section */}
         <div
           ref={heroRef}
-          className={`relative mx-auto max-w-7xl flex flex-col justify-center items-start text-left px-6 lg:px-8 py-28 sm:py-30 lg:py-30 ${montserrat.className}`}
-          style={{ minHeight: '700px' }} // keeps text vertically centered
+          className={`relative mx-auto max-w-7xl flex flex-col justify-center items-start text-left px-6 lg:px-8 py-28 ${montserrat.className}`}
+          style={{ minHeight: '700px' }}
         >
           <h1
             className={`text-6xl sm:text-7xl lg:text-8xl font-extrabold tracking-wide text-white uppercase leading-tight drop-shadow-md transition-all duration-1000 ${
@@ -154,45 +243,10 @@ export default function ProductsPage() {
         </div>
       </div>
 
-
       {/* --- Product Categories --- */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {categories.map((cat, index) => (
-          <section key={index} className="mb-14">
-            <h2 className="text-2xl font-semibold text-gray-700 mb-6 border-l-4 border-blue-900 pl-3 uppercase">
-              {cat.title}
-            </h2>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              {cat.products.map((product, i) => (
-                <div
-                  key={i}
-                  className="group bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-300"
-                >
-                  <div className="relative aspect-[4/3] w-full">
-                    <Image
-                      src={product.image}
-                      alt={product.name}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                  <div className="p-3 text-center">
-                    <h3 className="text-gray-800 font-medium">{product.name}</h3>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="text-center mt-6">
-              <Link
-                href={cat.link}
-                className="inline-block bg-blue-900 text-white px-6 py-2 rounded-full font-medium hover:bg-blue-800 transition-colors"
-              >
-                Xem thêm
-              </Link>
-            </div>
-          </section>
+          <CategorySection key={index} category={cat} index={index} />
         ))}
       </main>
 
