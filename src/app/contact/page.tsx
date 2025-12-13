@@ -4,18 +4,18 @@ import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaClock } from 'react-icons/fa';
 
 const contactInfo = [
   {
-    name: 'Địa chỉ văn phòng',
-    description: '123 Đường ABC, Quận XYZ, TP.HCM',
+    name: 'Địa chỉ công ty',
+    description: '1602, Tổ 3, Ấp Ngọc Lâm 1, Xã Phú Thanh, Huyện Tân Phú, Tỉnh Đồng Nai',
     icon: FaMapMarkerAlt,
   },
   {
     name: 'Số điện thoại',
-    description: '0123 456 789',
+    description: '0911 392 277',
     icon: FaPhone,
   },
   {
     name: 'Email',
-    description: 'contact@steelshop.com',
+    description: 'phuchailien@gmail.com',
     icon: FaEnvelope,
   },
   {

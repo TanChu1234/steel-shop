@@ -234,7 +234,7 @@ export default function Home() {
         </div>
 
         {/* ---------------- Featured Section - FIXED ---------------- */}
-        <div className="bg-white">
+        <div className="bg-white py-8">
           <div
             ref={productsRef}
             className="mx-auto max-w-2xl px-4 py-10 sm:px-6 sm:py-14 lg:max-w-7xl lg:px-8"
@@ -278,7 +278,7 @@ export default function Home() {
         </div>
 
         {/* ---------------- Certificates Section - FIXED ---------------- */}
-        <div className="bg-white py-10">
+        <div className="bg-gray-100 py-18 ">
           <div ref={certsRef} className="mx-auto max-w-7xl px-4 lg:px-6 text-center">
             <h2
               className={`text-3xl font-extrabold text-gray-900 sm:text-4xl transition-all duration-1000 ${
@@ -296,7 +296,7 @@ export default function Home() {
               ứng tiêu chuẩn cao nhất.
             </p>
 
-            <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center">
+            <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap- mb-8 justify-items-center">
               {[
                 { src: `${prefix}/images/certification_1.jpg`, alt: "ISO 9001" },
                 { src: `${prefix}/images/certification_2.jpg`, alt: "ISO 14001" },
@@ -315,7 +315,7 @@ export default function Home() {
                     }`}
                   style={{ transitionDelay: `${200 + idx * 100}ms` }}
                 >
-                  <div className="relative w-24 aspect-[3/4]">
+                  <div className="relative w-32 sm:w-36 aspect-[3/4]">
                     <Image
                       src={cert.src}
                       alt={cert.alt}
@@ -331,7 +331,7 @@ export default function Home() {
         </div>
 
         {/* ---------------- Partners Section - FIXED ---------------- */}
-        <div className="bg-gray-100 py-16">
+        <div className="bg-white py-16">
           <div ref={partnersRef} className="mx-auto max-w-7xl px-4 lg:px-6 text-center">
             <h2
               className={`text-3xl font-extrabold text-gray-900 sm:text-4xl transition-all duration-1000 ${
@@ -341,7 +341,7 @@ export default function Home() {
               Đối tác chiến lược
             </h2>
             <p
-              className={`mt-4 text-lg text-gray-500 max-w-2xl mx-auto transition-all duration-1000 delay-100 ${
+              className={`mt-4 text-lg text-gray-500 max-w-4xl mx-auto transition-all duration-1000 delay-100 ${
                 partnersVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
               }`}
             >

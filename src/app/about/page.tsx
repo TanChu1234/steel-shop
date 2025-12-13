@@ -114,17 +114,18 @@ export default function AboutPage() {
             </h1>
 
             <p
-              className={`mt-6 max-w-xl text-xl text-gray-300 leading-relaxed transition-all duration-1000 delay-300 ${
+              className={`mt-12 max-w-3xl text-xl text-gray-300 leading-relaxed transition-all duration-1000 delay-300 ${
                 heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
               Phúc Hải Liên tự hào là một trong những đơn vị hàng đầu trong lĩnh vực cung cấp sắt thép xây dựng tại Việt Nam.
+              <br />
               Với hơn 15 năm kinh nghiệm, chúng tôi luôn nỗ lực mang đến cho khách hàng những sản phẩm chất lượng cao với
               giá cả cạnh tranh nhất.
             </p>
 
-            <div className="mx-auto mt-6 max-w-2xl lg:mx-0 lg:max-w-none">
-              <dl className="mt-16 grid grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mx-auto mt-2 max-w-2xl lg:mx-0 lg:max-w-none">
+              <dl className="mt-10 grid grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4">
                 {stats.map((stat) => (
                   <div key={stat.name} className="flex flex-col-reverse">
                     <dt className="text-base leading-7 text-gray-300">{stat.name}</dt>
@@ -135,14 +136,61 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
+        
+        {/* ---------------- Introduction Section ---------------- */}
+        <div className="bg-gray-100 py-24 sm:py-32">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 items-center">
+              
+              {/* Text */}
+              <div>
+                <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                  Giới thiệu chung
+                </h2>
+                <p className="mt-6 text-lg leading-8 text-gray-600">
+                  Công ty TNHH <span className="font-bold text-xl text-gray-900">PHÚC HẢI LIÊN </span> 
+                  được thành lập với sứ mệnh cung cấp các sản phẩm sắt thép xây dựng chất lượng cao,
+                  đáp ứng nhu cầu ngày càng cao của thị trường xây dựng và công nghiệp. 
+                  Trụ sở công ty đặt tại 1602, tổ 3, ấp Ngọc Lâm 1, xã Phú Thanh, huyện Tân Phú, tỉnh Đồng Nai.
+                </p>
+                <p className="mt-4 text-lg leading-8 text-gray-600">
+                  <span className="font-bold text-xl text-gray-900">Trải qua hơn  15 năm </span> hình thành và phát triển,  
+                  Phúc Hải Liên không ngừng nỗ lực để trở thành đối tác tin cậy 
+                  của các công trình dân dụng, công nghiệp và hạ tầng trên toàn quốc.
+                  Chúng tôi cung cấp đa dạng các loại thép xây dựng: thép cây, thép cuộn, thép hình, thép ống,… 
+                  từ các thương hiệu uy tín trong và ngoài nước.
+                </p>
+                <p className="mt-4 text-lg leading-8 text-gray-600">
+                <span className="font-bold text-xl text-gray-900"> Tầm nhìn: </span>Trở thành một trong những doanh nghiệp cung cấp sắt thép xây dựng uy tín 
+                hàng đầu khu vực miền Nam, góp phần xây dựng những công trình <span className="font-bold text-xl text-gray-900">bền vững – an toàn – chất lượng </span>.
+
+                </p>
+              </div>
+
+              {/* Image */}
+              <div className="relative">
+                <Image
+                  src={`${prefix}/images/about_intro.jpg`}
+                  alt="Giới thiệu Phúc Hải Liên"
+                  width={700}
+                  height={500}
+                  className="rounded-2xl object-cover shadow-lg"
+                />
+              </div>
+
+            </div>
+          </div>
+        </div>
 
         {/* ---------------- Values Section ---------------- */}
         <div className="bg-white py-24 sm:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="mx-auto max-w-2xl lg:mx-0">
-              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">Giá trị cốt lõi</h2>
+            <div className="mx-auto max-w-3xl lg:mx-0">
+              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Giá trị cốt lõi</h2>
               <p className="mt-6 text-lg leading-8 text-gray-600">
-                Chúng tôi luôn tuân thủ những giá trị cốt lõi trong hoạt động kinh doanh để mang đến sự hài lòng tối đa cho khách hàng.
+                Với phương châm <span className="font-bold text-xl text-gray-900"> “Uy tín từ chất thép – Vững chắc mọi công trình” </span> ,
+                Phúc Hải Liên cam kết mang đến cho khách hàng những sản phẩm sắt thép chất lượng cao, đúng chuẩn kỹ thuật, 
+                cùng dịch vụ tư vấn tận tâm và giá cả cạnh tranh.
               </p>
             </div>
             <dl className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 text-base leading-7 text-gray-600 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:gap-x-16">
@@ -163,7 +211,7 @@ export default function AboutPage() {
         <div className="bg-gray-100 py-24 sm:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-2xl lg:mx-0">
-              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                 Chứng nhận & Chứng chỉ
               </h2>
               <p className="mt-6 text-lg leading-8 text-gray-600">
@@ -180,8 +228,8 @@ export default function AboutPage() {
                     src={cert.image}
                     alt={cert.name}
                     className="absolute inset-0 -z-10 h-full w-full object-cover"
-                    width={500}
-                    height={500}
+                    width={300}
+                    height={300}
                   />
                   <div className="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/40" />
                   <h3 className="mt-3 text-lg font-semibold leading-6 text-white">
