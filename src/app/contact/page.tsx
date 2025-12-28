@@ -29,13 +29,13 @@ export default function ContactPage() {
   return (
     <div>
       <Header />
-      <main>
+      <main className="mt-20">
         <div className="relative isolate bg-white">
           <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
-            <div className="relative px-6 pb-20 pt-24 sm:pt-32 lg:static lg:px-8 lg:py-48">
+            <div className="relative px-4 sm:px-6 pb-12 sm:pb-16 lg:pb-20 pt-12 sm:pt-20 lg:pt-24 sm:pt-32 lg:static lg:px-8 lg:py-48">
               <div className="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
-                <h1 className="text-3xl font-bold tracking-tight text-gray-900">Liên hệ với chúng tôi</h1>
-                <p className="mt-6 text-lg leading-8 text-gray-600">
+                <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-gray-900">Liên hệ với chúng tôi</h1>
+                <p className="mt-4 sm:mt-6 text-base sm:text-lg leading-8 text-gray-600">
                   Hãy liên hệ với chúng tôi nếu bạn cần tư vấn về sản phẩm hoặc báo giá. 
                   Đội ngũ nhân viên của chúng tôi luôn sẵn sàng hỗ trợ bạn.
                 </p>
@@ -55,9 +55,9 @@ export default function ContactPage() {
                 </dl>
               </div>
             </div>
-            <form className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48">
+            <form className="px-4 sm:px-6 pb-12 sm:pb-16 lg:pb-24 pt-12 sm:pt-16 lg:pt-20 sm:pb-32 lg:px-8 lg:py-48">
               <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
-                <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+                <div className="grid grid-cols-1 gap-x-6 sm:gap-x-8 gap-y-4 sm:gap-y-6 sm:grid-cols-2">
                   <div>
                     <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-gray-900">
                       Họ
@@ -139,7 +139,7 @@ export default function ContactPage() {
               </div>
             </form>
           </div>
-          <div className="h-96 w-full">
+          <div className="h-64 sm:h-80 lg:h-96 w-full">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.4241674197156!2d106.70141931533417!3d10.777057062124266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f4b3330bcc7%3A0x4db964d76bf6e18e!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBCw6FjaCBraG9hIFRQLkhDTQ!5e0!3m2!1svi!2s!4v1629789732089!5m2!1svi!2s"
               className="h-full w-full border-0"

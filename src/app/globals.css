@@ -37,12 +37,6 @@ img,
   outline-offset: 2px;
 }
 
-/* Remove outline for search inputs */
-input[type="text"][name="search"]:focus-visible {
-  outline: none !important;
-  outline-offset: 0 !important;
-}
-
 /* Trong file globals.css hoặc tailwind.css */
 @keyframes fadeInUp {
   from {

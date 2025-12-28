@@ -122,16 +122,16 @@ function CategorySection({ category }: CategorySectionProps) {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.15 });
 
   return (
-    <section ref={ref} className="mb-14">
+    <section ref={ref} className="mb-8 sm:mb-10 lg:mb-14">
       <h2 
-        className={`text-2xl font-semibold text-gray-700 mb-6 border-l-4 border-blue-900 pl-3 uppercase transition-all duration-1000 ${
+        className={`text-lg sm:text-xl lg:text-2xl font-semibold text-gray-700 mb-4 sm:mb-5 lg:mb-6 border-l-4 border-blue-900 pl-2 sm:pl-3 uppercase transition-all duration-1000 ${
           isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
         }`}
       >
         {category.title}
       </h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
         {category.products.map((product, i) => (
           <div
             key={i}
@@ -148,21 +148,21 @@ function CategorySection({ category }: CategorySectionProps) {
                 className="object-cover group-hover:scale-105 transition-transform duration-300"
               />
             </div>
-            <div className="p-3 text-center">
-              <h3 className="text-gray-800 font-medium">{product.name}</h3>
+            <div className="p-3 sm:p-4 text-center">
+              <h3 className="text-sm sm:text-base text-gray-800 font-medium">{product.name}</h3>
             </div>
           </div>
         ))}
       </div>
 
       <div 
-        className={`text-center mt-6 transition-all duration-1000 delay-500 ${
+        className={`text-center mt-4 sm:mt-5 lg:mt-6 transition-all duration-1000 delay-500 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}
       >
         <Link
           href={category.link}
-          className="inline-block bg-blue-900 text-white px-6 py-2 rounded-full font-medium hover:bg-blue-800 hover:scale-105 transform transition-all duration-200"
+          className="inline-block bg-blue-900 text-white px-4 sm:px-5 lg:px-6 py-1.5 sm:py-2 text-sm sm:text-base rounded-full font-medium hover:bg-blue-800 hover:scale-105 transform transition-all duration-200"
         >
           Xem thêm
         </Link>
@@ -183,7 +183,7 @@ export default function ProductsPage() {
         {/* Fixed banner height and full width */}
         <div className="absolute inset-0">
           <Image
-            className="w-full h-[700px] object-cover object-center border border-gray-900/10"
+            className="w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] object-cover object-center border border-gray-900/10"
             src={`${prefix}/images/banner_2.jpg`}
             alt="Products Banner"
             width={1920}
@@ -197,18 +197,17 @@ export default function ProductsPage() {
         {/* Content aligned left like hero section */}
         <div
           ref={heroRef}
-          className={`relative mx-auto max-w-7xl flex flex-col justify-center items-start text-left px-6 lg:px-8 py-28 ${montserrat.className}`}
-          style={{ minHeight: '700px' }}
+          className={`relative mx-auto max-w-7xl flex flex-col justify-center items-start text-left px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20 lg:py-28 min-h-[400px] sm:min-h-[500px] md:min-h-[600px] lg:min-h-[700px] ${montserrat.className}`}
         >
           <h1
-            className={`text-6xl sm:text-7xl lg:text-8xl font-extrabold tracking-wide text-white uppercase leading-tight drop-shadow-md transition-all duration-1000 ${
+            className={`text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold tracking-wide text-white uppercase leading-tight drop-shadow-md transition-all duration-1000 ${
               heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
             SẢN PHẨM
             <br className="hidden sm:block" />
             <span
-              className={`block mt-10 text-3xl sm:text-4xl lg:text-5xl font-semibold text-white tracking-normal normal-case transition-all duration-1000 delay-200 ${
+              className={`block mt-4 sm:mt-6 md:mt-8 lg:mt-10 text-lg sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-white tracking-normal normal-case transition-all duration-1000 delay-200 ${
                 heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
@@ -217,7 +216,7 @@ export default function ProductsPage() {
           </h1>
 
           <p
-            className={`mt-6 max-w-xl text-xl text-gray-300 leading-relaxed transition-all duration-1000 delay-300 ${
+            className={`mt-4 sm:mt-6 max-w-xl text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed transition-all duration-1000 delay-300 ${
               heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
@@ -226,13 +225,13 @@ export default function ProductsPage() {
           </p>
 
           <div
-            className={`mt-10 flex items-center gap-x-6 transition-all duration-1000 delay-500 ${
+            className={`mt-6 sm:mt-8 md:mt-10 flex items-center gap-x-6 transition-all duration-1000 delay-500 ${
               heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
             <Link
               href="/contact"
-              className="bg-blue-900 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm rounded-lg 
+              className="bg-blue-900 px-4 sm:px-3.5 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold text-white shadow-sm rounded-lg 
                         hover:bg-blue-800 hover:scale-105 transform transition-transform duration-200 
                         focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900"
             >
@@ -243,7 +242,7 @@ export default function ProductsPage() {
       </div>
 
       {/* --- Product Categories --- */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12">
         {categories.map((cat, index) => (
           <CategorySection key={index} category={cat} />
         ))}
