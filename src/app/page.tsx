@@ -128,10 +128,10 @@ function ProductCard({ product, index }: ProductCardProps) {
           />
         </div>
       </div>
-      <div className="mt-3 sm:mt-4">
+      <div className="mt-4">
         {/* FIX: Added relative positioning for the link overlay */}
         <div className="relative">
-          <h3 className="text-base sm:text-lg font-bold text-gray-700">
+          <h3 className="text-lg font-bold text-gray-700">
             <Link href={product.href} className="relative z-10">
               {product.name}
             </Link>
@@ -143,7 +143,7 @@ function ProductCard({ product, index }: ProductCardProps) {
             aria-label={`Xem chi tiết ${product.name}`}
           />
         </div>
-        <p className="mt-1 text-sm sm:text-base text-gray-500">{product.description}</p>
+        <p className="mt-1 text-md text-gray-500">{product.description}</p>
       </div>
     </div>
   );
@@ -166,7 +166,7 @@ export default function Home() {
         <div className="relative mt-20">
           <div className="absolute inset-0">
             <Image
-              className="w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] object-cover object-center border border-gray-900/10"
+              className="w-full h-[700px] object-cover object-center border border-gray-900/10"
               src={`${prefix}/images/banner_2.jpg`}
               alt="Steel Shop Banner"
               width={1920}
@@ -178,17 +178,18 @@ export default function Home() {
 
           <div
             ref={heroRef}
-            className="relative mx-auto max-w-7xl flex flex-col justify-center items-start text-left px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20 lg:py-28 min-h-[400px] sm:min-h-[500px] md:min-h-[600px] lg:min-h-[700px]"
+            className="relative mx-auto max-w-7xl flex flex-col justify-center items-start text-left px-6 lg:px-8 py-28"
+            style={{ minHeight: '700px' }}
           >
             <h1
-              className={`text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold tracking-wide text-white uppercase leading-tight drop-shadow-md transition-all duration-1000 ${
+              className={`text-6xl sm:text-7xl lg:text-8xl font-extrabold tracking-wide text-white uppercase leading-tight drop-shadow-md transition-all duration-1000 ${
                 heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
               PHÚC HẢI LIÊN
               <br className="hidden sm:block" />
               <span
-                className={`block mt-4 sm:mt-6 md:mt-8 lg:mt-10 text-lg sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-white tracking-normal normal-case transition-all duration-1000 delay-200 ${
+                className={`block mt-10 text-3xl sm:text-4xl lg:text-5xl font-semibold text-white tracking-normal normal-case transition-all duration-1000 delay-200 ${
                   heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                 }`}
               >
@@ -197,7 +198,7 @@ export default function Home() {
             </h1>
 
             <p
-              className={`mt-4 sm:mt-6 max-w-xl text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed transition-all duration-1000 delay-300 ${
+              className={`mt-6 max-w-xl text-xl text-gray-300 leading-relaxed transition-all duration-1000 delay-300 ${
                 heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
@@ -206,13 +207,13 @@ export default function Home() {
             </p>
 
             <div
-              className={`mt-6 sm:mt-8 md:mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-x-6 transition-all duration-1000 delay-500 ${
+              className={`mt-10 flex items-center gap-x-6 transition-all duration-1000 delay-500 ${
                 heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
               <Link
                 href="/product"
-                className="bg-blue-900 px-4 sm:px-3.5 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold text-white shadow-sm rounded-lg 
+                className="bg-blue-900 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm rounded-lg 
                           hover:bg-blue-800 hover:scale-105 transform transition-transform duration-200 
                           focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900"
               >
@@ -220,7 +221,7 @@ export default function Home() {
               </Link>
               <Link
                 href="/about"
-                className="text-xs sm:text-sm font-semibold leading-6 text-white hover:text-blue-300 transition-all duration-200"
+                className="text-sm font-semibold leading-6 text-white hover:text-blue-300 transition-all duration-200"
               >
                 Về chúng tôi <span aria-hidden="true">→</span>
               </Link>
@@ -233,10 +234,10 @@ export default function Home() {
         </div>
 
         {/* ---------------- Featured Section - FIXED ---------------- */}
-        <div className="bg-white py-6 sm:py-8">
+        <div className="bg-white py-8">
           <div
             ref={productsRef}
-            className="mx-auto max-w-2xl px-4 py-8 sm:px-6 sm:py-10 md:py-14 lg:max-w-7xl lg:px-8"
+            className="mx-auto max-w-2xl px-4 py-10 sm:px-6 sm:py-14 lg:max-w-7xl lg:px-8"
           >
             <div className="text-center">
               <h2
@@ -255,7 +256,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="mt-8 sm:mt-10 grid grid-cols-1 gap-x-4 sm:gap-x-6 gap-y-6 sm:gap-y-8 lg:gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+            <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
               {featuredProducts.map((product, index) => (
                 <ProductCard key={product.id} product={product} index={index} />
               ))}
@@ -277,8 +278,8 @@ export default function Home() {
         </div>
 
         {/* ---------------- Certificates Section - FIXED ---------------- */}
-        <div className="bg-gray-100 py-12 sm:py-16 lg:py-18">
-          <div ref={certsRef} className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+        <div className="bg-gray-100 py-18 ">
+          <div ref={certsRef} className="mx-auto max-w-7xl px-4 lg:px-6 text-center">
             <h2
               className={`text-3xl font-extrabold text-gray-900 sm:text-4xl transition-all duration-1000 ${
                 certsVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
@@ -295,7 +296,7 @@ export default function Home() {
               ứng tiêu chuẩn cao nhất.
             </p>
 
-            <div className="mt-8 sm:mt-10 lg:mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mb-6 sm:mb-8 justify-items-center">
+            <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap- mb-8 justify-items-center">
               {[
                 { src: `${prefix}/images/certification_1.jpg`, alt: "ISO 9001" },
                 { src: `${prefix}/images/certification_2.jpg`, alt: "ISO 14001" },
@@ -330,8 +331,8 @@ export default function Home() {
         </div>
 
         {/* ---------------- Partners Section - FIXED ---------------- */}
-        <div className="bg-white py-12 sm:py-14 lg:py-16">
-          <div ref={partnersRef} className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+        <div className="bg-white py-16">
+          <div ref={partnersRef} className="mx-auto max-w-7xl px-4 lg:px-6 text-center">
             <h2
               className={`text-3xl font-extrabold text-gray-900 sm:text-4xl transition-all duration-1000 ${
                 partnersVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
@@ -348,7 +349,7 @@ export default function Home() {
               đảm bảo nguồn cung ổn định, chất lượng đồng nhất và dịch vụ tin cậy cho khách hàng.
             </p>
 
-            <div className="mt-8 sm:mt-10 lg:mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 items-center">
+            <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 items-center">
               {[
                 { src: `${prefix}/images/hoaphat.png`, alt: 'Hòa Phát' },
                 { src: `${prefix}/images/hsg.png`, alt: 'Hoa Sen' },
@@ -362,7 +363,7 @@ export default function Home() {
                   }`}
                   style={{ transitionDelay: `${200 + idx * 100}ms` }}
                 >
-                  <div className="relative w-32 sm:w-40 lg:w-48 h-16 sm:h-20 lg:h-24">
+                  <div className="relative w-48 h-24">
                     <Image
                       src={partner.src}
                       alt={partner.alt}
@@ -376,14 +377,14 @@ export default function Home() {
             </div>
 
             <div
-              className={`mt-12 sm:mt-16 lg:mt-20 transition-all duration-1000 delay-700 ${
+              className={`mt-20 transition-all duration-1000 delay-700 ${
                 partnersVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 transition-all duration-1000">
+              <h3 className="`text-3xl font-extrabold text-gray-900 sm:text-4xl transition-all duration-1000">
                 Đối tác tin cậy trong ngành sắt thép
               </h3>
-              <p className="mt-4 text-base sm:text-lg text-gray-500 max-w-4xl mx-auto px-4">
+              <p className="mt-4 text-lg text-gray-500 max-w-4xl mx-auto">
                 Chúng tôi cam kết mang đến giải pháp toàn diện từ chất lượng sản phẩm,
                 giá cả hợp lý đến dịch vụ giao hàng nhanh chóng, giúp khách hàng an tâm trong mọi
                 dự án.

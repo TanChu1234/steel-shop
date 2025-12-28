@@ -112,7 +112,7 @@ export default function AboutPage() {
         <div className="relative mt-20">
           <div className="absolute inset-0">
             <Image
-              className="w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] object-cover object-center border border-gray-900/10"
+              className="w-full h-[700px] object-cover object-center border border-gray-900/10"
               src={`${prefix}/images/banner_2.jpg`}
               alt="Steel Shop Banner"
               width={1920}
@@ -124,10 +124,11 @@ export default function AboutPage() {
 
           <div
             ref={heroRef}
-            className="relative mx-auto max-w-7xl flex flex-col justify-center items-start text-left px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20 lg:py-28 min-h-[400px] sm:min-h-[500px] md:min-h-[600px] lg:min-h-[700px]"
+            className="relative mx-auto max-w-7xl flex flex-col justify-center items-start text-left px-6 lg:px-8 py-28"
+            style={{ minHeight: '700px' }}
           >
             <h1
-              className={`text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold tracking-wide text-white uppercase leading-tight drop-shadow-md transition-all duration-1000 ${
+              className={`text-6xl sm:text-7xl lg:text-8xl font-extrabold tracking-wide text-white uppercase leading-tight drop-shadow-md transition-all duration-1000 ${
                 heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
@@ -135,18 +136,18 @@ export default function AboutPage() {
             </h1>
 
             <p
-              className={`mt-4 sm:mt-6 md:mt-8 lg:mt-12 max-w-3xl text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed transition-all duration-1000 delay-300 ${
+              className={`mt-12 max-w-3xl text-xl text-gray-300 leading-relaxed transition-all duration-1000 delay-300 ${
                 heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
               Phúc Hải Liên tự hào là một trong những đơn vị hàng đầu trong lĩnh vực cung cấp sắt thép xây dựng tại Việt Nam.
-              <br className="hidden sm:block" />
+              <br />
               Với hơn 15 năm kinh nghiệm, chúng tôi luôn nỗ lực mang đến cho khách hàng những sản phẩm chất lượng cao với
               giá cả cạnh tranh nhất.
             </p>
 
-            <div className="mx-auto mt-4 sm:mt-6 lg:mt-2 max-w-2xl lg:mx-0 lg:max-w-none">
-              <dl className="mt-6 sm:mt-8 lg:mt-10 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 sm:mt-20">
+            <div className="mx-auto mt-2 max-w-2xl lg:mx-0 lg:max-w-none">
+              <dl className="mt-10 grid grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4">
                 {stats.map((stat, idx) => (
                   <div 
                     key={stat.name} 
@@ -165,21 +166,21 @@ export default function AboutPage() {
         </div>
         
         {/* ---------------- Introduction Section ---------------- */}
-        <div className="bg-gray-100 py-12 sm:py-16 md:py-24 lg:py-32">
-          <div ref={introRef} className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 gap-8 sm:gap-12 lg:gap-16 lg:grid-cols-2 items-center">
+        <div className="bg-gray-100 py-24 sm:py-32">
+          <div ref={introRef} className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 items-center">
               
               {/* Text */}
               <div>
                 <h2 
-                  className={`text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-gray-900 transition-all duration-1000 ${
+                  className={`text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl transition-all duration-1000 ${
                     introVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
                   }`}
                 >
                   Giới thiệu chung
                 </h2>
                 <p 
-                  className={`mt-4 sm:mt-6 text-base sm:text-lg leading-8 text-gray-600 transition-all duration-1000 delay-100 ${
+                  className={`mt-6 text-lg leading-8 text-gray-600 transition-all duration-1000 delay-100 ${
                     introVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
                   }`}
                 >
@@ -229,8 +230,8 @@ export default function AboutPage() {
         </div>
 
         {/* ---------------- Values Section ---------------- */}
-        <div className="bg-white py-12 sm:py-16 md:py-24 lg:py-32">
-          <div ref={valuesRef} className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="bg-white py-24 sm:py-32">
+          <div ref={valuesRef} className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-3xl lg:mx-0">
               <h2 
                 className={`text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl transition-all duration-1000 ${
@@ -270,8 +271,8 @@ export default function AboutPage() {
         </div>
 
         {/* ---------------- Certifications Section ---------------- */}
-        <div className="bg-gray-100 py-12 sm:py-16 md:py-24 lg:py-32">
-          <div ref={certsRef} className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="bg-gray-100 py-24 sm:py-32">
+          <div ref={certsRef} className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-2xl lg:mx-0">
               <h2 
                 className={`text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl transition-all duration-1000 ${
@@ -288,11 +289,11 @@ export default function AboutPage() {
                 Sản phẩm của chúng tôi đạt các tiêu chuẩn chất lượng quốc gia và quốc tế.
               </p>
             </div>
-            <div className="mx-auto mt-10 sm:mt-12 lg:mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+            <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
               {certifications.map((cert, idx) => (
                 <article
                   key={cert.name}
-                  className={`relative isolate flex flex-col justify-end overflow-hidden bg-gray-900 px-6 sm:px-8 pb-6 sm:pb-8 pt-48 sm:pt-56 md:pt-64 lg:pt-80 transition-all duration-1000 ${
+                  className={`relative isolate flex flex-col justify-end overflow-hidden bg-gray-900 px-8 pb-8 pt-80 sm:pt-48 lg:pt-80 transition-all duration-1000 ${
                     certsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                   }`}
                   style={{ transitionDelay: `${200 + idx * 150}ms` }}
