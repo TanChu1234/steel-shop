@@ -1,50 +1,195 @@
+'use client';
+
+import Image from 'next/image';
+import Link from 'next/link';
+import { useEffect, useRef, useState } from 'react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import { FaDownload, FaCalendarAlt } from 'react-icons/fa';
+import { FaDownload, FaCalendarAlt, FaBolt, FaHardHat, FaTruck, FaHandshake } from 'react-icons/fa';
+import { prefix } from '@/utils/prefix';
+import { Montserrat } from 'next/font/google';
+
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  weight: ['400', '600', '700', '800'],
+});
+
+// -------------------------
+// 🔹 Custom Hook for Scroll Animation
+// -------------------------
+interface ScrollAnimationOptions {
+  threshold?: number;
+  rootMargin?: string;
+}
+
+function useScrollAnimation(options: ScrollAnimationOptions = {}) {
+  const { threshold = 0.1, rootMargin = '0px' } = options;
+  const ref = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !isVisible) {
+          setIsVisible(true);
+        }
+      },
+      { threshold, rootMargin }
+    );
+
+    const currentRef = ref.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, [threshold, rootMargin, isVisible]);
+
+  return { ref, isVisible };
+}
 
 export default function ServicePage() {
+  const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation({ threshold: 0.2 });
+
   return (
-    <div className="w-full overflow-x-hidden">
+    <div className={`${montserrat.className} w-full overflow-x-hidden`}>
       <Header />
       <main className="w-full">
+        {/* ---------------- Hero Banner Section ---------------- */}
+        <div className="relative mt-20 w-full overflow-hidden">
+          <div className="absolute inset-0">
+            <Image
+              className="w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] object-cover object-center border border-gray-900/10"
+              src={`${prefix}/images/banner_2.jpg`}
+              alt="Service Banner"
+              width={1920}
+              height={700}
+              priority
+            />
+            <div className="absolute inset-0 bg-gray-900/70 mix-blend-multiply" />
+          </div>
+
+          <div
+            ref={heroRef}
+            className="relative mx-auto max-w-7xl flex flex-col justify-center items-start text-left px-4 sm:px-6 lg:px-8 py-12 sm:py-20 lg:py-28 w-full"
+            style={{ minHeight: '400px' }}
+          >
+            <h1
+              className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold tracking-wide text-white uppercase leading-tight drop-shadow-md transition-all duration-1000 ${
+                heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+            >
+              DỊCH VỤ
+              <br className="hidden sm:block" />
+              <span
+                className={`block mt-4 sm:mt-6 lg:mt-10 text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-white tracking-normal normal-case transition-all duration-1000 delay-200 ${
+                  heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                }`}
+              >
+                Tư vấn chuyên nghiệp - Dịch vụ tận tâm
+              </span>
+            </h1>
+
+            <p
+              className={`mt-4 sm:mt-6 max-w-xl text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed transition-all duration-1000 delay-300 ${
+                heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+            >
+              Chúng tôi cung cấp các dịch vụ tư vấn, báo giá và giao hàng nhanh chóng cho mọi nhu cầu sắt thép của bạn.
+            </p>
+
+            <div
+              className={`mt-6 sm:mt-8 lg:mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-x-6 transition-all duration-1000 delay-500 ${
+                heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+            >
+              <Link
+                href="/contact"
+                className="bg-blue-900 px-3.5 py-2.5 text-xs sm:text-sm font-semibold text-white shadow-sm rounded-lg 
+                          hover:bg-blue-800 hover:scale-105 transform transition-transform duration-200 
+                          focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900"
+              >
+                Liên hệ ngay
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* ---------------- Services Content Section ---------------- */}
         <div className="bg-white py-24 sm:py-32 w-full">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
             <div className="mx-auto max-w-2xl lg:mx-0">
-              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Dịch vụ</h2>
+              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Các dịch vụ của chúng tôi</h2>
               <p className="mt-6 text-lg leading-8 text-gray-600">
-                Chúng tôi cung cấp các dịch vụ tư vấn, báo giá và giao hàng nhanh chóng cho mọi nhu cầu sắt thép của bạn.
+                Đội ngũ chuyên nghiệp sẵn sàng hỗ trợ bạn với các dịch vụ tốt nhất.
               </p>
             </div>
 
-            <div className="mt-8 flex items-center gap-x-4">
-              <FaCalendarAlt className="h-5 w-5 text-gray-400" />
-              <p className="text-sm text-gray-500">
-                Liên hệ để được tư vấn miễn phí: 0900 000 000
-              </p>
-              <button
-                type="button"
-                className="ml-auto inline-flex items-center gap-x-2 bg-blue-900 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900"
-              >
-                <FaDownload className="-ml-0.5 h-5 w-5" aria-hidden="true" />
-                Yêu cầu báo giá
-              </button>
+            <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+              <div className="flex items-center gap-x-2">
+                <FaCalendarAlt className="h-6 w-6 text-gray-400" />
+                <p className="text-base sm:text-lg text-gray-500">
+                  Liên hệ để được tư vấn miễn phí:{' '}
+                  <a 
+                    href="tel:02513795395" 
+                    className="text-blue-900 font-semibold hover:text-blue-700 hover:underline transition-colors"
+                  >
+                    02513 795 395
+                  </a>
+                </p>
+              </div>
             </div>
 
             <div className="mt-16 space-y-16 lg:mt-20">
               <section>
-                <h3 className="text-2xl font-semibold text-gray-900">Các dịch vụ của chúng tôi</h3>
-                <ul className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                  <li className="bg-white p-6 shadow">
-                    <h4 className="text-lg font-medium text-gray-900">Tư vấn kỹ thuật</h4>
-                    <p className="mt-2 text-gray-600">Đội ngũ chuyên gia tư vấn giải pháp vật liệu tối ưu cho công trình.</p>
+                <ul className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+                  <li className="bg-white p-6 shadow-md rounded-lg hover:shadow-lg transition-shadow duration-300 border border-gray-100">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="p-3 bg-blue-100 rounded-lg">
+                        <FaBolt className="h-6 w-6 text-blue-900" />
+                      </div>
+                      <h4 className="text-xl font-semibold text-gray-900">Cung cấp sắt thép xây dựng</h4>
+                    </div>
+                    <p className="text-base text-gray-600 leading-relaxed">
+                      Chuyên cung cấp các loại sắt thép xây dựng như thép cây, thép cuộn, thép ống, thép hộp, thép hình, tôn và phụ kiện. Cam kết chất lượng – đúng quy cách – giá cạnh tranh.
+                    </p>
                   </li>
-                  <li className="bg-white p-6 shadow">
-                    <h4 className="text-lg font-medium text-gray-900">Báo giá nhanh</h4>
-                    <p className="mt-2 text-gray-600">Cung cấp báo giá chi tiết và cạnh tranh trong thời gian sớm nhất.</p>
+                  <li className="bg-white p-6 shadow-md rounded-lg hover:shadow-lg transition-shadow duration-300 border border-gray-100">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="p-3 bg-yellow-100 rounded-lg">
+                        <FaHardHat className="h-6 w-6 text-yellow-700" />
+                      </div>
+                      <h4 className="text-xl font-semibold text-gray-900">Gia công theo yêu cầu</h4>
+                    </div>
+                    <p className="text-base text-gray-600 leading-relaxed">
+                      Nhận cắt, gia công sắt thép theo kích thước yêu cầu, đáp ứng nhanh cho công trình dân dụng và công nghiệp.
+                    </p>
                   </li>
-                  <li className="bg-white p-6 shadow">
-                    <h4 className="text-lg font-medium text-gray-900">Giao hàng tận nơi</h4>
-                    <p className="mt-2 text-gray-600">Vận chuyển nhanh chóng, an toàn đến công trình của bạn.</p>
+                  <li className="bg-white p-6 shadow-md rounded-lg hover:shadow-lg transition-shadow duration-300 border border-gray-100">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="p-3 bg-red-100 rounded-lg">
+                        <FaTruck className="h-6 w-6 text-red-700" />
+                      </div>
+                      <h4 className="text-xl font-semibold text-gray-900">Vận chuyển tận nơi</h4>
+                    </div>
+                    <p className="text-base text-gray-600 leading-relaxed">
+                      Giao hàng đúng tiến độ, vận chuyển sắt thép đến tận công trình, đảm bảo an toàn và đủ số lượng.
+                    </p>
+                  </li>
+                  <li className="bg-white p-6 shadow-md rounded-lg hover:shadow-lg transition-shadow duration-300 border border-gray-100">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="p-3 bg-green-100 rounded-lg">
+                        <FaHandshake className="h-6 w-6 text-green-700" />
+                      </div>
+                      <h4 className="text-xl font-semibold text-gray-900">Tư vấn & báo giá</h4>
+                    </div>
+                    <p className="text-base text-gray-600 leading-relaxed">
+                      Tư vấn tận tình, báo giá minh bạch, hỗ trợ khách hàng nhanh chóng và lâu dài.
+                    </p>
                   </li>
                 </ul>
               </section>
@@ -70,9 +215,6 @@ export default function ServicePage() {
                     </button>
                   </div>
                 </form>
-                <p className="mt-3 text-sm text-gray-500">
-                  Chúng tôi cam kết bảo mật thông tin của bạn.
-                </p>
               </div>
             </div>
           </div>

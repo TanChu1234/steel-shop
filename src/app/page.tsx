@@ -351,10 +351,10 @@ export default function Home() {
 
             <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 items-center">
               {[
-                { src: `${prefix}/images/hoaphat.png`, alt: 'Hòa Phát' },
-                { src: `${prefix}/images/hsg.png`, alt: 'Hoa Sen' },
-                { src: `${prefix}/images/sendo-logo.png`, alt: 'Sendo' },
-                { src: `${prefix}/images/vinakyoei.png`, alt: 'Vina Kyoei' },
+                { src: `${prefix}/images/company/hoaphat.png`, alt: 'Hòa Phát' },
+                { src: `${prefix}/images/company/hsg.png`, alt: 'Hoa Sen' },
+                { src: `${prefix}/images/company/sendo-logo.png`, alt: 'Sendo' },
+                { src: `${prefix}/images/company/vinakyoei.png`, alt: 'Vina Kyoei' },
               ].map((partner, idx) => (
                 <div
                   key={idx}

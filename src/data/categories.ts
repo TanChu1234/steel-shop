@@ -20,7 +20,7 @@ export const categories: Category[] = [
   {
     title: "Thép xây dựng",
     description: "Thép cuộn, thép thanh vằn và thép tròn trơn chất lượng cao, đạt tiêu chuẩn TCVN, đảm bảo độ bền và an toàn cho công trình.",
-    bannerImage: `${prefix}/images/construction-steel.jpg`,
+    bannerImage: `${prefix}/images/products/thep_xay_dung.jpg`,
     products: [
       { 
         name: "Thép cuộn", 
@@ -183,7 +183,7 @@ export const categories: Category[] = [
   {
     title: "Thép hình",
     description: "Thép hình H, I, V, U chất lượng cao, đạt tiêu chuẩn TCVN, được sử dụng rộng rãi trong kết cấu xây dựng, nhà xưởng, cầu đường và các công trình công nghiệp.",
-    bannerImage: `${prefix}/images/thep_hinh.jpg`,
+    bannerImage: `${prefix}/images/products/thep_hinh.jpg`,
     products: [
       { 
         name: "Thép H", 
@@ -235,6 +235,8 @@ export const categories: Category[] = [
   },
   {
     title: "Thép Ống - Hộp - Vuông",
+    description: "Thép ống, thép hộp, thép vuông chất lượng cao, đạt tiêu chuẩn TCVN, được sử dụng rộng rãi trong kết cấu xây dựng, nhà xưởng, cầu đường và các công trình công nghiệp.",
+    bannerImage: `${prefix}/images/products/ong_hop_vuong.jpg`,
     products: [
       { name: "Thép ống", image: `${prefix}/images/products/thep-ong.jpg` },
       { name: "Thép hộp chữ nhật", image: `${prefix}/images/products/thep-hop-chu-nhat.jpg` },
