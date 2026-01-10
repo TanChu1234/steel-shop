@@ -4,11 +4,11 @@ import { FaDownload, FaCalendarAlt } from 'react-icons/fa';
 
 export default function ServicePage() {
   return (
-    <div>
+    <div className="w-full overflow-x-hidden">
       <Header />
-      <main>
-        <div className="bg-white py-24 sm:py-32">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <main className="w-full">
+        <div className="bg-white py-24 sm:py-32 w-full">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
             <div className="mx-auto max-w-2xl lg:mx-0">
               <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Dịch vụ</h2>
               <p className="mt-6 text-lg leading-8 text-gray-600">

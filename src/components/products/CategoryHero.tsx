@@ -27,10 +27,10 @@ export default function CategoryHero({ category }: CategoryHeroProps) {
   }, []);
 
   return (
-    <div className="relative mt-20">
+    <div className="relative mt-20 w-full overflow-hidden">
       <div className="absolute inset-0">
         <Image
-          className="w-full h-[500px] object-cover object-center"
+          className="w-full h-[350px] sm:h-[400px] md:h-[450px] lg:h-[500px] object-cover object-center"
           src={category.bannerImage || `${prefix}/images/banner_2.jpg`}
           alt={category.title}
           width={1920}
@@ -42,11 +42,11 @@ export default function CategoryHero({ category }: CategoryHeroProps) {
 
       <div
         ref={heroRef}
-        className={`relative mx-auto max-w-7xl flex flex-col justify-center items-start text-left px-6 lg:px-8 py-20 ${montserrat.className}`}
-        style={{ minHeight: '500px' }}
+        className={`relative mx-auto max-w-7xl flex flex-col justify-center items-start text-left px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 w-full ${montserrat.className}`}
+        style={{ minHeight: '350px' }}
       >
         <h1
-          className={`text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-wide text-white uppercase leading-tight drop-shadow-md transition-all duration-1000 ${
+          className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-wide text-white uppercase leading-tight drop-shadow-md transition-all duration-1000 ${
             heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
@@ -54,7 +54,7 @@ export default function CategoryHero({ category }: CategoryHeroProps) {
         </h1>
 
         <p
-          className={`mt-6 max-w-2xl text-xl text-gray-300 leading-relaxed transition-all duration-1000 delay-200 ${
+          className={`mt-4 sm:mt-6 max-w-2xl text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed transition-all duration-1000 delay-200 ${
             heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
@@ -62,20 +62,20 @@ export default function CategoryHero({ category }: CategoryHeroProps) {
         </p>
 
         <div
-          className={`mt-8 flex items-center gap-x-6 transition-all duration-1000 delay-400 ${
+          className={`mt-6 sm:mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-x-6 transition-all duration-1000 delay-400 ${
             heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
           <Link
             href="/contact"
-            className="bg-blue-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm rounded-lg 
+            className="bg-blue-900 px-4 py-2.5 text-xs sm:text-sm font-semibold text-white shadow-sm rounded-lg 
                       hover:bg-blue-800 hover:scale-105 transform transition-transform duration-200"
           >
             Liên hệ báo giá
           </Link>
           <Link
             href="/products"
-            className="text-sm font-semibold text-white hover:text-gray-300 transition-colors"
+            className="text-xs sm:text-sm font-semibold text-white hover:text-gray-300 transition-colors"
           >
             ← Quay lại danh mục
           </Link>

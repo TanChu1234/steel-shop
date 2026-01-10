@@ -105,14 +105,14 @@ export default function AboutPage() {
   const { ref: certsRef, isVisible: certsVisible } = useScrollAnimation({ threshold: 0.15 });
 
   return (
-    <div className={montserrat.className}>
+    <div className={`${montserrat.className} w-full overflow-x-hidden`}>
       <Header />
-      <main>
+      <main className="w-full">
         {/* ---------------- Hero Section ---------------- */}
-        <div className="relative mt-20">
+        <div className="relative mt-20 w-full overflow-hidden">
           <div className="absolute inset-0">
             <Image
-              className="w-full h-[700px] object-cover object-center border border-gray-900/10"
+              className="w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] object-cover object-center border border-gray-900/10"
               src={`${prefix}/images/banner_2.jpg`}
               alt="Steel Shop Banner"
               width={1920}
@@ -124,11 +124,11 @@ export default function AboutPage() {
 
           <div
             ref={heroRef}
-            className="relative mx-auto max-w-7xl flex flex-col justify-center items-start text-left px-6 lg:px-8 py-28"
-            style={{ minHeight: '700px' }}
+            className="relative mx-auto max-w-7xl flex flex-col justify-center items-start text-left px-4 sm:px-6 lg:px-8 py-12 sm:py-20 lg:py-28 w-full"
+            style={{ minHeight: '400px' }}
           >
             <h1
-              className={`text-6xl sm:text-7xl lg:text-8xl font-extrabold tracking-wide text-white uppercase leading-tight drop-shadow-md transition-all duration-1000 ${
+              className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold tracking-wide text-white uppercase leading-tight drop-shadow-md transition-all duration-1000 ${
                 heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
@@ -136,12 +136,12 @@ export default function AboutPage() {
             </h1>
 
             <p
-              className={`mt-12 max-w-3xl text-xl text-gray-300 leading-relaxed transition-all duration-1000 delay-300 ${
+              className={`mt-6 sm:mt-8 lg:mt-12 max-w-3xl text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed transition-all duration-1000 delay-300 ${
                 heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
               Phúc Hải Liên tự hào là một trong những đơn vị hàng đầu trong lĩnh vực cung cấp sắt thép xây dựng tại Việt Nam.
-              <br />
+              <br className="hidden sm:block" />
               Với hơn 15 năm kinh nghiệm, chúng tôi luôn nỗ lực mang đến cho khách hàng những sản phẩm chất lượng cao với
               giá cả cạnh tranh nhất.
             </p>

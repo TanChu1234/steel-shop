@@ -175,15 +175,15 @@ export default function ProductsPage() {
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation({ threshold: 0.2 });
 
   return (
-    <div className="bg-gray-50 min-h-screen">
+    <div className="bg-gray-50 min-h-screen w-full overflow-x-hidden">
       <Header />
 
       {/* --- Hero Banner --- */}
-      <div className="relative mt-20">
+      <div className="relative mt-20 w-full overflow-hidden">
         {/* Fixed banner height and full width */}
         <div className="absolute inset-0">
           <Image
-            className="w-full h-[700px] object-cover object-center border border-gray-900/10"
+            className="w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] object-cover object-center border border-gray-900/10"
             src={`${prefix}/images/banner_2.jpg`}
             alt="Products Banner"
             width={1920}
@@ -197,18 +197,18 @@ export default function ProductsPage() {
         {/* Content aligned left like hero section */}
         <div
           ref={heroRef}
-          className={`relative mx-auto max-w-7xl flex flex-col justify-center items-start text-left px-6 lg:px-8 py-28 ${montserrat.className}`}
-          style={{ minHeight: '700px' }}
+          className={`relative mx-auto max-w-7xl flex flex-col justify-center items-start text-left px-4 sm:px-6 lg:px-8 py-12 sm:py-20 lg:py-28 w-full ${montserrat.className}`}
+          style={{ minHeight: '400px' }}
         >
           <h1
-            className={`text-6xl sm:text-7xl lg:text-8xl font-extrabold tracking-wide text-white uppercase leading-tight drop-shadow-md transition-all duration-1000 ${
+            className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold tracking-wide text-white uppercase leading-tight drop-shadow-md transition-all duration-1000 ${
               heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
             SẢN PHẨM
             <br className="hidden sm:block" />
             <span
-              className={`block mt-10 text-3xl sm:text-4xl lg:text-5xl font-semibold text-white tracking-normal normal-case transition-all duration-1000 delay-200 ${
+              className={`block mt-4 sm:mt-6 lg:mt-10 text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-white tracking-normal normal-case transition-all duration-1000 delay-200 ${
                 heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
@@ -217,7 +217,7 @@ export default function ProductsPage() {
           </h1>
 
           <p
-            className={`mt-6 max-w-xl text-xl text-gray-300 leading-relaxed transition-all duration-1000 delay-300 ${
+            className={`mt-4 sm:mt-6 max-w-xl text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed transition-all duration-1000 delay-300 ${
               heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
@@ -226,13 +226,13 @@ export default function ProductsPage() {
           </p>
 
           <div
-            className={`mt-10 flex items-center gap-x-6 transition-all duration-1000 delay-500 ${
+            className={`mt-6 sm:mt-8 lg:mt-10 flex items-center gap-x-6 transition-all duration-1000 delay-500 ${
               heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
             <Link
               href="/contact"
-              className="bg-blue-900 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm rounded-lg 
+              className="bg-blue-900 px-3.5 py-2.5 text-xs sm:text-sm font-semibold text-white shadow-sm rounded-lg 
                         hover:bg-blue-800 hover:scale-105 transform transition-transform duration-200 
                         focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900"
             >

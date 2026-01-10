@@ -27,12 +27,12 @@ const contactInfo = [
 
 export default function ContactPage() {
   return (
-    <div>
+    <div className="w-full overflow-x-hidden">
       <Header />
-      <main>
-        <div className="relative isolate bg-white">
-          <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
-            <div className="relative px-6 pb-20 pt-24 sm:pt-32 lg:static lg:px-8 lg:py-48">
+      <main className="w-full">
+        <div className="relative isolate bg-white w-full">
+          <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2 w-full">
+            <div className="relative px-4 sm:px-6 pb-20 pt-24 sm:pt-32 lg:static lg:px-8 lg:py-48">
               <div className="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
                 <h1 className="text-3xl font-bold tracking-tight text-gray-900">Liên hệ với chúng tôi</h1>
                 <p className="mt-6 text-lg leading-8 text-gray-600">
@@ -55,8 +55,8 @@ export default function ContactPage() {
                 </dl>
               </div>
             </div>
-            <form className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48">
-              <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
+            <form className="px-4 sm:px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48">
+              <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg w-full">
                 <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
                   <div>
                     <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-gray-900">
