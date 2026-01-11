@@ -235,7 +235,7 @@ export default function ProductsPage() {
       </div>
 
       {/* --- Product Categories --- */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <main className="mx-auto max-w-7xl px-6 lg:px-8 py-24 sm:py-32">
         {categories.map((cat, index) => (
           <CategorySection key={index} category={cat} />
         ))}

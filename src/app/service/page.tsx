@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import { FaDownload, FaCalendarAlt, FaBolt, FaHardHat, FaTruck, FaHandshake } from 'react-icons/fa';
+import { FaTools, FaTruck, FaHardHat, FaHandshake, FaCalendarAlt, FaBolt } from 'react-icons/fa';
 import { prefix } from '@/utils/prefix';
 import { Montserrat } from 'next/font/google';
 

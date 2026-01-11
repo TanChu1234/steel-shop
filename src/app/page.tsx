@@ -228,10 +228,10 @@ export default function Home() {
         </div>
 
         {/* ---------------- Featured Section - FIXED ---------------- */}
-        <div className="bg-white py-8">
+        <div className="bg-white py-24 sm:py-32">
           <div
             ref={productsRef}
-            className="mx-auto max-w-2xl px-4 py-10 sm:px-6 sm:py-14 lg:max-w-7xl lg:px-8"
+            className="mx-auto max-w-7xl px-6 lg:px-8"
           >
             <div className="text-center">
               <h2
