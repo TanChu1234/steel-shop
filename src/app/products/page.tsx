@@ -124,7 +124,7 @@ function CategorySection({ category }: CategorySectionProps) {
   return (
     <section ref={ref} className="mb-14">
       <h2
-        className={`text-2xl font-semibold text-gray-700 mb-6 border-l-4 border-blue-900 pl-3 uppercase transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
+        className={`text-3xl font-extrabold text-gray-900 mb-6 border-l-4 border-blue-900 pl-3 uppercase transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
           }`}
       >
         {category.title}

@@ -118,7 +118,7 @@ export default function ServicePage() {
         <div className="bg-white py-24 sm:py-32 w-full">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
             <div className="mx-auto max-w-2xl lg:mx-0">
-              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Các dịch vụ của chúng tôi</h2>
+              <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">Các dịch vụ của chúng tôi</h2>
               <p className="mt-6 text-lg leading-8 text-gray-600">
                 Đội ngũ chuyên nghiệp sẵn sàng hỗ trợ bạn với các dịch vụ tốt nhất.
               </p>
