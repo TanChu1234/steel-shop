@@ -50,7 +50,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
                 {product.description && (
                   <p className="text-gray-600 text-sm mb-3">{product.description}</p>
                 )}
-                
+
                 {product.specs && (
                   <ul className="space-y-1 mb-4">
                     {product.specs.map((spec: string, i: number) => (
@@ -71,14 +71,14 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
         </div>
 
         {/* CTA Section */}
-        <div className="mt-16 bg-blue-900 rounded-2xl p-8 text-center text-white">
+        <div className="mt-16 bg-blue-900 rounded-2xl p-6 text-center text-white">
           <h2 className="text-3xl font-bold mb-4">Cần tư vấn thêm?</h2>
           <p className="text-xl text-gray-200 mb-6">
             Liên hệ với chúng tôi để được tư vấn chi tiết và báo giá tốt nhất
           </p>
           <Link
             href="/contact"
-            className="inline-block bg-white text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+            className="inline-block bg-white text-blue-900 px-6 py-2 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
           >
             Liên hệ ngay
           </Link>

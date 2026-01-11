@@ -48,68 +48,7 @@ function useScrollAnimation(options: ScrollAnimationOptions = {}) {
   return { ref, isVisible };
 }
 
-const categories = [
-  {
-    title: "Thép xây dựng",
-    products: [
-      { name: "Thép cuộn", image: `${prefix}/images/products/thep-cuon.jpg` },
-      { name: "Thép cây", image: `${prefix}/images/products/thep-cay.jpg` },
-      { name: "Thép tròn", image: `${prefix}/images/products/thep-tron.jpg` },
-      { name: "Thép cuộn tròn", image: `${prefix}/images/products/thep-cuon-tron.jpg` },
-    ],
-    link: "/products/thep-xay-dung",
-  },
-  {
-    title: "Thép hình",
-    products: [
-      { name: "Thép H", image: `${prefix}/images/products/thep-h.jpg` },
-      { name: "Thép I", image: `${prefix}/images/products/thep-i.jpg` },
-      { name: "Thép V", image: `${prefix}/images/products/thep-v.jpg` },
-      { name: "Thép U", image: `${prefix}/images/products/thep-u.jpg` },
-    ],
-    link: "/products/thep-hinh",
-  },
-  {
-    title: "Thép Ống - Hộp - Vuông",
-    products: [
-      { name: "Thép ống", image: `${prefix}/images/products/thep-ong.jpg` },
-      { name: "Thép hộp chữ nhật", image: `${prefix}/images/products/thep-hop-chu-nhat.jpg` },
-      { name: "Thép hộp vuông", image: `${prefix}/images/products/thep-hop-vuong.jpg` },
-      { name: "Ống thép mạ kẽm", image: `${prefix}/images/products/ong-thep-ma-kem.jpg` },
-    ],
-    link: "/products/thep-ong-hop-vuong",
-  },
-  {
-    title: "Tôn",
-    products: [
-      { name: "Tôn lạnh", image: `${prefix}/images/products/ton-lanh.jpg` },
-      { name: "Tôn kẽm", image: `${prefix}/images/products/ton-kem.jpg` },
-      { name: "Tôn màu", image: `${prefix}/images/products/ton-mau.jpg` },
-      { name: "Tôn hoa cương", image: `${prefix}/images/products/ton-hoa-cuong.jpg` },
-    ],
-    link: "/products/ton",
-  },
-  {
-    title: "Lưới - Xà gồ - Phụ kiện",
-    products: [
-      { name: "Lưới thép", image: `${prefix}/images/products/luoi-thep.jpg` },
-      { name: "Xà gồ C", image: `${prefix}/images/products/xago-c.jpg` },
-      { name: "Xà gồ Z", image: `${prefix}/images/products/xago-z.jpg` },
-      { name: "Phụ kiện thép", image: `${prefix}/images/products/phu-kien-thep.jpg` },
-    ],
-    link: "/products/luoi-xa-go-phu-kien",
-  },
-  {
-    title: "Hộp - Ống Inox",
-    products: [
-      { name: "Ống Inox tròn", image: `${prefix}/images/products/ong-inox-tron.jpg` },
-      { name: "Hộp Inox vuông", image: `${prefix}/images/products/hop-inox-vuong.jpg` },
-      { name: "Hộp Inox chữ nhật", image: `${prefix}/images/products/hop-inox-chu-nhat.jpg` },
-      { name: "Phụ kiện Inox", image: `${prefix}/images/products/phu-kien-inox.jpg` },
-    ],
-    link: "/products/hop-ong-inox",
-  },
-];
+import { categories } from "@/data/categories";
 
 // -------------------------
 // 🔹 Category Section Component
@@ -146,8 +85,11 @@ function CategorySection({ category }: CategorySectionProps) {
                 className="object-cover group-hover:scale-105 transition-transform duration-300"
               />
             </div>
-            <div className="p-3 text-center">
-              <h3 className="text-gray-800 font-medium">{product.name}</h3>
+            <div className="p-4 text-left">
+              <h3 className="text-lg font-bold text-gray-900 mb-2">{product.name}</h3>
+              {product.description && (
+                <p className="text-sm text-gray-600 line-clamp-3">{product.description}</p>
+              )}
             </div>
           </div>
         ))}
