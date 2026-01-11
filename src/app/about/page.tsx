@@ -112,7 +112,7 @@ export default function AboutPage() {
         <div className="relative mt-20 w-full overflow-hidden">
           <div className="absolute inset-0">
             <Image
-              className="w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] object-cover object-center border border-gray-900/10"
+              className="w-full h-full object-cover object-center border border-gray-900/10"
               src={`${prefix}/images/banner_2.jpg`}
               alt="Steel Shop Banner"
               width={1920}
@@ -133,18 +133,21 @@ export default function AboutPage() {
               Về chúng tôi
             </h1>
 
-            <p
+            <div
               className={`mt-6 sm:mt-8 lg:mt-12 max-w-3xl text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed transition-all duration-1000 delay-300 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                 }`}
             >
-              Phúc Hải Liên tự hào là một trong những đơn vị hàng đầu trong lĩnh vực cung cấp sắt thép xây dựng tại Việt Nam.
-              <br className="hidden sm:block" />
-              Với hơn 15 năm kinh nghiệm, chúng tôi luôn nỗ lực mang đến cho khách hàng những sản phẩm chất lượng cao với
-              giá cả cạnh tranh nhất.
-            </p>
+              <p>
+                Phúc Hải Liên tự hào là một trong những đơn vị hàng đầu trong lĩnh vực cung cấp sắt thép xây dựng tại Việt Nam.
+              </p>
+              <p className="mt-4">
+                Với hơn 15 năm kinh nghiệm, chúng tôi luôn nỗ lực mang đến cho khách hàng những sản phẩm chất lượng cao với
+                giá cả cạnh tranh nhất.
+              </p>
+            </div>
 
-            <div className="mx-auto mt-2 max-w-2xl lg:mx-0 lg:max-w-none">
-              <dl className="mt-10 grid grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mx-auto mt-8 max-w-2xl lg:mx-0 lg:max-w-none">
+              <dl className="grid grid-cols-2 gap-8 sm:grid-cols-2 lg:grid-cols-4">
                 {stats.map((stat, idx) => (
                   <div
                     key={stat.name}
