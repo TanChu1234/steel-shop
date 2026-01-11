@@ -123,10 +123,9 @@ function CategorySection({ category }: CategorySectionProps) {
 
   return (
     <section ref={ref} className="mb-14">
-      <h2 
-        className={`text-2xl font-semibold text-gray-700 mb-6 border-l-4 border-blue-900 pl-3 uppercase transition-all duration-1000 ${
-          isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
-        }`}
+      <h2
+        className={`text-2xl font-semibold text-gray-700 mb-6 border-l-4 border-blue-900 pl-3 uppercase transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
+          }`}
       >
         {category.title}
       </h2>
@@ -135,9 +134,8 @@ function CategorySection({ category }: CategorySectionProps) {
         {category.products.map((product, i) => (
           <div
             key={i}
-            className={`group bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-1000 ${
-              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}
+            className={`group bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
             style={{ transitionDelay: `${i * 100}ms` }}
           >
             <div className="relative aspect-[4/3] w-full">
@@ -155,10 +153,9 @@ function CategorySection({ category }: CategorySectionProps) {
         ))}
       </div>
 
-      <div 
-        className={`text-center mt-6 transition-all duration-1000 delay-500 ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-        }`}
+      <div
+        className={`text-center mt-6 transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
       >
         <Link
           href={category.link}
@@ -197,38 +194,33 @@ export default function ProductsPage() {
         {/* Content aligned left like hero section */}
         <div
           ref={heroRef}
-          className={`relative mx-auto max-w-7xl flex flex-col justify-center items-start text-left px-4 sm:px-6 lg:px-8 py-12 sm:py-20 lg:py-28 w-full ${montserrat.className}`}
-          style={{ minHeight: '400px' }}
+          className={`relative mx-auto max-w-7xl flex flex-col justify-center items-start text-left px-4 sm:px-6 lg:px-8 py-12 sm:py-20 lg:py-28 w-full ${montserrat.className} min-h-[400px] sm:min-h-[500px] md:min-h-[600px] lg:min-h-[700px]`}
         >
           <h1
-            className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold tracking-wide text-white uppercase leading-tight drop-shadow-md transition-all duration-1000 ${
-              heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}
+            className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold tracking-wide text-white uppercase leading-tight drop-shadow-md transition-all duration-1000 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
           >
             SẢN PHẨM
             <br className="hidden sm:block" />
             <span
-              className={`block mt-4 sm:mt-6 lg:mt-10 text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-white tracking-normal normal-case transition-all duration-1000 delay-200 ${
-                heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
+              className={`block mt-4 sm:mt-6 lg:mt-10 text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-white tracking-normal normal-case transition-all duration-1000 delay-200 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                }`}
             >
               Chất lượng cao - Giá cả cạnh tranh
             </span>
           </h1>
 
           <p
-            className={`mt-4 sm:mt-6 max-w-xl text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed transition-all duration-1000 delay-300 ${
-              heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}
+            className={`mt-4 sm:mt-6 max-w-xl text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed transition-all duration-1000 delay-300 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
           >
             Cung cấp đa dạng các loại thép xây dựng, thép hình, thép ống - hộp - vuông
             và inox chất lượng cao, đáp ứng mọi nhu cầu công trình.
           </p>
 
           <div
-            className={`mt-6 sm:mt-8 lg:mt-10 flex items-center gap-x-6 transition-all duration-1000 delay-500 ${
-              heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}
+            className={`mt-6 sm:mt-8 lg:mt-10 flex items-center gap-x-6 transition-all duration-1000 delay-500 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
           >
             <Link
               href="/contact"

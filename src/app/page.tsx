@@ -111,9 +111,8 @@ function ProductCard({ product, index }: ProductCardProps) {
   return (
     <div
       ref={ref}
-      className={`group relative transition-all duration-1000 ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-      }`}
+      className={`group relative transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}
       style={{ transitionDelay: `${index * 150}ms` }}
     >
       <div className="w-full overflow-hidden bg-white rounded-xl shadow-md border border-gray-200 group-hover:shadow-xl group-hover:scale-105 transition-transform duration-300">
@@ -137,9 +136,9 @@ function ProductCard({ product, index }: ProductCardProps) {
             </Link>
           </h3>
           {/* FIX: Added absolute overlay for the entire card click area */}
-          <Link 
-            href={product.href} 
-            className="absolute inset-0 z-0" 
+          <Link
+            href={product.href}
+            className="absolute inset-0 z-0"
             aria-label={`Xem chi tiết ${product.name}`}
           />
         </div>
@@ -178,38 +177,33 @@ export default function Home() {
 
           <div
             ref={heroRef}
-            className="relative mx-auto max-w-7xl flex flex-col justify-center items-start text-left px-4 sm:px-6 lg:px-8 py-12 sm:py-20 lg:py-28 w-full"
-            style={{ minHeight: '400px' }}
+            className="relative mx-auto max-w-7xl flex flex-col justify-center items-start text-left px-4 sm:px-6 lg:px-8 py-12 sm:py-20 lg:py-28 w-full min-h-[400px] sm:min-h-[500px] md:min-h-[600px] lg:min-h-[700px]"
           >
             <h1
-              className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold tracking-wide text-white uppercase leading-tight drop-shadow-md transition-all duration-1000 ${
-                heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
+              className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold tracking-wide text-white uppercase leading-tight drop-shadow-md transition-all duration-1000 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                }`}
             >
               PHÚC HẢI LIÊN
               <br className="hidden sm:block" />
               <span
-                className={`block mt-4 sm:mt-6 lg:mt-10 text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-white tracking-normal normal-case transition-all duration-1000 delay-200 ${
-                  heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-                }`}
+                className={`block mt-4 sm:mt-6 lg:mt-10 text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-white tracking-normal normal-case transition-all duration-1000 delay-200 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                  }`}
               >
                 Uy tín từ chất thép - Vững chắc mọi công trình
               </span>
             </h1>
 
             <p
-              className={`mt-4 sm:mt-6 max-w-xl text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed transition-all duration-1000 delay-300 ${
-                heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
+              className={`mt-4 sm:mt-6 max-w-xl text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed transition-all duration-1000 delay-300 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                }`}
             >
               Cung cấp đa dạng sản phẩm sắt thép xây dựng với chất lượng đảm bảo,
               giá cả cạnh tranh và dịch vụ chuyên nghiệp.
             </p>
 
             <div
-              className={`mt-6 sm:mt-8 lg:mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-x-6 transition-all duration-1000 delay-500 ${
-                heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
+              className={`mt-6 sm:mt-8 lg:mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-x-6 transition-all duration-1000 delay-500 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                }`}
             >
               <Link
                 href="/product"
@@ -229,8 +223,8 @@ export default function Home() {
 
           </div>
 
-          
-          
+
+
         </div>
 
         {/* ---------------- Featured Section - FIXED ---------------- */}
@@ -241,16 +235,14 @@ export default function Home() {
           >
             <div className="text-center">
               <h2
-                className={`text-3xl font-extrabold text-gray-900 sm:text-4xl transition-all duration-1000 ${
-                  productsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-                }`}
+                className={`text-3xl font-extrabold text-gray-900 sm:text-4xl transition-all duration-1000 ${productsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                  }`}
               >
                 Sản phẩm nổi bật
               </h2>
               <p
-                className={`mt-4 text-lg text-gray-500 transition-all duration-1000 delay-100 ${
-                  productsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-                }`}
+                className={`mt-4 text-lg text-gray-500 transition-all duration-1000 delay-100 ${productsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                  }`}
               >
                 Khám phá các sản phẩm sắt thép chất lượng cao của chúng tôi
               </p>
@@ -263,9 +255,8 @@ export default function Home() {
             </div>
 
             <div
-              className={`mt-12 text-center transition-all duration-1000 delay-700 ${
-                productsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
+              className={`mt-12 text-center transition-all duration-1000 delay-700 ${productsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                }`}
             >
               <Link
                 href="/products"
@@ -281,16 +272,14 @@ export default function Home() {
         <div className="bg-gray-100 py-18 ">
           <div ref={certsRef} className="mx-auto max-w-7xl px-4 lg:px-6 text-center">
             <h2
-              className={`text-3xl font-extrabold text-gray-900 sm:text-4xl transition-all duration-1000 ${
-                certsVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
-              }`}
+              className={`text-3xl font-extrabold text-gray-900 sm:text-4xl transition-all duration-1000 ${certsVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
+                }`}
             >
               Chứng chỉ & Giải thưởng
             </h2>
             <p
-              className={`mt-4 text-lg text-gray-500 max-w-2xl mx-auto transition-all duration-1000 delay-100 ${
-                certsVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
-              }`}
+              className={`mt-4 text-lg text-gray-500 max-w-2xl mx-auto transition-all duration-1000 delay-100 ${certsVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
+                }`}
             >
               Chúng tôi tự hào đạt được các chứng chỉ chất lượng quốc tế, đảm bảo sản phẩm thép đáp
               ứng tiêu chuẩn cao nhất.
@@ -308,10 +297,9 @@ export default function Home() {
                   className={`flex justify-center items-center
                     w-full max-w-[160px]
                     transition-all duration-700
-                    ${
-                      certsVisible
-                        ? "opacity-100 translate-y-0"
-                        : "opacity-0 translate-y-8"
+                    ${certsVisible
+                      ? "opacity-100 translate-y-0"
+                      : "opacity-0 translate-y-8"
                     }`}
                   style={{ transitionDelay: `${200 + idx * 100}ms` }}
                 >
@@ -334,16 +322,14 @@ export default function Home() {
         <div className="bg-white py-16">
           <div ref={partnersRef} className="mx-auto max-w-7xl px-4 lg:px-6 text-center">
             <h2
-              className={`text-3xl font-extrabold text-gray-900 sm:text-4xl transition-all duration-1000 ${
-                partnersVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
-              }`}
+              className={`text-3xl font-extrabold text-gray-900 sm:text-4xl transition-all duration-1000 ${partnersVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
+                }`}
             >
               Đối tác chiến lược
             </h2>
             <p
-              className={`mt-4 text-lg text-gray-500 max-w-4xl mx-auto transition-all duration-1000 delay-100 ${
-                partnersVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
-              }`}
+              className={`mt-4 text-lg text-gray-500 max-w-4xl mx-auto transition-all duration-1000 delay-100 ${partnersVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
+                }`}
             >
               Chúng tôi hợp tác lâu dài với các thương hiệu và nhà sản xuất uy tín trong ngành thép,
               đảm bảo nguồn cung ổn định, chất lượng đồng nhất và dịch vụ tin cậy cho khách hàng.
@@ -358,9 +344,8 @@ export default function Home() {
               ].map((partner, idx) => (
                 <div
                   key={idx}
-                  className={`flex justify-center items-center p-4 bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-1000 ${
-                    partnersVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
-                  }`}
+                  className={`flex justify-center items-center p-4 bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-1000 ${partnersVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
+                    }`}
                   style={{ transitionDelay: `${200 + idx * 100}ms` }}
                 >
                   <div className="relative w-48 h-24">
@@ -377,9 +362,8 @@ export default function Home() {
             </div>
 
             <div
-              className={`mt-20 transition-all duration-1000 delay-700 ${
-                partnersVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
+              className={`mt-20 transition-all duration-1000 delay-700 ${partnersVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                }`}
             >
               <h3 className="`text-3xl font-extrabold text-gray-900 sm:text-4xl transition-all duration-1000">
                 Đối tác tin cậy trong ngành sắt thép

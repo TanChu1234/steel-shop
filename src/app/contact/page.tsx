@@ -1,6 +1,15 @@
+"use client";
+
+import Image from "next/image";
+import Link from 'next/link';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaClock } from 'react-icons/fa';
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { prefix } from "@/utils/prefix";
+import { Montserrat } from "next/font/google";
+
+const montserrat = Montserrat({ subsets: ["latin"], weight: ["400", "600", "700", "800"] });
 
 const contactInfo = [
   {
@@ -26,17 +35,59 @@ const contactInfo = [
 ];
 
 export default function ContactPage() {
+  const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation({ threshold: 0.2 });
+
   return (
-    <div className="w-full overflow-x-hidden">
+    <div className={`${montserrat.className} w-full overflow-x-hidden`}>
       <Header />
       <main className="w-full">
+        {/* ---------------- Hero Banner Section ---------------- */}
+        <div className="relative mt-20 w-full overflow-hidden">
+          <div className="absolute inset-0">
+            <Image
+              className="w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] object-cover object-center border border-gray-900/10"
+              src={`${prefix}/images/banner_2.jpg`}
+              alt="Contact Banner"
+              width={1920}
+              height={700}
+              priority
+            />
+            <div className="absolute inset-0 bg-gray-900/70 mix-blend-multiply" />
+          </div>
+
+          <div
+            ref={heroRef}
+            className="relative mx-auto max-w-7xl flex flex-col justify-center items-start text-left px-4 sm:px-6 lg:px-8 py-12 sm:py-20 lg:py-28 w-full min-h-[400px] sm:min-h-[500px] md:min-h-[600px] lg:min-h-[700px]"
+          >
+            <h1
+              className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold tracking-wide text-white uppercase leading-tight drop-shadow-md transition-all duration-1000 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                }`}
+            >
+              LIÊN HỆ
+              <br className="hidden sm:block" />
+              <span
+                className={`block mt-4 sm:mt-6 lg:mt-10 text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-white tracking-normal normal-case transition-all duration-1000 delay-200 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                  }`}
+              >
+                Hỗ trợ 24/7 - Giải đáp mọi thắc mắc
+              </span>
+            </h1>
+
+            <p
+              className={`mt-4 sm:mt-6 max-w-xl text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed transition-all duration-1000 delay-300 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                }`}
+            >
+              Chúng tôi luôn sẵn sàng lắng nghe và hỗ trợ bạn. Hãy liên hệ ngay để được tư vấn tốt nhất.
+            </p>
+          </div>
+        </div>
         <div className="relative isolate bg-white w-full">
           <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2 w-full">
             <div className="relative px-4 sm:px-6 pb-20 pt-24 sm:pt-32 lg:static lg:px-8 lg:py-48">
               <div className="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
                 <h1 className="text-3xl font-bold tracking-tight text-gray-900">Liên hệ với chúng tôi</h1>
                 <p className="mt-6 text-lg leading-8 text-gray-600">
-                  Hãy liên hệ với chúng tôi nếu bạn cần tư vấn về sản phẩm hoặc báo giá. 
+                  Hãy liên hệ với chúng tôi nếu bạn cần tư vấn về sản phẩm hoặc báo giá.
                   Đội ngũ nhân viên của chúng tôi luôn sẵn sàng hỗ trợ bạn.
                 </p>
                 <dl className="mt-10 space-y-4 text-base leading-7 text-gray-600">

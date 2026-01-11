@@ -124,21 +124,18 @@ export default function AboutPage() {
 
           <div
             ref={heroRef}
-            className="relative mx-auto max-w-7xl flex flex-col justify-center items-start text-left px-4 sm:px-6 lg:px-8 py-12 sm:py-20 lg:py-28 w-full"
-            style={{ minHeight: '400px' }}
+            className="relative mx-auto max-w-7xl flex flex-col justify-center items-start text-left px-4 sm:px-6 lg:px-8 py-12 sm:py-20 lg:py-28 w-full min-h-[400px] sm:min-h-[500px] md:min-h-[600px] lg:min-h-[700px]"
           >
             <h1
-              className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold tracking-wide text-white uppercase leading-tight drop-shadow-md transition-all duration-1000 ${
-                heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
+              className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold tracking-wide text-white uppercase leading-tight drop-shadow-md transition-all duration-1000 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                }`}
             >
               Về chúng tôi
             </h1>
 
             <p
-              className={`mt-6 sm:mt-8 lg:mt-12 max-w-3xl text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed transition-all duration-1000 delay-300 ${
-                heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
+              className={`mt-6 sm:mt-8 lg:mt-12 max-w-3xl text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed transition-all duration-1000 delay-300 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                }`}
             >
               Phúc Hải Liên tự hào là một trong những đơn vị hàng đầu trong lĩnh vực cung cấp sắt thép xây dựng tại Việt Nam.
               <br className="hidden sm:block" />
@@ -149,11 +146,10 @@ export default function AboutPage() {
             <div className="mx-auto mt-2 max-w-2xl lg:mx-0 lg:max-w-none">
               <dl className="mt-10 grid grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4">
                 {stats.map((stat, idx) => (
-                  <div 
-                    key={stat.name} 
-                    className={`flex flex-col-reverse transition-all duration-1000 ${
-                      heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-                    }`}
+                  <div
+                    key={stat.name}
+                    className={`flex flex-col-reverse transition-all duration-1000 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                      }`}
                     style={{ transitionDelay: `${500 + idx * 100}ms` }}
                   >
                     <dt className="text-base leading-7 text-gray-300">{stat.name}</dt>
@@ -164,57 +160,52 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
-        
+
         {/* ---------------- Introduction Section ---------------- */}
         <div className="bg-gray-100 py-24 sm:py-32">
           <div ref={introRef} className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 items-center">
-              
+
               {/* Text */}
               <div>
-                <h2 
-                  className={`text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl transition-all duration-1000 ${
-                    introVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
-                  }`}
+                <h2
+                  className={`text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl transition-all duration-1000 ${introVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
+                    }`}
                 >
                   Giới thiệu chung
                 </h2>
-                <p 
-                  className={`mt-6 text-lg leading-8 text-gray-600 transition-all duration-1000 delay-100 ${
-                    introVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
-                  }`}
+                <p
+                  className={`mt-6 text-lg leading-8 text-gray-600 transition-all duration-1000 delay-100 ${introVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
+                    }`}
                 >
-                  Công ty TNHH <span className="font-bold text-xl text-gray-900">PHÚC HẢI LIÊN </span> 
+                  Công ty TNHH <span className="font-bold text-xl text-gray-900">PHÚC HẢI LIÊN </span>
                   được thành lập với sứ mệnh cung cấp các sản phẩm sắt thép xây dựng chất lượng cao,
-                  đáp ứng nhu cầu ngày càng cao của thị trường xây dựng và công nghiệp. 
+                  đáp ứng nhu cầu ngày càng cao của thị trường xây dựng và công nghiệp.
                   Trụ sở công ty đặt tại 1602, tổ 3, ấp Ngọc Lâm 1, xã Phú Thanh, huyện Tân Phú, tỉnh Đồng Nai.
                 </p>
-                <p 
-                  className={`mt-4 text-lg leading-8 text-gray-600 transition-all duration-1000 delay-200 ${
-                    introVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
-                  }`}
+                <p
+                  className={`mt-4 text-lg leading-8 text-gray-600 transition-all duration-1000 delay-200 ${introVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
+                    }`}
                 >
-                  <span className="font-bold text-xl text-gray-900">Trải qua hơn  15 năm </span> hình thành và phát triển,  
-                  Phúc Hải Liên không ngừng nỗ lực để trở thành đối tác tin cậy 
+                  <span className="font-bold text-xl text-gray-900">Trải qua hơn  15 năm </span> hình thành và phát triển,
+                  Phúc Hải Liên không ngừng nỗ lực để trở thành đối tác tin cậy
                   của các công trình dân dụng, công nghiệp và hạ tầng trên toàn quốc.
-                  Chúng tôi cung cấp đa dạng các loại thép xây dựng: thép cây, thép cuộn, thép hình, thép ống,… 
+                  Chúng tôi cung cấp đa dạng các loại thép xây dựng: thép cây, thép cuộn, thép hình, thép ống,…
                   từ các thương hiệu uy tín trong và ngoài nước.
                 </p>
-                <p 
-                  className={`mt-4 text-lg leading-8 text-gray-600 transition-all duration-1000 delay-300 ${
-                    introVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
-                  }`}
+                <p
+                  className={`mt-4 text-lg leading-8 text-gray-600 transition-all duration-1000 delay-300 ${introVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
+                    }`}
                 >
-                  <span className="font-bold text-xl text-gray-900"> Tầm nhìn: </span>Trở thành một trong những doanh nghiệp cung cấp sắt thép xây dựng uy tín 
+                  <span className="font-bold text-xl text-gray-900"> Tầm nhìn: </span>Trở thành một trong những doanh nghiệp cung cấp sắt thép xây dựng uy tín
                   hàng đầu khu vực miền Nam, góp phần xây dựng những công trình <span className="font-bold text-xl text-gray-900">bền vững – an toàn – chất lượng </span>.
                 </p>
               </div>
 
               {/* Image */}
-              <div 
-                className={`relative transition-all duration-1000 delay-200 ${
-                  introVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
-                }`}
+              <div
+                className={`relative transition-all duration-1000 delay-200 ${introVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
+                  }`}
               >
                 <Image
                   src={`${prefix}/images/about_intro.jpg`}
@@ -233,30 +224,27 @@ export default function AboutPage() {
         <div className="bg-white py-24 sm:py-32">
           <div ref={valuesRef} className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-3xl lg:mx-0">
-              <h2 
-                className={`text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl transition-all duration-1000 ${
-                  valuesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-                }`}
+              <h2
+                className={`text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl transition-all duration-1000 ${valuesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                  }`}
               >
                 Giá trị cốt lõi
               </h2>
-              <p 
-                className={`mt-6 text-lg leading-8 text-gray-600 transition-all duration-1000 delay-100 ${
-                  valuesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-                }`}
+              <p
+                className={`mt-6 text-lg leading-8 text-gray-600 transition-all duration-1000 delay-100 ${valuesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                  }`}
               >
                 Với phương châm <span className="font-bold text-xl text-gray-900"> &ldquo;Uy tín từ chất thép – Vững chắc mọi công trình&rdquo; </span> ,
-                Phúc Hải Liên cam kết mang đến cho khách hàng những sản phẩm sắt thép chất lượng cao, đúng chuẩn kỹ thuật, 
+                Phúc Hải Liên cam kết mang đến cho khách hàng những sản phẩm sắt thép chất lượng cao, đúng chuẩn kỹ thuật,
                 cùng dịch vụ tư vấn tận tâm và giá cả cạnh tranh.
               </p>
             </div>
             <dl className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 text-base leading-7 text-gray-600 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:gap-x-16">
               {values.map((value, idx) => (
-                <div 
-                  key={value.name} 
-                  className={`relative pl-9 transition-all duration-1000 ${
-                    valuesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-                  }`}
+                <div
+                  key={value.name}
+                  className={`relative pl-9 transition-all duration-1000 ${valuesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                    }`}
                   style={{ transitionDelay: `${200 + idx * 150}ms` }}
                 >
                   <dt className="inline font-semibold text-gray-900">
@@ -274,17 +262,15 @@ export default function AboutPage() {
         <div className="bg-gray-100 py-24 sm:py-32">
           <div ref={certsRef} className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-2xl lg:mx-0">
-              <h2 
-                className={`text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl transition-all duration-1000 ${
-                  certsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-                }`}
+              <h2
+                className={`text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl transition-all duration-1000 ${certsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                  }`}
               >
                 Chứng nhận & Chứng chỉ
               </h2>
-              <p 
-                className={`mt-6 text-lg leading-8 text-gray-600 transition-all duration-1000 delay-100 ${
-                  certsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-                }`}
+              <p
+                className={`mt-6 text-lg leading-8 text-gray-600 transition-all duration-1000 delay-100 ${certsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                  }`}
               >
                 Sản phẩm của chúng tôi đạt các tiêu chuẩn chất lượng quốc gia và quốc tế.
               </p>
@@ -293,9 +279,8 @@ export default function AboutPage() {
               {certifications.map((cert, idx) => (
                 <article
                   key={cert.name}
-                  className={`relative isolate flex flex-col justify-end overflow-hidden bg-gray-900 px-8 pb-8 pt-80 sm:pt-48 lg:pt-80 transition-all duration-1000 ${
-                    certsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-                  }`}
+                  className={`relative isolate flex flex-col justify-end overflow-hidden bg-gray-900 px-8 pb-8 pt-80 sm:pt-48 lg:pt-80 transition-all duration-1000 ${certsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                    }`}
                   style={{ transitionDelay: `${200 + idx * 150}ms` }}
                 >
                   <Image
