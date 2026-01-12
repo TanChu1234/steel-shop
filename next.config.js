@@ -3,13 +3,13 @@
 const isProduction = process.env.NODE_ENV === 'production';
 
 const nextConfig = {
-  basePath: isProduction ? '/steel-shop' : '',
-  assetPrefix: isProduction ? '/steel-shop' : '',
+  basePath: process.env.VERCEL ? '' : (isProduction ? '/steel-shop' : ''),
+  assetPrefix: process.env.VERCEL ? '' : (isProduction ? '/steel-shop' : ''),
   output: 'export',
   trailingSlash: true,
   allowedDevOrigins: ['192.168.52.101', 'http://192.168.52.101:3000'],
   env: {
-    NEXT_PUBLIC_BASE_PATH: isProduction ? '/steel-shop' : '',
+    NEXT_PUBLIC_BASE_PATH: process.env.VERCEL ? '' : (isProduction ? '/steel-shop' : ''),
   },
   images: {
     // Disable optimization for static export
