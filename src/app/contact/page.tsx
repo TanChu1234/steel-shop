@@ -84,7 +84,7 @@ export default function ContactPage() {
           <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2 w-full">
             <div className="relative px-4 sm:px-6 pb-20 pt-24 sm:pt-32 lg:static lg:px-8 lg:py-48">
               <div className="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
-                <h1 className="text-3xl font-extrabold tracking-tight text-gray-900">Liên hệ với chúng tôi</h1>
+                <h2 className="text-3xl font-extrabold tracking-tight text-gray-900">Liên hệ với chúng tôi</h2>
                 <p className="mt-6 text-lg leading-8 text-gray-600">
                   Hãy liên hệ với chúng tôi nếu bạn cần tư vấn về sản phẩm hoặc báo giá.
                   Đội ngũ nhân viên của chúng tôi luôn sẵn sàng hỗ trợ bạn.

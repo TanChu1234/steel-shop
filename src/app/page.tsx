@@ -365,7 +365,7 @@ export default function Home() {
               className={`mt-20 transition-all duration-1000 delay-700 ${partnersVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                 }`}
             >
-              <h3 className="`text-3xl font-extrabold text-gray-900 sm:text-4xl transition-all duration-1000">
+              <h3 className="text-3xl font-extrabold text-gray-900 sm:text-4xl transition-all duration-1000">
                 Đối tác tin cậy trong ngành sắt thép
               </h3>
               <p className="mt-4 text-lg text-gray-500 max-w-4xl mx-auto">
