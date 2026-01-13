@@ -191,7 +191,7 @@ export default function ContactPage() {
           </div>
           <div className="h-96 w-full">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.4241674197156!2d106.70141931533417!3d10.777057062124266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f4b3330bcc7%3A0x4db964d76bf6e18e!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBCw6FjaCBraG9hIFRQLkhDTQ!5e0!3m2!1svi!2s!4v1629789732089!5m2!1svi!2s"
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3912.7692330524005!2d107.4631282!3d11.2783667!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317465e56f122781%3A0x260f4b6ecd83fccb!2zQ8OUTkcgVFkgVE5ISCBQSMOaQyBI4bqiSSBMScOKTg!5e0!3m2!1sen!2s!4v1768303274798!5m2!1sen!2s"
               className="h-full w-full border-0"
               allowFullScreen
               loading="lazy"
