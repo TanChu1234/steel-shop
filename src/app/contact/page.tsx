@@ -45,7 +45,7 @@ export default function ContactPage() {
           <div className="absolute inset-0">
             <Image
               className="w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] object-cover object-center border border-gray-900/10"
-              src={`${prefix}/images/banner_2.jpg`}
+              src={`${prefix}/images/banner/banner_2.jpg`}
               alt="Contact Banner"
               width={1920}
               height={700}

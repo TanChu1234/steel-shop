@@ -36,7 +36,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
               "name": "Công ty TNHH Phúc Hải Liên",
-              "image": "https://phuchailien.com/images/logo.png",
+              "image": "https://phuchailien.com/images/logo/logo.png",
               "@id": "https://phuchailien.com",
               "url": "https://phuchailien.com",
               "telephone": "0911392277",

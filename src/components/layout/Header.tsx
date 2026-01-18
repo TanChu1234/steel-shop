@@ -40,9 +40,8 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 bg-[#f4f4f4]/95 backdrop-blur-sm shadow-sm transition-all duration-300 ${
-        scrolled ? "py-1.5" : "py-2"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 bg-[#f4f4f4]/95 backdrop-blur-sm shadow-sm transition-all duration-300 ${scrolled ? "py-1.5" : "py-2"
+        }`}
     >
       <nav
         className="mx-auto flex max-w-7xl items-center justify-between px-4 lg:px-6"
@@ -55,14 +54,13 @@ export default function Header() {
             className="flex items-center hover:opacity-90 transition-opacity"
           >
             <Image
-              src={`${prefix}/images/logo.png`}
+              src={`${prefix}/images/logo/logo.png`}
               alt="Logo"
               width={160}
               height={60}
               priority
-              className={`object-contain transition-all duration-300 ${
-                scrolled ? "h-12" : "h-16"
-              }`}
+              className={`object-contain transition-all duration-300 ${scrolled ? "h-12" : "h-16"
+                }`}
             />
           </Link>
         </div>
@@ -92,15 +90,14 @@ export default function Header() {
                 >
                   <Link
                     href={item.href}
-                    className={`font-semibold text-gray-900 hover:text-blue-900 relative group transition-all flex items-center gap-1 ${
-                      scrolled ? "text-base py-1" : "text-xl py-2"
-                    }`}
+                    className={`font-semibold text-gray-900 hover:text-blue-900 relative group transition-all flex items-center gap-1 ${scrolled ? "text-base py-1" : "text-xl py-2"
+                      }`}
                   >
                     {item.name}
                     <ChevronDownIcon className={`h-4 w-4 transition-transform duration-200 ${productsMenuOpen ? "rotate-180" : ""}`} />
                     <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-blue-900 group-hover:w-full transition-all duration-300" />
                   </Link>
-                  
+
                   {/* Dropdown Menu */}
                   {productsMenuOpen && (
                     <div className="absolute top-full left-0 w-64 z-50">
@@ -126,9 +123,8 @@ export default function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`font-semibold text-gray-900 hover:text-blue-900 relative group transition-all ${
-                  scrolled ? "text-base py-1" : "text-xl py-2"
-                }`}
+                className={`font-semibold text-gray-900 hover:text-blue-900 relative group transition-all ${scrolled ? "text-base py-1" : "text-xl py-2"
+                  }`}
               >
                 {item.name}
                 <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-blue-900 group-hover:w-full transition-all duration-300" />
@@ -148,9 +144,8 @@ export default function Header() {
               type="text"
               name="search"
               placeholder="Tìm sản phẩm..."
-              className={`w-full rounded-2xl border border-gray-200 bg-white px-4 pr-11 text-gray-900 placeholder-gray-400 outline-none transition-all duration-200 hover:border-gray-300 hover:shadow-sm ${
-                scrolled ? "py-1.5 text-sm" : "py-2 text-base"
-              }`}
+              className={`w-full rounded-2xl border border-gray-200 bg-white px-4 pr-11 text-gray-900 placeholder-gray-400 outline-none transition-all duration-200 hover:border-gray-300 hover:shadow-sm ${scrolled ? "py-1.5 text-sm" : "py-2 text-base"
+                }`}
             />
 
             <button

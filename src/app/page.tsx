@@ -60,7 +60,7 @@ const featuredProducts = [
     id: 1,
     name: 'Thép xây dựng',
     description: 'Thép cuộn, thép thanh vằn và thép tròn trơn chất lượng cao, đạt tiêu chuẩn TCVN.',
-    href: '/products/construction-steel',
+    href: '/products/thep-xay-dung',
     imageSrc: `${prefix}/images/thep_xay_dung.jpg`,
     imageAlt: 'Thép xây dựng gồm thép cuộn, thép thanh vằn, thép cây đạt tiêu chuẩn TCVN, sử dụng trong công trình dân dụng và công nghiệp',
   },
@@ -68,7 +68,7 @@ const featuredProducts = [
     id: 2,
     name: 'Thép hình',
     description: 'Thép hình với độ bền và khả năng chịu tải cao. Đa dạng các loại như U, I, H, V, C ... ',
-    href: '/products/alphabet-shape-steel',
+    href: '/products/thep-hinh',
     imageSrc: `${prefix}/images/thep_hinh.jpg`,
     imageAlt: 'Thép hình chữ U, I, H, V dùng trong kết cấu thép, nhà xưởng, cầu đường và được sử dụng rộng rãi trong kết cấu nhà xưởng, cầu đường và cơ khí chế tạo',
   },
@@ -76,17 +76,17 @@ const featuredProducts = [
     id: 3,
     name: 'Tôn',
     description: 'Tôn lợp, tôn lạnh, tôn mạ kẽm chất lượng cao, đa dạng mẫu mã, đảm bảo độ bền màu, chống gỉ sét và cách nhiệt tốt.',
-    href: '/products/metal-sheets',
+    href: '/products/ton',
     imageSrc: `${prefix}/images/ton.jpg`,
     imageAlt: 'Tôn lạnh, tôn màu, tôn kẽm chống ăn mòn, độ bền cao, cách nhiệt tốt, dùng cho mái nhà và nhà xưởng',
   },
   {
     id: 4,
-    name: 'Xà gồ',
-    description: 'Xà gồ thép C, Z mạ kẽm có độ cứng cao, trọng lượng nhẹ, thích hợp cho kết cấu mái và khung nhà thép tiền chế.',
-    href: '/products/purlins',
-    imageSrc: `${prefix}/images/xago.jpg`,
-    imageAlt: 'Xà gồ thép C và Z mạ kẽm, dùng trong kết cấu mái và khung nhà tiền chế, độ bền cao chống ăn mòn',
+    name: 'Thép ống - hộp mạ kẽm',
+    description: 'Thép ống và thép hộp mạ kẽm có độ bền cao, chống gỉ sét tốt, phù hợp cho nhiều công trình xây dựng và cơ khí.',
+    href: '/products/thep-ong-hop-vuong',
+    imageSrc: `${prefix}/images/thep_hop_ma_kem.jpg`,
+    imageAlt: 'Thép ống và thép hộp mạ kẽm chất lượng cao, chống ăn mòn, độ bền vượt trội cho các công trình xây dựng',
   },
 ];
 
@@ -166,7 +166,7 @@ export default function Home() {
           <div className="absolute inset-0">
             <Image
               className="w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] object-cover object-center border border-gray-900/10"
-              src={`${prefix}/images/banner_2.jpg`}
+              src={`${prefix}/images/banner/banner_2.jpg`}
               alt="Steel Shop Banner"
               width={1920}
               height={700}
@@ -287,10 +287,10 @@ export default function Home() {
 
             <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap- mb-8 justify-items-center">
               {[
-                { src: `${prefix}/images/certification_1.jpg`, alt: "ISO 9001" },
-                { src: `${prefix}/images/certification_2.jpg`, alt: "ISO 14001" },
-                { src: `${prefix}/images/certification_3.jpg`, alt: "OHSAS 18001" },
-                { src: `${prefix}/images/certification_1.jpg`, alt: "Award" },
+                { src: `${prefix}/images/certificates/certification_1.jpg`, alt: "ISO 9001" },
+                { src: `${prefix}/images/certificates/certification_2.jpg`, alt: "ISO 14001" },
+                { src: `${prefix}/images/certificates/certification_3.jpg`, alt: "OHSAS 18001" },
+                { src: `${prefix}/images/certificates/certification_1.jpg`, alt: "Award" },
               ].map((cert, idx) => (
                 <div
                   key={idx}

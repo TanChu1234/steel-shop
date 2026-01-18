@@ -113,7 +113,7 @@ export default function AboutPage() {
           <div className="absolute inset-0">
             <Image
               className="w-full h-full object-cover object-center border border-gray-900/10"
-              src={`${prefix}/images/banner_2.jpg`}
+              src={`${prefix}/images/banner/banner_2.jpg`}
               alt="Steel Shop Banner"
               width={1920}
               height={700}

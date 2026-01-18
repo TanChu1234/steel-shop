@@ -70,7 +70,7 @@ function CategorySection({ category }: CategorySectionProps) {
       </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        {category.products.map((product, i) => (
+        {category.products.slice(0, 4).map((product, i) => (
           <div
             key={i}
             className={`group bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
@@ -123,7 +123,7 @@ export default function ProductsPage() {
         <div className="absolute inset-0">
           <Image
             className="w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] object-cover object-center border border-gray-900/10"
-            src={`${prefix}/images/banner_2.jpg`}
+            src={`${prefix}/images/banner/banner_2.jpg`}
             alt="Products Banner"
             width={1920}
             height={700}

@@ -31,7 +31,7 @@ export default function CategoryHero({ category }: CategoryHeroProps) {
       <div className="absolute inset-0">
         <Image
           className="object-cover object-center"
-          src={category.bannerImage || `${prefix}/images/banner_2.jpg`}
+          src={category.bannerImage || `${prefix}/images/banner/banner_2.jpg`}
           alt={category.title}
           fill
           priority
