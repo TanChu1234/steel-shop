@@ -61,7 +61,7 @@ const featuredProducts = [
     name: 'Thép xây dựng',
     description: 'Thép cuộn, thép thanh vằn và thép tròn trơn chất lượng cao, đạt tiêu chuẩn TCVN.',
     href: '/products/thep-xay-dung',
-    imageSrc: `${prefix}/images/thep_xay_dung.jpg`,
+    imageSrc: `${prefix}/images/products/thep_xay_dung/thep_cay.jpg`,
     imageAlt: 'Thép xây dựng gồm thép cuộn, thép thanh vằn, thép cây đạt tiêu chuẩn TCVN, sử dụng trong công trình dân dụng và công nghiệp',
   },
   {
@@ -69,7 +69,7 @@ const featuredProducts = [
     name: 'Thép hình',
     description: 'Thép hình với độ bền và khả năng chịu tải cao. Đa dạng các loại như U, I, H, V, C ... ',
     href: '/products/thep-hinh',
-    imageSrc: `${prefix}/images/thep_hinh.jpg`,
+    imageSrc: `${prefix}/images/products/thep_hinh/thep_hinh.jpg`,
     imageAlt: 'Thép hình chữ U, I, H, V dùng trong kết cấu thép, nhà xưởng, cầu đường và được sử dụng rộng rãi trong kết cấu nhà xưởng, cầu đường và cơ khí chế tạo',
   },
   {
@@ -77,7 +77,7 @@ const featuredProducts = [
     name: 'Tôn',
     description: 'Tôn lợp, tôn lạnh, tôn mạ kẽm chất lượng cao, đa dạng mẫu mã, đảm bảo độ bền màu, chống gỉ sét và cách nhiệt tốt.',
     href: '/products/ton',
-    imageSrc: `${prefix}/images/ton.jpg`,
+    imageSrc: `${prefix}/images/products/ton/ton_ma_kem.jpg`,
     imageAlt: 'Tôn lạnh, tôn màu, tôn kẽm chống ăn mòn, độ bền cao, cách nhiệt tốt, dùng cho mái nhà và nhà xưởng',
   },
   {
@@ -85,7 +85,7 @@ const featuredProducts = [
     name: 'Thép ống - hộp mạ kẽm',
     description: 'Thép ống và thép hộp mạ kẽm có độ bền cao, chống gỉ sét tốt, phù hợp cho nhiều công trình xây dựng và cơ khí.',
     href: '/products/thep-ong-hop-vuong',
-    imageSrc: `${prefix}/images/thep_hop_ma_kem.jpg`,
+    imageSrc: `${prefix}/images/products/thep_ong_hop_vuong/ong_thep_ma_kem.jpg`,
     imageAlt: 'Thép ống và thép hộp mạ kẽm chất lượng cao, chống ăn mòn, độ bền vượt trội cho các công trình xây dựng',
   },
 ];
