@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -33,8 +34,54 @@ const contactInfo = [
   },
 ];
 
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:8000";
+
 export default function ContactPage() {
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation({ threshold: 0.2 });
+
+  const [form, setForm] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMsg, setErrorMsg] = useState("");
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("loading");
+    setErrorMsg("");
+    try {
+      const res = await fetch(`${BACKEND_URL}/api/contact`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          first_name: form.firstName,
+          last_name: form.lastName,
+          email: form.email,
+          phone: form.phone,
+          message: form.message,
+        }),
+      });
+
+      if (!res.ok) {
+        const err = await res.json();
+        throw new Error(err.detail || "Gửi thất bại");
+      }
+
+      setStatus("success");
+      setForm({ firstName: "", lastName: "", email: "", phone: "", message: "" });
+    } catch (err: unknown) {
+      setStatus("error");
+      setErrorMsg(err instanceof Error ? err.message : "Có lỗi xảy ra, vui lòng thử lại.");
+    }
+  };
 
   return (
     <div className={`${montserrat.className} w-full overflow-x-hidden`}>
@@ -105,33 +152,37 @@ export default function ContactPage() {
                 </dl>
               </div>
             </div>
-            <form className="px-4 sm:px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48">
+            <form onSubmit={handleSubmit} className="px-4 sm:px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48">
               <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg w-full">
                 <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
                   <div>
-                    <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-gray-900">
+                    <label htmlFor="firstName" className="block text-sm font-semibold leading-6 text-gray-900">
                       Họ
                     </label>
                     <div className="mt-2.5">
                       <input
                         type="text"
-                        name="first-name"
-                        id="first-name"
+                        name="firstName"
+                        id="firstName"
                         autoComplete="given-name"
+                        value={form.firstName}
+                        onChange={handleChange}
                         className="block w-full border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-900 sm:text-sm sm:leading-6"
                       />
                     </div>
                   </div>
                   <div>
-                    <label htmlFor="last-name" className="block text-sm font-semibold leading-6 text-gray-900">
+                    <label htmlFor="lastName" className="block text-sm font-semibold leading-6 text-gray-900">
                       Tên
                     </label>
                     <div className="mt-2.5">
                       <input
                         type="text"
-                        name="last-name"
-                        id="last-name"
+                        name="lastName"
+                        id="lastName"
                         autoComplete="family-name"
+                        value={form.lastName}
+                        onChange={handleChange}
                         className="block w-full border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-900 sm:text-sm sm:leading-6"
                       />
                     </div>
@@ -146,6 +197,8 @@ export default function ContactPage() {
                         name="email"
                         id="email"
                         autoComplete="email"
+                        value={form.email}
+                        onChange={handleChange}
                         className="block w-full border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-900 sm:text-sm sm:leading-6"
                       />
                     </div>
@@ -160,6 +213,8 @@ export default function ContactPage() {
                         name="phone"
                         id="phone"
                         autoComplete="tel"
+                        value={form.phone}
+                        onChange={handleChange}
                         className="block w-full border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-900 sm:text-sm sm:leading-6"
                       />
                     </div>
@@ -173,17 +228,33 @@ export default function ContactPage() {
                         name="message"
                         id="message"
                         rows={4}
+                        value={form.message}
+                        onChange={handleChange}
                         className="block w-full border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-900 sm:text-sm sm:leading-6"
                       />
                     </div>
                   </div>
                 </div>
+
+                {/* Status messages */}
+                {status === "success" && (
+                  <div className="mt-4 rounded-md bg-green-50 border border-green-200 px-4 py-3 text-sm text-green-800">
+                    ✅ Tin nhắn đã được gửi thành công! Chúng tôi sẽ liên hệ lại sớm nhất.
+                  </div>
+                )}
+                {status === "error" && (
+                  <div className="mt-4 rounded-md bg-red-50 border border-red-200 px-4 py-3 text-sm text-red-800">
+                    ❌ {errorMsg}
+                  </div>
+                )}
+
                 <div className="mt-8 flex justify-end">
                   <button
                     type="submit"
-                    className="bg-blue-900 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900"
+                    disabled={status === "loading"}
+                    className="bg-blue-900 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900 disabled:opacity-60 disabled:cursor-not-allowed transition-opacity"
                   >
-                    Gửi tin nhắn
+                    {status === "loading" ? "Đang gửi..." : "Gửi tin nhắn"}
                   </button>
                 </div>
               </div>
@@ -202,4 +273,4 @@ export default function ContactPage() {
       <Footer />
     </div>
   );
-} 
+}
