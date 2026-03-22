@@ -13,18 +13,28 @@ export interface Category {
   link: string;
   slug: string;
   description?: string;
-  bannerImage?: string;
+  bannerImage?: string | string[];
 }
 
 export const categories: Category[] = [
   {
     title: "Thép xây dựng",
     description: "Thép cuộn, thép thanh vằn và thép tròn trơn chất lượng cao, đạt tiêu chuẩn TCVN, đảm bảo độ bền và an toàn cho công trình.",
-    bannerImage: `${prefix}/images/products/thep_xay_dung/banner.jpg`,
+    bannerImage: [
+      `${prefix}/images/products/thep_xay_dung/banner_xay_dung/a.jpg`,
+      `${prefix}/images/products/thep_xay_dung/banner_xay_dung/b.jpg`,
+      `${prefix}/images/products/thep_xay_dung/banner_xay_dung/c.jpg`,
+      `${prefix}/images/products/thep_xay_dung/banner_xay_dung/d.jpg`,
+      `${prefix}/images/products/thep_xay_dung/banner_xay_dung/e.jpg`,
+      `${prefix}/images/products/thep_xay_dung/banner_xay_dung/f.jpg`,
+      `${prefix}/images/products/thep_xay_dung/banner_xay_dung/g.jpg`,
+      `${prefix}/images/products/thep_xay_dung/banner_xay_dung/h.jpg`,
+      `${prefix}/images/products/thep_xay_dung/banner_xay_dung/i.jpg`
+    ],
     products: [
       {
         name: "Thép thanh",
-        image: `${prefix}/images/products/thep_xay_dung/thep_cay.jpg`,
+        image: `${prefix}/images/products/thep_xay_dung/thep_thanh.jpg`,
         description: "Thép thanh vằn hoặc thép thành tròn có độ bền cao, chống trượt tốt, phù hợp cho kết cấu bê tông cốt thép.",
         specs: [
           "Đường kính: Ø10mm - Ø55mm",
@@ -35,7 +45,7 @@ export const categories: Category[] = [
       },
       {
         name: "Thép cuộn",
-        image: `${prefix}/images/products/thep_xay_dung/thep-cuon_van.jpg`,
+        image: `${prefix}/images/products/thep_xay_dung/thep_cuon.jpg`,
         description: "Thép cuộn xây dựng loại thép dạng dây được cuộn tròn, bề mặt trơn nhẵn hoặc có vân (gân), đạt tiêu chuẩn TCVN, sử dụng trong các công trình xây dựng dân dụng và công nghiệp.",
         specs: [
           "Đường kính: Ø6mm, Ø8mm, Ø10mm",
@@ -109,7 +119,15 @@ export const categories: Category[] = [
   {
     title: "Thép Ống - Hộp - Vuông",
     description: "Thép ống, thép hộp, thép vuông chất lượng cao, đạt tiêu chuẩn TCVN, được sử dụng rộng rãi trong kết cấu xây dựng, nhà xưởng, cầu đường và các công trình công nghiệp.",
-    bannerImage: `${prefix}/images/products/thep_ong_hop_vuong/banner.jpg`,
+    bannerImage: [
+      `${prefix}/images/products/thep_ong_hop_vuong/banner_ong_hop_vuong/a.jpg`,
+      `${prefix}/images/products/thep_ong_hop_vuong/banner_ong_hop_vuong/b.jpg`,
+      `${prefix}/images/products/thep_ong_hop_vuong/banner_ong_hop_vuong/c.jpg`,
+      `${prefix}/images/products/thep_ong_hop_vuong/banner_ong_hop_vuong/d.jpg`,
+      `${prefix}/images/products/thep_ong_hop_vuong/banner_ong_hop_vuong/e.jpg`,
+      `${prefix}/images/products/thep_ong_hop_vuong/banner_ong_hop_vuong/f.jpg`,
+      `${prefix}/images/products/thep_ong_hop_vuong/banner_ong_hop_vuong/g.jpg`
+    ],
     products: [
       {
         name: "Thép hộp mạ kẽm",
@@ -161,17 +179,22 @@ export const categories: Category[] = [
   {
     title: "Tôn",
     description: "Cung cấp các loại tôn lạnh, tôn kẽm và tôn màu chất lượng cao từ các thương hiệu hàng đầu, đảm bảo độ bền và tính thẩm mỹ cho mọi công trình.",
-    bannerImage: `${prefix}/images/products/ton/banner.jpg`,
+    bannerImage: [
+      `${prefix}/images/products/ton/banner_ton/a.jpg`,
+      `${prefix}/images/products/ton/banner_ton/b.jpg`,
+      `${prefix}/images/products/ton/banner_ton/c.jpg`,
+      `${prefix}/images/products/ton/banner_ton/d.jpg`
+    ],
     products: [
       {
         name: "Tôn lạnh",
-        image: `${prefix}/images/products/ton/ton_lanh.jpg`,
+        image: `${prefix}/images/products/ton/ton_ma_kem.jpg`,
         description: "Tôn lạnh (mạ nhôm kẽm) có khả năng phản xạ nhiệt tốt, chống ăn mòn cao gấp 4 lần tôn kẽm thông thường.",
         specs: ["Độ dày: 0.6mm - 2mm", "Khổ rộng: 1200mm", "Mạ: AZ70 - AZ150", "Màu sắc: Ánh kim đặc trưng"]
       },
       {
         name: "Tôn kẽm",
-        image: `${prefix}/images/products/ton/ton_lanh.jpg`,
+        image: `${prefix}/images/products/ton/ton_ma_kem.jpg`,
         description: "Tôn mạ kẽm giá thành hợp lý, bề mặt vân bông đẹp chuyên dùng cho vách ngăn, tấm lợp thông dụng.",
         specs: ["Độ dày: 0.6mm - 2mm", "Khổ rộng: 1200mm", "Mạ: Z8 - Z275", "Tiêu chuẩn: JIS G3302"]
       },
@@ -180,12 +203,6 @@ export const categories: Category[] = [
         image: `${prefix}/images/products/ton/ton_lanh.jpg`,
         description: "Tôn lạnh mạ màu đa dạng màu sắc, thẩm mỹ cao, bền màu, phù hợp cho mái lợp nhà phố, biệt thự.",
         specs: ["Độ dày: 0.30mm - 0.50mm", "Màu sắc: Đỏ, Xanh, Trắng, Vàng...", "Sơn: Polyester, PVDF", "Bảo hành màu: 5-10 năm"]
-      },
-      {
-        name: "Tôn hoa cương",
-        image: `${prefix}/images/products/ton/ton_lanh.jpg`,
-        description: "Tôn lạnh mạ màu hoa cương sang trọng, vân đá độc đáo, tạo điểm nhấn đẳng cấp cho ngôi nhà.",
-        specs: ["Độ dày: 0.35mm - 0.50mm", "Vân: Hoa cương Granite", "Công nghệ: In 3D", "Chống bám bụi, giảm nhiệt"]
       },
     ], link: "/products/ton",
     slug: "ton",

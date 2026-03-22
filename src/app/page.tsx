@@ -212,7 +212,7 @@ export default function Home() {
 
             <p
               className={`mt-4 sm:mt-6 max-w-xl text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed transition-all duration-1000 delay-300 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
+                }`}
             >
               Cung cấp đa dạng sản phẩm sắt thép xây dựng với chất lượng đảm bảo,
               giá cả cạnh tranh và dịch vụ chuyên nghiệp.
@@ -260,11 +260,11 @@ export default function Home() {
                     }`}
                 >
                   <p>
-                    Với nền tảng vững chắc và <span className="font-bold text-blue-900">hơn 15 năm kinh nghiệm</span>, 
+                    Với nền tảng vững chắc và <span className="font-bold text-blue-900">hơn 15 năm kinh nghiệm</span>,
                     Phúc Hải Liên tự hào là đơn vị cung ứng sắt thép hàng đầu, đồng hành cùng hàng ngàn công trình trên khắp cả nước.
                   </p>
                   <p className="mt-4">
-                    Chúng tôi không chỉ cung cấp vật liệu, mà còn mang đến <span className="font-bold text-gray-900">giải pháp tối ưu</span> giúp các nhà thầu và 
+                    Chúng tôi không chỉ cung cấp vật liệu, mà còn mang đến <span className="font-bold text-gray-900">giải pháp tối ưu</span> giúp các nhà thầu và
                     chủ đầu tư tiết kiệm chi phí nhưng vẫn đảm bảo độ bền vững tuyệt đối cho công trình.
                   </p>
                 </div>

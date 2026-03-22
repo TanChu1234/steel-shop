@@ -71,7 +71,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
         </div>
 
         {/* CTA Section */}
-        <div className="mt-16 bg-blue-900 rounded-2xl p-6 text-center text-white">
+        <div className="mt-16 bg-blue-950 rounded-2xl p-6 text-center text-white">
           <h2 className="text-3xl font-bold mb-4">Cần tư vấn thêm?</h2>
           <p className="text-xl text-gray-200 mb-6">
             Liên hệ với chúng tôi để được tư vấn chi tiết và báo giá tốt nhất

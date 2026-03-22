@@ -16,6 +16,11 @@ interface CategoryHeroProps {
 export default function CategoryHero({ category }: CategoryHeroProps) {
   const heroRef = useRef<HTMLDivElement>(null);
   const [heroVisible, setHeroVisible] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const images = Array.isArray(category.bannerImage)
+    ? category.bannerImage
+    : [category.bannerImage || `${prefix}/images/banner/banner_2.jpg`];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -26,16 +31,30 @@ export default function CategoryHero({ category }: CategoryHeroProps) {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    if (images.length <= 1) return;
+
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % images.length);
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [images.length]);
+
   return (
     <div className="relative mt-20 w-full overflow-hidden">
       <div className="absolute inset-0">
-        <Image
-          className="object-cover object-center"
-          src={category.bannerImage || `${prefix}/images/banner/banner_2.jpg`}
-          alt={category.title}
-          fill
-          priority
-        />
+        {images.map((img, idx) => (
+          <Image
+            key={img}
+            className={`object-cover object-center transition-opacity duration-1000 ${idx === currentImageIndex ? "opacity-100" : "opacity-0"
+              }`}
+            src={img}
+            alt={`${category.title} banner ${idx + 1}`}
+            fill
+            priority={idx === 0}
+          />
+        ))}
         <div className="absolute inset-0 bg-gray-900/70 mix-blend-multiply" />
       </div>
 

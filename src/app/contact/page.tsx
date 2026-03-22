@@ -14,7 +14,7 @@ const montserrat = Montserrat({ subsets: ["latin"], weight: ["400", "600", "700"
 const contactInfo = [
   {
     name: 'Địa chỉ công ty',
-    description: '1602, Tổ 3, Ấp Ngọc Lâm 1, Xã Phú Thanh, Huyện Tân Phú, Tỉnh Đồng Nai',
+    description: '1602, Ấp Ngọc Lâm 4, Xã Phú Thanh, Huyện Tân Phú, Tỉnh Đồng Nai',
     icon: FaMapMarkerAlt,
   },
   {
