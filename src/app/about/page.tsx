@@ -53,8 +53,8 @@ function useScrollAnimation(options: ScrollAnimationOptions = {}) {
 const stats = [
   { name: 'Năm kinh nghiệm', value: '15+' },
   { name: 'Khách hàng tin tưởng', value: '1000+' },
-  { name: 'Dự án hoàn thành', value: '500+' },
-  { name: 'Đối tác nhà máy', value: '10+' },
+  // { name: 'Dự án hoàn thành', value: '500+' },
+  { name: 'Đối tác nhà máy', value: '100+' },
 ];
 
 const values = [

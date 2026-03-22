@@ -23,12 +23,12 @@ const contactInfo = [
   },
   {
     name: 'Email',
-    description: 'phuchailien@gmail.com',
+    description: 'phuchailien0613795395@gmail.com',
     icon: FaEnvelope,
   },
   {
     name: 'Giờ làm việc',
-    description: 'Thứ 2 - Thứ 7: 8:00 - 17:30',
+    description: 'Thứ 2 - Thứ 7: 7:00 - 17:00',
     icon: FaClock,
   },
 ];

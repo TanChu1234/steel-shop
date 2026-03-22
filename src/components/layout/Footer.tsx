@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -114,10 +115,10 @@ export default function Footer() {
               <div className="flex items-start space-x-3">
                 <FaEnvelope className="h-4 w-4 text-white mt-1" />
                 <Link
-                  href="mailto:phuchailien@gmail.com"
+                  href="mailto:phuchailien0613795395@gmail.com"
                   className="hover:text-white transition no-underline hover:no-underline"
                 >
-                  Email: phuchailien@gmail.com
+                  Email: phuchailien0613795395@gmail.com
                 </Link>
               </div>
             </div>
@@ -183,7 +184,7 @@ export default function Footer() {
 
               {/* Email */}
               <Link
-                href="mailto:phuchailien@gmail.com"
+                href="mailto:phuchailien0613795395@gmail.com"
                 className="flex items-center justify-center w-10 h-10 rounded-full bg-white hover:bg-gray-300 transition"
                 aria-label="Email"
               >

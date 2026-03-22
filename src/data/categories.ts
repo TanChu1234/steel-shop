@@ -112,13 +112,13 @@ export const categories: Category[] = [
     bannerImage: `${prefix}/images/products/thep_ong_hop_vuong/banner.jpg`,
     products: [
       {
-        name: "Thép ống đen",
-        image: `${prefix}/images/products/thep_ong_hop_vuong/thep_ong_den.jpg`,
-        description: "Thép ống đen có khả năng chịu lực tốt, độ bền cao, thường được dùng trong các hệ thống dẫn dầu, gas và kết cấu công trình.",
+        name: "Thép hộp mạ kẽm",
+        image: `${prefix}/images/products/thep_ong_hop_vuong/thep-hop-ma_kem.jpg`,
+        description: "Thép hộp vuông/chữ nhật mạ kẽm chống gỉ sét tốt, bề mặt sáng đẹp, dễ thi công, dùng làm khung kèo, cửa sắt.",
         specs: [
-          "Đường kính: D12.7 - D219.1mm",
-          "Độ dày: 0.7mm - 9.5mm",
-          "Tiêu chuẩn: ASTM A53, ASTM A500",
+          "Kích thước: 13x26mm - 100x200mm",
+          "Đo dày: 0.6mm - 4.0mm",
+          "Tiêu chuẩn: ASTM A500, TCVN",
           "Độ dài: 6m"
         ]
       },
@@ -134,39 +134,6 @@ export const categories: Category[] = [
         ]
       },
       {
-        name: "Thép ống đúc",
-        image: `${prefix}/images/products/thep_ong_hop_vuong/thep_ong_duc.jpg`,
-        description: "Thép ống đúc (không mối hàn) chịu áp lực cực cao, chịu nhiệt tốt, dùng trong cơ khí chế tạo, nồi hơi và dầu khí.",
-        specs: [
-          "Đường kính: D21.3 - D610mm",
-          "Độ dày: SCH20, SCH40, SCH80...",
-          "Tiêu chuẩn: ASTM A106, ASTM A53, API 5L",
-          "Độ dài: 6m - 12m"
-        ]
-      },
-      {
-        name: "Thép ống hàn",
-        image: `${prefix}/images/products/thep_ong_hop_vuong/ong_thep_han.jpg`,
-        description: "Thép ống hàn đa dạng kích thước, quy trình sản xuất hiện đại, ứng dụng rộng rãi trong xây dựng và trang trí nội thất.",
-        specs: [
-          "Đường kính: D12.7 - D219.1mm",
-          "Độ dày: 0.6mm - 6.35mm",
-          "Tiêu chuẩn: TCVN 3783, ASTM A500",
-          "Độ dài: 6m"
-        ]
-      },
-      {
-        name: "Thép hộp mạ kẽm",
-        image: `${prefix}/images/products/thep_ong_hop_vuong/thep-hop-ma_kem.jpg`,
-        description: "Thép hộp vuông/chữ nhật mạ kẽm chống gỉ sét tốt, bề mặt sáng đẹp, dễ thi công, dùng làm khung kèo, cửa sắt.",
-        specs: [
-          "Kích thước: 13x26mm - 100x200mm",
-          "Đo dày: 0.6mm - 4.0mm",
-          "Tiêu chuẩn: ASTM A500, TCVN",
-          "Độ dài: 6m"
-        ]
-      },
-      {
         name: "Thép hộp đen",
         image: `${prefix}/images/products/thep_ong_hop_vuong/thep-hop-den.jpg`,
         description: "Thép hộp đen chịu lực vững chắc, giá thành kinh tế, thường dùng trong kết cấu nhà xưởng, giàn giáo và đồ nội thất.",
@@ -177,38 +144,44 @@ export const categories: Category[] = [
           "Độ dài: 6m"
         ]
       },
+      {
+        name: "Thép ống đen",
+        image: `${prefix}/images/products/thep_ong_hop_vuong/thep_ong_den.jpg`,
+        description: "Thép ống đen có khả năng chịu lực tốt, độ bền cao, thường được dùng trong các hệ thống dẫn dầu, gas và kết cấu công trình.",
+        specs: [
+          "Đường kính: D12.7 - D219.1mm",
+          "Độ dày: 0.7mm - 9.5mm",
+          "Tiêu chuẩn: ASTM A53, ASTM A500",
+          "Độ dài: 6m"
+        ]
+      },
     ], link: "/products/thep-ong-hop-vuong",
     slug: "thep-ong-hop-vuong",
   },
   {
     title: "Tôn",
-    description: "Cung cấp các loại tôn lạnh, tôn kẽm, tôn màu và tôn hoa cương chất lượng cao từ các thương hiệu hàng đầu, đảm bảo độ bền và tính thẩm mỹ cho mọi công trình.",
+    description: "Cung cấp các loại tôn lạnh, tôn kẽm và tôn màu chất lượng cao từ các thương hiệu hàng đầu, đảm bảo độ bền và tính thẩm mỹ cho mọi công trình.",
     bannerImage: `${prefix}/images/products/ton/banner.jpg`,
     products: [
       {
         name: "Tôn lạnh",
         image: `${prefix}/images/products/ton/ton_lanh.jpg`,
         description: "Tôn lạnh (mạ nhôm kẽm) có khả năng phản xạ nhiệt tốt, chống ăn mòn cao gấp 4 lần tôn kẽm thông thường.",
-        specs: ["Độ dày: 0.18mm - 0.58mm", "Khổ rộng: 1200mm", "Mạ: AZ70 - AZ150", "Màu sắc: Ánh kim đặc trưng"]
+        specs: ["Độ dày: 0.6mm - 2mm", "Khổ rộng: 1200mm", "Mạ: AZ70 - AZ150", "Màu sắc: Ánh kim đặc trưng"]
       },
       {
         name: "Tôn kẽm",
         image: `${prefix}/images/products/ton/ton_ma_kem.jpg`,
         description: "Tôn mạ kẽm giá thành hợp lý, bề mặt vân bông đẹp chuyên dùng cho vách ngăn, tấm lợp thông dụng.",
-        specs: ["Độ dày: 0.16mm - 1.2mm", "Khổ rộng: 1200mm", "Mạ: Z8 - Z275", "Tiêu chuẩn: JIS G3302"]
+        specs: ["Độ dày: 0.6mm - 2mm", "Khổ rộng: 1200mm", "Mạ: Z8 - Z275", "Tiêu chuẩn: JIS G3302"]
       },
       {
         name: "Tôn màu",
         image: `${prefix}/images/products/ton/ton_lanh.jpg`,
         description: "Tôn lạnh mạ màu đa dạng màu sắc, thẩm mỹ cao, bền màu, phù hợp cho mái lợp nhà phố, biệt thự.",
-        specs: ["Độ dày: 0.30mm - 0.50mm", "Màu sắc: Đỏ, Xanh, Trắng, Vàng...", "Sơn: Polyester, PVDF", "Bảo hành màu: 5-10 năm"]
+        specs: ["Độ dày: 0.6mm - 2mm", "Màu sắc: Đỏ, Xanh, xám...", "Sơn: Polyester, PVDF", "Bảo hành màu: 5-10 năm"]
       },
-      {
-        name: "Tôn hoa cương",
-        image: `${prefix}/images/products/ton/ton_hoa_cuong.jpg`,
-        description: "Tôn lạnh mạ màu hoa cương sang trọng, vân đá độc đáo, tạo điểm nhấn đẳng cấp cho ngôi nhà.",
-        specs: ["Độ dày: 0.35mm - 0.50mm", "Vân: Hoa cương Granite", "Công nghệ: In 3D", "Chống bám bụi, giảm nhiệt"]
-      },
+
     ], link: "/products/ton",
     slug: "ton",
   },
