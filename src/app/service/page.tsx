@@ -115,8 +115,8 @@ export default function ServicePage() {
         </div>
 
         {/* ---------------- Services Content Section ---------------- */}
-        <div className="bg-white py-24 sm:py-32 w-full">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
+        <div className="bg-white py-16 sm:py-24 lg:py-32 w-full">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
             <div className="mx-auto max-w-2xl lg:mx-0">
               <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">Các dịch vụ của chúng tôi</h2>
               <p className="mt-6 text-lg leading-8 text-gray-600">
@@ -188,6 +188,17 @@ export default function ServicePage() {
                   </li>
                 </ul>
               </section>
+            </div>
+
+            {/* Relocated Section Image */}
+            <div className="mt-20 mb-12 overflow-hidden rounded-2xl shadow-lg border border-gray-100">
+              <Image
+                src={`${prefix}/images/banner/banner_service.jpg`}
+                alt="Công trình thực tế"
+                width={1280}
+                height={600}
+                className="w-full h-auto object-contain"
+              />
             </div>
 
             <div className="mt-16 bg-gray-50 py-10 px-6 sm:py-16 sm:px-12 lg:flex lg:items-center lg:py-20 lg:px-20">

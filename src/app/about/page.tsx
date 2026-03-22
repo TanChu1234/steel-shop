@@ -84,17 +84,17 @@ const certifications = [
   {
     name: 'ISO 9001:2015',
     description: 'Chứng nhận hệ thống quản lý chất lượng',
-    image: `${prefix}/images/iso-9001.png`,
+    image: `${prefix}/images/certificates/iso-900.jpg`,
   },
   {
     name: 'TCVN',
     description: 'Chứng nhận sản phẩm đạt tiêu chuẩn Việt Nam',
-    image: `${prefix}/images/tcvn.png`,
+    image: `${prefix}/images/certificates/tcvn.jpg`,
   },
   {
     name: 'JIS',
     description: 'Chứng nhận đạt tiêu chuẩn công nghiệp Nhật Bản',
-    image: `${prefix}/images/jis.png`,
+    image: `${prefix}/images/certificates/jis.jpg`,
   },
 ];
 
@@ -272,7 +272,7 @@ export default function AboutPage() {
                 Chứng nhận & Chứng chỉ
               </h2>
               <p
-                className={`mt-6 text-lg leading-8 text-gray-600 transition-all duration-1000 delay-100 ${certsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                className={`mt-6 text-lg leading-8 text-gray-600 whitespace-nowrap transition-all duration-1000 delay-100 ${certsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                   }`}
               >
                 Sản phẩm của chúng tôi đạt các tiêu chuẩn chất lượng quốc gia và quốc tế.
@@ -289,7 +289,7 @@ export default function AboutPage() {
                   <Image
                     src={cert.image}
                     alt={cert.name}
-                    className="absolute inset-0 -z-10 h-full w-full object-cover"
+                    className="absolute inset-0 -z-10 h-full w-full object-contain bg-white p-4"
                     width={300}
                     height={300}
                   />

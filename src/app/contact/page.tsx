@@ -7,6 +7,7 @@ import Footer from '@/components/layout/Footer';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaClock } from 'react-icons/fa';
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { prefix } from "@/utils/prefix";
+import { motion, AnimatePresence } from "framer-motion";
 import { Montserrat } from "next/font/google";
 
 const montserrat = Montserrat({ subsets: ["latin"], weight: ["400", "600", "700", "800"] });
@@ -48,6 +49,9 @@ export default function ContactPage() {
   });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
+  const [isZoomed, setIsZoomed] = useState(false);
+
+  const toggleZoom = () => setIsZoomed(!isZoomed);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
@@ -129,10 +133,53 @@ export default function ContactPage() {
         </div>
         <div className="relative isolate bg-white w-full">
           <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2 w-full">
-            <div className="relative px-4 sm:px-6 pb-20 pt-24 sm:pt-32 lg:static lg:px-8 lg:py-48">
+            <div className="relative px-4 sm:px-6 pb-20 pt-8 sm:pt-12 lg:static lg:px-8 lg:py-20">
               <div className="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
-                <h2 className="text-3xl font-extrabold tracking-tight text-gray-900">Liên hệ với chúng tôi</h2>
-                <p className="mt-6 text-lg leading-8 text-gray-600">
+                <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">Liên hệ với chúng tôi</h2>
+                <div className="mt-10 overflow-hidden rounded-2xl shadow-lg border border-gray-100 cursor-zoom-in" onClick={toggleZoom}>
+                  <Image
+                    src={`${prefix}/images/banner/banner_contact.jpg`}
+                    alt="Liên hệ Phúc Hải Liên"
+                    width={800}
+                    height={400}
+                    className="w-full h-auto object-contain transition-transform hover:scale-105 duration-300"
+                  />
+                </div>
+
+                {/* Zoom Modal */}
+                <AnimatePresence>
+                  {isZoomed && (
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      onClick={toggleZoom}
+                      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm cursor-zoom-out p-4"
+                    >
+                      <motion.div
+                        initial={{ scale: 0.8 }}
+                        animate={{ scale: 1 }}
+                        exit={{ scale: 0.8 }}
+                        className="relative max-w-5xl w-full"
+                      >
+                        <Image
+                          src={`${prefix}/images/banner/banner_contact.jpg`}
+                          alt="Zoomed Contact Banner"
+                          width={1200}
+                          height={800}
+                          className="w-full h-auto object-contain rounded-lg shadow-2xl"
+                        />
+                        <button 
+                          className="absolute -top-12 right-0 text-white text-3xl font-bold hover:text-gray-300 transition-colors"
+                          onClick={toggleZoom}
+                        >
+                          ✕
+                        </button>
+                      </motion.div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+                <p className="mt-8 text-lg leading-8 text-gray-600">
                   Hãy liên hệ với chúng tôi nếu bạn cần tư vấn về sản phẩm hoặc báo giá.
                   Đội ngũ nhân viên của chúng tôi luôn sẵn sàng hỗ trợ bạn.
                 </p>
@@ -152,7 +199,7 @@ export default function ContactPage() {
                 </dl>
               </div>
             </div>
-            <form onSubmit={handleSubmit} className="px-4 sm:px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48">
+            <form onSubmit={handleSubmit} className="px-4 sm:px-6 pb-24 pt-8 sm:pt-12 lg:px-8 lg:py-24">
               <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg w-full">
                 <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
                   <div>
