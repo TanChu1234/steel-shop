@@ -171,7 +171,7 @@ export const categories: Category[] = [
       },
       {
         name: "Tôn kẽm",
-        image: `${prefix}/images/products/ton/ton_ma_kem.jpg`,
+        image: `${prefix}/images/products/ton/ton_lanh.jpg`,
         description: "Tôn mạ kẽm giá thành hợp lý, bề mặt vân bông đẹp chuyên dùng cho vách ngăn, tấm lợp thông dụng.",
         specs: ["Độ dày: 0.6mm - 2mm", "Khổ rộng: 1200mm", "Mạ: Z8 - Z275", "Tiêu chuẩn: JIS G3302"]
       },
@@ -179,9 +179,14 @@ export const categories: Category[] = [
         name: "Tôn màu",
         image: `${prefix}/images/products/ton/ton_lanh.jpg`,
         description: "Tôn lạnh mạ màu đa dạng màu sắc, thẩm mỹ cao, bền màu, phù hợp cho mái lợp nhà phố, biệt thự.",
-        specs: ["Độ dày: 0.6mm - 2mm", "Màu sắc: Đỏ, Xanh, xám...", "Sơn: Polyester, PVDF", "Bảo hành màu: 5-10 năm"]
+        specs: ["Độ dày: 0.30mm - 0.50mm", "Màu sắc: Đỏ, Xanh, Trắng, Vàng...", "Sơn: Polyester, PVDF", "Bảo hành màu: 5-10 năm"]
       },
-
+      {
+        name: "Tôn hoa cương",
+        image: `${prefix}/images/products/ton/ton_lanh.jpg`,
+        description: "Tôn lạnh mạ màu hoa cương sang trọng, vân đá độc đáo, tạo điểm nhấn đẳng cấp cho ngôi nhà.",
+        specs: ["Độ dày: 0.35mm - 0.50mm", "Vân: Hoa cương Granite", "Công nghệ: In 3D", "Chống bám bụi, giảm nhiệt"]
+      },
     ], link: "/products/ton",
     slug: "ton",
   },
