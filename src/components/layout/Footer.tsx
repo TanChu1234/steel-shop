@@ -78,7 +78,7 @@ export default function Footer() {
                   target="_blank"
                   className="hover:text-white transition no-underline hover:no-underline"
                 >
-                  1602, Ấp Ngọc Lâm 4, Xã Phú Thanh, Huyện Tân Phú, Tỉnh Đồng Nai
+                  1602, Ấp Ngọc Lâm 4, Xã Tân Phú, Tỉnh Đồng Nai
                 </Link>
               </div>
 

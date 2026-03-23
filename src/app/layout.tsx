@@ -42,8 +42,8 @@ export default function RootLayout({
               "telephone": "0911392277",
               "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "1602, Ấp Ngọc Lâm 4, Xã Phú Thanh",
-                "addressLocality": "Huyện Tân Phú",
+                "streetAddress": "1602, Ấp Ngọc Lâm 4",
+                "addressLocality": "Xã Tân Phú",
                 "addressRegion": "Tỉnh Đồng Nai",
                 "addressCountry": "VN"
               },

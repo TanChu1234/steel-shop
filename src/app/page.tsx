@@ -162,8 +162,20 @@ export default function Home() {
   const { ref: introRef, isVisible: introVisible } = useScrollAnimation({ threshold: 0.15 });
   const { ref: productsRef, isVisible: productsVisible } = useScrollAnimation({ threshold: 0.15 });
   const { ref: partnersRef, isVisible: partnersVisible } = useScrollAnimation({ threshold: 0.15 });
-
   const [activePartnerIndex, setActivePartnerIndex] = useState(0);
+
+  const companyImages = [
+    `${prefix}/images/company_img/company.png`,
+    `${prefix}/images/company_img/company_2.png`,
+  ];
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % companyImages.length);
+    }, 1000); 
+    return () => clearInterval(interval);
+  }, [companyImages.length]);
 
   useEffect(() => {
     if (partnersVisible) {
@@ -285,16 +297,20 @@ export default function Home() {
               </div>
 
               <div
-                className={`relative transition-all duration-1000 delay-200 ${introVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
+                className={`relative h-[300px] sm:h-[400px] lg:h-[500px] transition-all duration-1000 delay-200 ${introVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
                   }`}
               >
-                <Image
-                  src={`${prefix}/images/company_img/company.png`}
-                  alt="Giới thiệu Phúc Hải Liên"
-                  width={700}
-                  height={500}
-                  className="rounded-2xl object-cover shadow-lg"
-                />
+                {companyImages.map((src, idx) => (
+                  <Image
+                    key={src}
+                    src={src}
+                    alt="Giới thiệu Phúc Hải Liên"
+                    width={700}
+                    height={500}
+                    className={`absolute inset-0 w-full h-full rounded-2xl object-cover shadow-lg transition-opacity duration-1000 ${currentImageIndex === idx ? 'opacity-100' : 'opacity-0'
+                      }`}
+                  />
+                ))}
               </div>
             </div>
           </div>

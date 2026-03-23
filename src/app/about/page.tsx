@@ -184,7 +184,7 @@ export default function AboutPage() {
                   Công ty TNHH <span className="font-bold text-xl text-gray-900">PHÚC HẢI LIÊN </span>
                   được thành lập với sứ mệnh cung cấp các sản phẩm sắt thép xây dựng chất lượng cao,
                   đáp ứng nhu cầu ngày càng cao của thị trường xây dựng và công nghiệp.
-                  Trụ sở công ty đặt tại 1602, ấp Ngọc Lâm 4, xã Phú Thanh, huyện Tân Phú, tỉnh Đồng Nai.
+                  Trụ sở công ty đặt tại 1602, ấp Ngọc Lâm 4, xã Tân Phú, tỉnh Đồng Nai.
                 </p>
                 <p
                   className={`mt-4 text-lg leading-8 text-gray-600 transition-all duration-1000 delay-200 ${introVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
