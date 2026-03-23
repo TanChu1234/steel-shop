@@ -1,10 +1,10 @@
 1:"$Sreact.fragment"
 2:I[47257,["/steel-shop/_next/static/chunks/ff1a16fafef87110.js","/steel-shop/_next/static/chunks/d2be314c3ece3fbe.js"],"ClientPageRoot"]
-3:I[12336,["/steel-shop/_next/static/chunks/45b0df22cbb02b00.js","/steel-shop/_next/static/chunks/904746557c67c8d3.js","/steel-shop/_next/static/chunks/336f890f774a307f.js"],"default"]
+3:I[12336,["/steel-shop/_next/static/chunks/45b0df22cbb02b00.js","/steel-shop/_next/static/chunks/a17901e950dce800.js","/steel-shop/_next/static/chunks/336f890f774a307f.js"],"default"]
 6:I[97367,["/steel-shop/_next/static/chunks/ff1a16fafef87110.js","/steel-shop/_next/static/chunks/d2be314c3ece3fbe.js"],"OutletBoundary"]
 7:"$Sreact.suspense"
 :HL["/steel-shop/_next/static/chunks/a3c9ff4e8ec3f750.css","style"]
-0:{"buildId":"aS7RapW46-8uPSl7gC9ZU","rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],[["$","link","0",{"rel":"stylesheet","href":"/steel-shop/_next/static/chunks/a3c9ff4e8ec3f750.css","precedence":"next"}],["$","script","script-0",{"src":"/steel-shop/_next/static/chunks/45b0df22cbb02b00.js","async":true}],["$","script","script-1",{"src":"/steel-shop/_next/static/chunks/904746557c67c8d3.js","async":true}],["$","script","script-2",{"src":"/steel-shop/_next/static/chunks/336f890f774a307f.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"loading":null,"isPartial":false}
+0:{"buildId":"VxNwDbUhfSSqQDfjdFlrj","rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],[["$","link","0",{"rel":"stylesheet","href":"/steel-shop/_next/static/chunks/a3c9ff4e8ec3f750.css","precedence":"next"}],["$","script","script-0",{"src":"/steel-shop/_next/static/chunks/45b0df22cbb02b00.js","async":true}],["$","script","script-1",{"src":"/steel-shop/_next/static/chunks/a17901e950dce800.js","async":true}],["$","script","script-2",{"src":"/steel-shop/_next/static/chunks/336f890f774a307f.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"loading":null,"isPartial":false}
 4:{}
 5:"$0:rsc:props:children:0:props:serverProvidedParams:params"
 8:null
