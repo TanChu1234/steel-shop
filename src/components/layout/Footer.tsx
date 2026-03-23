@@ -38,9 +38,9 @@ export default function Footer() {
         Footer
       </h2>
 
-      <div className="mx-auto max-w-6xl px-6 py-6 lg:px-3">
+      <div className="mx-auto max-w-7xl px-6 py-8  lg:px-3">
         {/* --- Company Logo & Name --- */}
-        <div className="flex flex-col items-left mb-6 text-left space-y-3">
+        <div className="flex flex-col items-left mb-8 text-left space-y-2">
           <Link href="/" className="inline-block w-fit">
             <Image
               src={`${prefix}/images/logo/logo_white.png`}
@@ -59,9 +59,9 @@ export default function Footer() {
         <div
           className="
               grid 
-              grid-cols-1 sm:grid-cols-[1.4fr_0.9fr_1fr_0.8fr] 
-              gap-10 text-sm items-start content-start
-              mb-3
+              grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.6fr_0.8fr_1.2fr_1fr] 
+              gap-x-10 gap-y-12 text-sm items-start
+              mb-2
             "
         >
           {/* Column 1: Company Info */}
