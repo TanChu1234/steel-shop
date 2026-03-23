@@ -2,15 +2,10 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaClock } from 'react-icons/fa';
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { prefix } from "@/utils/prefix";
 import { motion, AnimatePresence } from "framer-motion";
-import { Montserrat } from "next/font/google";
-
-const montserrat = Montserrat({ subsets: ["latin"], weight: ["400", "600", "700", "800"] });
 
 const contactInfo = [
   {
@@ -88,8 +83,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className={`${montserrat.className} w-full overflow-x-hidden`}>
-      <Header />
+    <div className="w-full overflow-x-hidden">
       <main className="w-full">
         {/* ---------------- Hero Banner Section ---------------- */}
         <div className="relative mt-20 w-full overflow-hidden">
@@ -317,7 +311,6 @@ export default function ContactPage() {
           </div>
         </div>
       </main>
-      <Footer />
     </div>
   );
 }

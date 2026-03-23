@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Montserrat } from "next/font/google";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const montserrat = Montserrat({ subsets: ["latin"], weight: ["400", "600", "700", "800"] });
 
 export const metadata: Metadata = {
   title: "Phúc Hải Liên - Chuyên Sắt Thép Xây Dựng, Tôn, Xà Gồ Chất Lượng",
@@ -28,7 +30,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="vi" className="overflow-x-hidden">
-      <body className={`${inter.className} overflow-x-hidden`}>
+      <body className={`${montserrat.className} overflow-x-hidden`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -72,7 +74,9 @@ export default function RootLayout({
           }}
         />
         <div className="min-h-screen bg-gray-50 w-full">
+          <Header />
           {children}
+          <Footer />
         </div>
       </body>
     </html>

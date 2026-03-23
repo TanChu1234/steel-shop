@@ -3,16 +3,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
 import { FaTruck, FaHardHat, FaHandshake, FaCalendarAlt, FaBolt } from 'react-icons/fa';
 import { prefix } from '@/utils/prefix';
-import { Montserrat } from 'next/font/google';
-
-const montserrat = Montserrat({
-  subsets: ['latin'],
-  weight: ['400', '600', '700', '800'],
-});
 
 // -------------------------
 // 🔹 Custom Hook for Scroll Animation
@@ -56,8 +48,7 @@ export default function ServicePage() {
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation({ threshold: 0.2 });
 
   return (
-    <div className={`${montserrat.className} w-full overflow-x-hidden`}>
-      <Header />
+    <div className="w-full overflow-x-hidden">
       <main className="w-full">
         {/* ---------------- Hero Banner Section ---------------- */}
         <div className="relative mt-20 w-full overflow-hidden">
@@ -226,7 +217,6 @@ export default function ServicePage() {
           </div>
         </div>
       </main>
-      <Footer />
     </div>
   );
 }

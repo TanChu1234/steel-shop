@@ -1,8 +1,6 @@
 import { categories } from "@/data/categories";
 import Image from "next/image";
 import Link from "next/link";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
 import CategoryHero from "@/components/products/CategoryHero";
 
 export default async function CategoryPage({ params }: { params: Promise<{ category: string }> }) {
@@ -12,19 +10,16 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
   if (!category) {
     return (
       <div className="min-h-screen flex flex-col justify-center items-center bg-gray-50">
-        <Header />
         <h1 className="text-3xl font-bold text-gray-900">Không tìm thấy danh mục</h1>
         <Link href="/products" className="mt-4 text-blue-900 hover:underline font-medium">
           ← Quay lại danh mục
         </Link>
-        <Footer />
       </div>
     );
   }
 
   return (
     <div className="bg-gray-50 min-h-screen w-full overflow-x-hidden">
-      <Header />
 
       {/* Hero Banner */}
       <CategoryHero category={category} />
@@ -84,8 +79,6 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
           </Link>
         </div>
       </main>
-
-      <Footer />
     </div>
   );
 }

@@ -3,12 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
 import { prefix } from "@/utils/prefix";
-import { Montserrat } from "next/font/google";
-
-const montserrat = Montserrat({ subsets: ["latin"], weight: ["400", "600", "700", "800"] });
 
 // -------------------------
 // 🔹 Custom Hook for Scroll Animation
@@ -115,7 +110,6 @@ export default function ProductsPage() {
 
   return (
     <div className="bg-gray-50 min-h-screen w-full overflow-x-hidden">
-      <Header />
 
       {/* --- Hero Banner --- */}
       <div className="relative mt-20 w-full overflow-hidden">
@@ -136,7 +130,7 @@ export default function ProductsPage() {
         {/* Content aligned left like hero section */}
         <div
           ref={heroRef}
-          className={`relative mx-auto max-w-7xl flex flex-col justify-center items-start text-left px-4 sm:px-6 lg:px-8 py-12 sm:py-20 lg:py-28 w-full ${montserrat.className} min-h-[400px] sm:min-h-[500px] md:min-h-[600px] lg:min-h-[700px]`}
+          className={`relative mx-auto max-w-7xl flex flex-col justify-center items-start text-left px-4 sm:px-6 lg:px-8 py-12 sm:py-20 lg:py-28 w-full min-h-[400px] sm:min-h-[500px] md:min-h-[600px] lg:min-h-[700px]`}
         >
           <h1
             className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold tracking-wide text-white uppercase leading-tight drop-shadow-md transition-all duration-1000 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
@@ -182,8 +176,6 @@ export default function ProductsPage() {
           <CategorySection key={index} category={cat} />
         ))}
       </main>
-
-      <Footer />
     </div>
   );
 }

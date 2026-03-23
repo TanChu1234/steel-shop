@@ -2,15 +2,7 @@
 
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
 import { prefix } from '@/utils/prefix';
-import { Montserrat } from 'next/font/google';
-
-const montserrat = Montserrat({
-  subsets: ['latin'],
-  weight: ['400', '600', '700', '800'],
-});
 
 // -------------------------
 // 🔹 Custom Hook for Scroll Animation
@@ -105,8 +97,7 @@ export default function AboutPage() {
   const { ref: certsRef, isVisible: certsVisible } = useScrollAnimation({ threshold: 0.15 });
 
   return (
-    <div className={`${montserrat.className} w-full overflow-x-hidden`}>
-      <Header />
+    <div className="w-full overflow-x-hidden">
       <main className="w-full">
         {/* ---------------- Hero Section ---------------- */}
         <div className="relative mt-20 w-full overflow-hidden">
@@ -305,7 +296,6 @@ export default function AboutPage() {
           </div>
         </div>
       </main>
-      <Footer />
     </div>
   );
 }
