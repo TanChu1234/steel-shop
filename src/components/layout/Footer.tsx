@@ -174,7 +174,7 @@ export default function Footer() {
 
               {/* Zalo */}
               <Link
-                href="https://zalo.me/0971298787"
+                href="https://zalo.me/0911392277"
                 target="_blank"
                 className="flex items-center justify-center w-10 h-10 rounded-full bg-white hover:bg-gray-300 transition"
                 aria-label="Zalo"
