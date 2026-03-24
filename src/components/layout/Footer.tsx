@@ -88,7 +88,7 @@ export default function Footer() {
                   href="tel:02513795395"
                   className="hover:text-white transition no-underline hover:no-underline"
                 >
-                  Hotline: 02513 795 395
+                  Hotline: 0251 3795 395
                 </Link>
               </div>
 
@@ -98,17 +98,17 @@ export default function Footer() {
                   href="tel:0911392277"
                   className="hover:text-white transition no-underline hover:no-underline"
                 >
-                  Kinh doanh 1: 0911 392 277
+                  Kinh doanh 1: 091 139 2277
                 </Link>
               </div>
 
               <div className="flex items-center space-x-3">
                 <FaPhone className="h-4 w-4 text-white" />
                 <Link
-                  href="tel:0339972277"
+                  href="tel:0763312277"
                   className="hover:text-white transition no-underline hover:no-underline"
                 >
-                  Kinh doanh 2: 0339 972 277
+                  Kinh doanh 2: 076 331 2277
                 </Link>
               </div>
 
