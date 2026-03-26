@@ -20,7 +20,7 @@ export default function CategoryHero({ category }: CategoryHeroProps) {
 
   const images = Array.isArray(category.bannerImage)
     ? category.bannerImage
-    : [category.bannerImage || `${prefix}/images/banner/banner_2.jpg`];
+    : [category.bannerImage || `${prefix}/images/banner/banner.jpg`];
 
   useEffect(() => {
     const observer = new IntersectionObserver(

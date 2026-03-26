@@ -126,7 +126,8 @@ export const categories: Category[] = [
       `${prefix}/images/products/thep_ong_hop_vuong/banner_ong_hop_vuong/d.jpg`,
       `${prefix}/images/products/thep_ong_hop_vuong/banner_ong_hop_vuong/e.jpg`,
       `${prefix}/images/products/thep_ong_hop_vuong/banner_ong_hop_vuong/f.jpg`,
-      `${prefix}/images/products/thep_ong_hop_vuong/banner_ong_hop_vuong/g.jpg`
+      `${prefix}/images/products/thep_ong_hop_vuong/banner_ong_hop_vuong/g.jpg`,
+      `${prefix}/images/products/thep_ong_hop_vuong/banner_ong_hop_vuong/h.jpg`,
     ],
     products: [
       {

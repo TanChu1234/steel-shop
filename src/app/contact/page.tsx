@@ -15,7 +15,7 @@ const contactInfo = [
   },
   {
     name: 'Số điện thoại',
-    description: '0911 392 277',
+    description: '0251 3795 395',
     icon: FaPhone,
   },
   {
@@ -25,7 +25,7 @@ const contactInfo = [
   },
   {
     name: 'Giờ làm việc',
-    description: 'Thứ 2 - Thứ 7: 7:00 - 17:00',
+    description: 'Thứ 2 - Thứ 7: 7:00 - 17:30',
     icon: FaClock,
   },
 ];
@@ -90,7 +90,7 @@ export default function ContactPage() {
           <div className="absolute inset-0">
             <Image
               className="w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] object-cover object-center border border-gray-900/10"
-              src={`${prefix}/images/banner/banner_2.jpg`}
+              src={`${prefix}/images/banner/banner.jpg`}
               alt="Contact Banner"
               width={1920}
               height={700}

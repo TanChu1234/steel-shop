@@ -93,6 +93,7 @@ const certifications = [
 export default function AboutPage() {
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation({ threshold: 0.2 });
   const { ref: introRef, isVisible: introVisible } = useScrollAnimation({ threshold: 0.15 });
+  const { ref: videoRef, isVisible: videoVisible } = useScrollAnimation({ threshold: 0.15 });
   const { ref: valuesRef, isVisible: valuesVisible } = useScrollAnimation({ threshold: 0.15 });
   const { ref: certsRef, isVisible: certsVisible } = useScrollAnimation({ threshold: 0.15 });
 
@@ -104,7 +105,7 @@ export default function AboutPage() {
           <div className="absolute inset-0">
             <Image
               className="w-full h-full object-cover object-center border border-gray-900/10"
-              src={`${prefix}/images/banner/banner_2.jpg`}
+              src={`${prefix}/images/banner/banner.jpg`}
               alt="Steel Shop Banner"
               width={1920}
               height={700}
@@ -202,7 +203,7 @@ export default function AboutPage() {
                   }`}
               >
                 <Image
-                  src={`${prefix}/images/company_img/company_2.png`}
+                  src={`${prefix}/images/company_img/b.png`}
                   alt="Giới thiệu Phúc Hải Liên"
                   width={700}
                   height={500}
@@ -210,6 +211,37 @@ export default function AboutPage() {
                 />
               </div>
 
+            </div>
+          </div>
+        </div>
+
+        {/* ---------------- Video Storage Section ---------------- */}
+        <div className="bg-white py-12 sm:py-20">
+          <div ref={videoRef} className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div
+              className={`relative overflow-hidden rounded-3xl bg-gray-900 shadow-2xl transition-all duration-1000 ${videoVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+                }`}
+            >
+              <div className="aspect-video relative">
+                <video
+                  className="w-full h-full object-cover"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                >
+                  <source src={`${prefix}/images/company_img/storage.mp4`} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute bottom-6 left-6 right-6 sm:bottom-10 sm:left-10 sm:right-10">
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2">Kho hàng hiện đại</h3>
+                  <p className="text-gray-300 max-w-2xl text-sm sm:text-base leading-relaxed">
+                    Hệ thống kho bãi quy mô lớn, quy trình quản lý hiện đại và chuyên nghiệp, 
+                    đảm bảo cung ứng nhanh chóng, đầy đủ và tối ưu hóa chi phí cho mọi dự án của khách hàng.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

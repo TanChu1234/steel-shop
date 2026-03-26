@@ -29,7 +29,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="vi" className="overflow-x-hidden">
+    <html lang="vi" className="overflow-x-hidden" suppressHydrationWarning>
       <body className={`${montserrat.className} overflow-x-hidden`}>
         <script
           type="application/ld+json"

@@ -157,8 +157,9 @@ export default function Home() {
   const [activePartnerIndex, setActivePartnerIndex] = useState(0);
 
   const companyImages = [
-    `${prefix}/images/company_img/company.png`,
-    `${prefix}/images/company_img/company_2.png`,
+    `${prefix}/images/company_img/a.png`,
+    `${prefix}/images/company_img/b.png`,
+    `${prefix}/images/company_img/c.png`,
   ];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -186,7 +187,7 @@ export default function Home() {
           <div className="absolute inset-0">
             <Image
               className="w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] object-cover object-center border border-gray-900/10"
-              src={`${prefix}/images/banner/banner_2.jpg`}
+              src={`${prefix}/images/banner/banner.jpg`}
               alt="Steel Shop Banner"
               width={1920}
               height={700}
